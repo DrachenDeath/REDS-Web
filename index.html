@@ -4,158 +4,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>REDS | Ingeniería & Construcción</title>
-  <style>
-    /* Paleta cromática optimizada: grises, azul metálico y rojo vino */
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #e6e9ed; /* gris plata */
-      color: #4a4a4a; /* gris grafito */
-    }
-
-    header {
-      background-color: #2b4e68; /* azul acero */
-      color: white;
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    /* Animación suave y técnica para el logo */
-    @keyframes moverLineas {
-      0% { transform: translateX(0px) scale(1); opacity: 1; }
-      50% { transform: translateX(5px) scale(1.02); opacity: 0.9; }
-      100% { transform: translateX(-5px) scale(1); opacity: 1; }
-    }
-
-    .logo-animado {
-      width: 120px;
-      margin-bottom: 20px;
-      animation: moverLineas 2.5s infinite alternate ease-in-out;
-    }
-
-    nav {
-      background: #3c6e94; /* azul titanio */
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 15px 0;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #a11d33; /* rojo vino */
-    }
-
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-
-    h2 {
-      color: #a11d33; /* rojo vino */
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-    }
-
-    .proyecto {
-      background: white;
-      border-left: 6px solid #3c6e94; /* azul titanio */
-      margin-bottom: 20px;
-      padding: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-
-    .perfil {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .perfil strong {
-      color: #2b4e68; /* azul acero */
-    }
-
-    footer {
-      background: #2b4e68;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    a {
-      color: #a11d33;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-  <img src="img-logo-reds.png" alt="Logo REDS" class="logo-animado">
-  <h1>REDS Ingeniería & Construcción</h1>
-  <p>Diseño estructural, gestión vial y ejecución de obras públicas y privadas</p>
-</header>
+  <header>
+    <img src="img/img-logo-reds.png" alt="Logo REDS" class="logo-animado">
+    <h1>REDS Ingeniería & Construcción</h1>
+    <p>Diseño estructural, gestión vial y ejecución de obras públicas y privadas</p>
+  </header>
 
-<nav>
-  <a href="#inicio">Inicio</a>
-  <a href="#proyectos">Proyectos</a>
-  <a href="#perfil">Perfil</a>
-  <a href="#contacto">Contacto</a>
-</nav>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#perfil">Perfil</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 
-<section id="inicio">
-  <h2>Bienvenido</h2>
-  <p>Somos una firma especializada en ingeniería civil, estructural y vial. Combinamos experiencia técnica con herramientas modernas para desarrollar soluciones innovadoras, funcionales y sostenibles.</p>
-</section>
+  <main>
+    <section id="inicio" class="fade-in">
+      <h2>Bienvenido</h2>
+      <p>Soluciones técnicas con visión estratégica y eficiencia estructural.</p>
+    </section>
 
-<section id="proyectos">
-  <h2>Proyectos Destacados</h2>
-  <div class="proyecto">
-    <h3>Mantenimiento de 15 Unidades Médicas (2024)</h3>
-    <p><strong>Monto:</strong> $370,242.93 – Pichincha, Ecuador</p>
-  </div>
-  <div class="proyecto">
-    <h3>Obras Viales y Urbanas – Miguel Arias (2024)</h3>
-    <p><strong>Monto:</strong> $92,750.00 – Azuay, Ecuador</p>
-  </div>
-  <div class="proyecto">
-    <h3>Parque Guadalupana y Feria de Productores (2023)</h3>
-    <p><strong>Monto:</strong> $63,810.00 – Cañar, Ecuador</p>
-  </div>
-</section>
+    <section id="proyectos" class="fade-in">
+      <h2>Proyectos</h2>
+      <div class="proyecto">
+        <h3>Mantenimiento de Unidades Médicas</h3>
+        <p><strong>Monto:</strong> $370,242.93 – Pichincha, Ecuador</p>
+      </div>
+    </section>
 
-<section id="perfil">
-  <h2>Perfil Profesional</h2>
-  <div class="perfil">
-    <p><strong>Francisco A. Rojas Rosas</strong> – Ingeniero Civil con mención en Gerencia de Construcciones, con maestrías en Gerencia de Proyectos y Vías y Transporte.</p>
-    <p>Especialista en estructuras, diseño vial, análisis de costos, cronogramas valorizados y contratación pública bajo normativa NEC y MTOP.</p>
-    <p>Competencias técnicas: AutoCAD Civil 3D, Revit, SAP2000, ETABS y QGIS. Enfoque estratégico, regulatorio y orientado a resultados.</p>
-  </div>
-</section>
+    <section id="perfil" class="fade-in">
+      <h2>Perfil Profesional</h2>
+      <p>Francisco Rojas – Ingeniero Civil con enfoque en estructuras, vialidad y proyectos públicos.</p>
+    </section>
 
-<section id="contacto">
-  <h2>Contacto</h2>
-  <p>📧 <a href="mailto:p.rojas.77@hotmail.com">p.rojas.77@hotmail.com</a></p>
-  <p>📞 +593 098 224 2982</p>
-  <p><a href="https://www.linkedin.com/in/francisco-antonio-rojas-rosas-261b16307/" target="_blank">LinkedIn</a></p>
-</section>
+    <section id="contacto" class="fade-in">
+      <h2>Contacto</h2>
+      <p>📧 <a href="mailto:p.rojas.77@hotmail.com">p.rojas.77@hotmail.com</a></p>
+      <p>📞 +593 098 224 2982</p>
+      <p><a href="https://www.linkedin.com/in/francisco-antonio-rojas-rosas-261b16307/" target="_blank">LinkedIn</a></p>
+    </section>
+  </main>
 
-<footer>
-  <p>© 2025 REDS Ingeniería & Construcción</p>
-</footer>
+  <footer>
+    <p>© 2025 REDS Ingeniería & Construcción</p>
+  </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
-
