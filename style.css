@@ -7,25 +7,13 @@ body {
 
 header {
   background-color: #2b4e68;
-  color: white;
   text-align: center;
+  color: white;
   padding: 50px 20px;
 }
 
-.logo-animado {
-  width: 120px;
-  margin-bottom: 20px;
-  animation: moverLineas 2.5s infinite alternate ease-in-out;
-}
-
-@keyframes moverLineas {
-  0% { transform: translateX(0px) scale(1); opacity: 1; }
-  50% { transform: translateX(5px) scale(1.02); opacity: 0.9; }
-  100% { transform: translateX(-5px) scale(1); opacity: 1; }
-}
-
 nav {
-  background: #3c6e94;
+  background-color: #3c6e94;
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -59,16 +47,43 @@ footer {
   background-color: #2b4e68;
   color: white;
   text-align: center;
-  padding: 30px 20px;
+  padding: 30px;
 }
 
-/* Efecto de entrada en scroll */
+/* Logo SVG animado flotante */
+.logo-fijo {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 130px;
+  padding: 10px;
+  animation: deslizarLogo 2s ease-in-out;
+}
+
+.logo-fijo object {
+  width: 100%;
+  height: auto;
+}
+
+/* Animación de entrada */
+@keyframes deslizarLogo {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* Animación en scroll */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
   transition: all 1s ease;
 }
-
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
