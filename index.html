@@ -4,61 +4,53 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>REDS | Ingeniería & Construcción</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
+    /* Paleta cromática y tipografía */
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #f4f7fa;
       color: #2c3e50;
     }
 
     header {
-      <header>
-  <img src="img-logo-reds.png" alt="Logo REDS" width="120">
-  <h1>REDS Ingeniería & Construcción</h1>
-  <p>Diseño estructural, gestión vial y ejecución de obras públicas y privadas</p>
-</header>
-
       background-color: #0d233d;
       color: white;
       text-align: center;
       padding: 50px 20px;
     }
 
-    @keyframes logoEntrada {
-      0% { opacity: 0; transform: scale(0.7) rotate(-10deg); }
-      60% { transform: scale(1.05) rotate(2deg); }
-      100% { opacity: 1; transform: scale(1) rotate(0); }
-    }
-
-    header img {
+    /* Animación del logo */
+    .logo-animado {
       width: 120px;
       margin-bottom: 20px;
-      animation: logoEntrada 1.4s ease-out;
-      transition: transform 0.3s;
+      animation: moverLineas 2.5s infinite alternate ease-in-out;
     }
 
-    header img:hover {
-      transform: scale(1.08);
+    @keyframes moverLineas {
+      0% {
+        transform: translateX(0px) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translateX(5px) scale(1.02);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateX(-5px) scale(1);
+        opacity: 1;
+      }
     }
 
     nav {
       background: #002b4d;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
+    nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
@@ -66,15 +58,8 @@
       transition: color 0.3s ease;
     }
 
-    .nav-links a:hover {
+    nav a:hover {
       color: #00b2ff;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 24px;
-      color: white;
-      cursor: pointer;
     }
 
     section {
@@ -122,42 +107,21 @@
     a:hover {
       text-decoration: underline;
     }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        flex-direction: column;
-        width: 100%;
-        display: none;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-    }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="logo-reds.png" alt="Logo REDS">
+  <img src="img/logoREDS.png" alt="Logo REDS" class="logo-animado">
   <h1>REDS Ingeniería & Construcción</h1>
   <p>Diseño estructural, gestión vial y ejecución de obras públicas y privadas</p>
 </header>
 
 <nav>
-  <div class="menu-toggle" onclick="toggleMenu()">
-    <i class="fas fa-bars"></i>
-  </div>
-  <div class="nav-links" id="menu">
-    <a href="#inicio">Inicio</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#perfil">Perfil</a>
-    <a href="#contacto">Contacto</a>
-  </div>
+  <a href="#inicio">Inicio</a>
+  <a href="#proyectos">Proyectos</a>
+  <a href="#perfil">Perfil</a>
+  <a href="#contacto">Contacto</a>
 </nav>
 
 <section id="inicio">
@@ -192,21 +156,14 @@
 
 <section id="contacto">
   <h2>Contacto</h2>
-  <p><i class="fas fa-envelope"></i> <a href="mailto:p.rojas.77@hotmail.com">p.rojas.77@hotmail.com</a></p>
-  <p><i class="fas fa-phone"></i> +593 098 224 2982</p>
-  <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/francisco-antonio-rojas-rosas-261b16307/" target="_blank">LinkedIn</a></p>
+  <p>📧 <a href="mailto:p.rojas.77@hotmail.com">p.rojas.77@hotmail.com</a></p>
+  <p>📞 +593 098 224 2982</p>
+  <p><a href="https://www.linkedin.com/in/francisco-antonio-rojas-rosas-261b16307/" target="_blank">LinkedIn</a></p>
 </section>
 
 <footer>
   <p>© 2025 REDS Ingeniería & Construcción</p>
 </footer>
-
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById('menu');
-    menu.classList.toggle('active');
-  }
-</script>
 
 </body>
 </html>
