@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REDS | Ingeniería & Construcción</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f7fa;
+      color: #2c3e50;
+    }
+
+    header {
+      background-color: #0d233d;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    @keyframes logoEntrada {
+      0% { opacity: 0; transform: scale(0.7) rotate(-10deg); }
+      60% { transform: scale(1.05) rotate(2deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0); }
+    }
+
+    header img {
+      width: 120px;
+      margin-bottom: 20px;
+      animation: logoEntrada 1.4s ease-out;
+      transition: transform 0.3s;
+    }
+
+    header img:hover {
+      transform: scale(1.08);
+    }
+
+    nav {
+      background: #002b4d;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00b2ff;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h2 {
+      color: #009de0;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .proyecto {
+      background: white;
+      border-left: 6px solid #009de0;
+      margin-bottom: 20px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .perfil {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .perfil strong {
+      color: #005a9c;
+    }
+
+    footer {
+      background: #0d233d;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    a {
+      color: #009de0;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo-reds.png" alt="Logo REDS">
+  <h1>REDS Ingeniería & Construcción</h1>
+  <p>Diseño estructural, gestión vial y ejecución de obras públicas y privadas</p>
+</header>
+
+<nav>
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="nav-links" id="menu">
+    <a href="#inicio">Inicio</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#perfil">Perfil</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
+
+<section id="inicio">
+  <h2>Bienvenido</h2>
+  <p>Somos una firma especializada en ingeniería civil, estructural y vial. Combinamos experiencia técnica con herramientas modernas para desarrollar soluciones innovadoras, funcionales y sostenibles.</p>
+</section>
+
+<section id="proyectos">
+  <h2>Proyectos Destacados</h2>
+  <div class="proyecto">
+    <h3>Mantenimiento de 15 Unidades Médicas (2024)</h3>
+    <p><strong>Monto:</strong> $370,242.93 – Pichincha, Ecuador</p>
+  </div>
+  <div class="proyecto">
+    <h3>Obras Viales y Urbanas – Miguel Arias (2024)</h3>
+    <p><strong>Monto:</strong> $92,750.00 – Azuay, Ecuador</p>
+  </div>
+  <div class="proyecto">
+    <h3>Parque Guadalupana y Feria de Productores (2023)</h3>
+    <p><strong>Monto:</strong> $63,810.00 – Cañar, Ecuador</p>
+  </div>
+</section>
+
+<section id="perfil">
+  <h2>Perfil Profesional</h2>
+  <div class="perfil">
+    <p><strong>Francisco A. Rojas Rosas</strong> – Ingeniero Civil con mención en Gerencia de Construcciones, con maestrías en Gerencia de Proyectos y Vías y Transporte.</p>
+    <p>Especialista en estructuras, diseño vial, análisis de costos, cronogramas valorizados y contratación pública bajo normativa NEC y MTOP.</p>
+    <p>Competencias técnicas: AutoCAD Civil 3D, Revit, SAP2000, ETABS y QGIS. Enfoque estratégico, regulatorio y orientado a resultados.</p>
+  </div>
+</section>
+
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p><i class="fas fa-envelope"></i> <a href="mailto:p.rojas.77@hotmail.com">p.rojas.77@hotmail.com</a></p>
+  <p><i class="fas fa-phone"></i> +593 098 224 2982</p>
+  <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/francisco-antonio-rojas-rosas-261b16307/" target="_blank">LinkedIn</a></p>
+</section>
+
+<footer>
+  <p>© 2025 REDS Ingeniería & Construcción</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
