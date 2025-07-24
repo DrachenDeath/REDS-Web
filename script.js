@@ -200,4 +200,8 @@ function sendFormData(formData) {
     showAlert('Hubo un problema al enviar el mensaje. Por favor intente nuevamente.', 'error');
     console.error('Error:', error);
   });
+  // Agrega esto al final del script para activar todas las animaciones
+document.querySelectorAll('.servicio-card, .proyecto-card').forEach(card => {
+  card.classList.add('visible');
+});
 }
