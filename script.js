@@ -1,207 +1,220 @@
 document.addEventListener('DOMContentLoaded', function() {
   // =============================================
-  // Efectos de Scroll y Animaciones
+  // Animation Controller
   // =============================================
-  
-  // Observer para animaciones al hacer scroll
-  const animateOnScroll = function() {
-    const elements = document.querySelectorAll('.fade-in, .servicio-card, .proyecto-card');
+  const animationController = {
+    init: function() {
+      this.setupScrollAnimations();
+    },
     
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          
-          // Para elementos que necesitan animaciones específicas
-          if (entry.target.classList.contains('servicio-card')) {
-            entry.target.style.animation = `fadeInUp 0.5s ease forwards ${entry.target.dataset.delay || '0s'}`;
+    setupScrollAnimations: function() {
+      const animatableElements = document.querySelectorAll(
+        '.fade-in, .servicio-card, .proyecto-card'
+      );
+      
+      if (!animatableElements.length) return;
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.animateElement(entry.target);
           }
-        }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
       });
-    }, { 
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    elements.forEach((element, index) => {
+      
+      animatableElements.forEach((element, index) => {
+        if (element.classList.contains('servicio-card')) {
+          element.dataset.delay = `${index * 0.1}s`;
+        }
+        observer.observe(element);
+      });
+    },
+    
+    animateElement: function(element) {
+      element.classList.add('visible');
+      
       if (element.classList.contains('servicio-card')) {
-        element.dataset.delay = `${index * 0.1}s`;
+        const delay = element.dataset.delay || '0s';
+        element.style.animation = `fadeInUp 0.5s ease forwards ${delay}`;
       }
-      observer.observe(element);
-    });
+    }
   };
 
   // =============================================
-  // Navegación
+  // Navigation Controller
   // =============================================
-  
-  // Menú hamburguesa para móviles
-  const setupMobileMenu = function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navbarLinks = document.querySelector('.navbar-links');
+  const navigationController = {
+    init: function() {
+      this.setupMobileMenu();
+      this.setupScrollNavbar();
+      this.setupSmoothScroll();
+    },
     
-    if (menuToggle && navbarLinks) {
-      menuToggle.addEventListener('click', function() {
-        navbarLinks.classList.toggle('active');
-        menuToggle.innerHTML = navbarLinks.classList.contains('active') ? 
-          '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    setupMobileMenu: function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navbarLinks = document.querySelector('.navbar-links');
+      
+      if (!menuToggle || !navbarLinks) return;
+      
+      menuToggle.addEventListener('click', () => this.toggleMenu(menuToggle, navbarLinks));
+      
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => this.closeMenu(menuToggle, navbarLinks));
       });
-    }
+    },
     
-    // Cerrar menú al hacer clic en un enlace
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (navbarLinks.classList.contains('active')) {
-          navbarLinks.classList.remove('active');
-          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        }
+    toggleMenu: function(toggle, menu) {
+      menu.classList.toggle('active');
+      toggle.innerHTML = menu.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    },
+    
+    closeMenu: function(toggle, menu) {
+      if (menu.classList.contains('active')) {
+        menu.classList.remove('active');
+        toggle.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    },
+    
+    setupScrollNavbar: function() {
+      const navbar = document.querySelector('.navbar');
+      if (!navbar) return;
+      
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
       });
-    });
-  };
-  
-  // Cambiar navbar al hacer scroll
-  const setupScrollNavbar = function() {
-    const navbar = document.querySelector('.navbar');
-    if (navbar) {
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
+    },
+    
+    setupSmoothScroll: function() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => this.handleSmoothScroll(e, anchor));
       });
-    }
-  };
-  
-  // Smooth scroll para enlaces internos
-  const setupSmoothScroll = function() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
+    },
+    
+    handleSmoothScroll: function(e, anchor) {
+      e.preventDefault();
+      const targetId = anchor.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+        const targetPosition = targetElement.getBoundingClientRect().top + 
+                             window.pageYOffset - navbarHeight;
         
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          const navbarHeight = document.querySelector('.navbar').offsetHeight;
-          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
   };
-  
+
   // =============================================
-  // Formulario de Contacto
+  // Form Controller
   // =============================================
-  
-  const setupContactForm = function() {
-    const contactForm = document.getElementById('formulario-contacto');
-    if (!contactForm) return;
+  const formController = {
+    init: function() {
+      const contactForm = document.getElementById('formulario-contacto');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => this.handleFormSubmit(e, contactForm));
+      }
+    },
     
-    contactForm.addEventListener('submit', function(e) {
+    handleFormSubmit: function(e, form) {
       e.preventDefault();
       
-      // Validación básica
-      const nombre = document.getElementById('nombre').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!this.validateForm(form)) return;
+      
+      // In production: this.sendFormData(new FormData(form));
+      this.showAlert('Mensaje enviado con éxito. Nos pondremos en contacto pronto.', 'success');
+      form.reset();
+    },
+    
+    validateForm: function(form) {
+      const nombre = form.querySelector('#nombre').value.trim();
+      const email = form.querySelector('#email').value.trim();
+      const mensaje = form.querySelector('#mensaje').value.trim();
       
       if (!nombre || !email || !mensaje) {
-        showAlert('Por favor complete todos los campos requeridos', 'error');
-        return;
+        this.showAlert('Por favor complete todos los campos requeridos', 'error');
+        return false;
       }
       
-      if (!validateEmail(email)) {
-        showAlert('Por favor ingrese un correo electrónico válido', 'error');
-        return;
+      if (!this.validateEmail(email)) {
+        this.showAlert('Por favor ingrese un correo electrónico válido', 'error');
+        return false;
       }
       
-      // Simular envío (en producción, usar AJAX/Fetch)
-      showAlert('Mensaje enviado con éxito. Nos pondremos en contacto pronto.', 'success');
-      contactForm.reset();
+      return true;
+    },
+    
+    validateEmail: function(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    },
+    
+    showAlert: function(message, type) {
+      const alertBox = document.createElement('div');
+      alertBox.className = `alert alert-${type}`;
+      alertBox.textContent = message;
       
-      // Aquí iría la llamada AJAX real:
-      // sendFormData(new FormData(contactForm));
-    });
-  };
-  
-  const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  };
-  
-  const showAlert = (message, type) => {
-    const alertBox = document.createElement('div');
-    alertBox.className = `alert alert-${type}`;
-    alertBox.textContent = message;
+      const form = document.getElementById('formulario-contacto');
+      form.prepend(alertBox);
+      
+      setTimeout(() => {
+        alertBox.classList.add('fade-out');
+        setTimeout(() => alertBox.remove(), 500);
+      }, 5000);
+    },
     
-    const form = document.getElementById('formulario-contacto');
-    form.prepend(alertBox);
-    
-    setTimeout(() => {
-      alertBox.classList.add('fade-out');
-      setTimeout(() => alertBox.remove(), 500);
-    }, 5000);
-  };
-  
-  // =============================================
-  // Galería de Proyectos (podría extenderse)
-  // =============================================
-  
-  const setupProjectGallery = function() {
-    // Aquí podrías añadir funcionalidad para un lightbox/modal
-    // para ver imágenes de proyectos en grande
-  };
-  
-  // =============================================
-  // Inicialización de todas las funciones
-  // =============================================
-  
-  animateOnScroll();
-  setupMobileMenu();
-  setupScrollNavbar();
-  setupSmoothScroll();
-  setupContactForm();
-  setupProjectGallery();
-  
-  // Opcional: Inicializar animaciones AOS si decides usar esa librería
-  // AOS.init();
-});
-
-// =============================================
-// Funciones adicionales para producción
-// =============================================
-
-// Función para enviar el formulario (ejemplo con Fetch API)
-function sendFormData(formData) {
-  fetch('tu-endpoint-de-api', {
-    method: 'POST',
-    body: formData,
-    headers: {
-      'Accept': 'application/json'
+    sendFormData: function(formData) {
+      fetch('tu-endpoint-de-api', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (!response.ok) throw new Error('Error en la red');
+        return response.json();
+      })
+      .then(data => {
+        this.showAlert('Mensaje enviado con éxito. Nos pondremos en contacto pronto.', 'success');
+        document.getElementById('formulario-contacto').reset();
+      })
+      .catch(error => {
+        this.showAlert('Hubo un problema al enviar el mensaje. Por favor intente nuevamente.', 'error');
+        console.error('Error:', error);
+      });
     }
-  })
-  .then(response => {
-    if (!response.ok) throw new Error('Error en la red');
-    return response.json();
-  })
-  .then(data => {
-    showAlert('Mensaje enviado con éxito. Nos pondremos en contacto pronto.', 'success');
-    document.getElementById('formulario-contacto').reset();
-  })
-  .catch(error => {
-    showAlert('Hubo un problema al enviar el mensaje. Por favor intente nuevamente.', 'error');
-    console.error('Error:', error);
+  };
+
+  // =============================================
+  // Gallery Controller
+  // =============================================
+  const galleryController = {
+    init: function() {
+      this.setupProjectGallery();
+    },
+    
+    setupProjectGallery: function() {
+      // Implement lightbox/modal functionality here
+    }
+  };
+
+  // =============================================
+  // Initialize all controllers
+  // =============================================
+  animationController.init();
+  navigationController.init();
+  formController.init();
+  galleryController.init();
+
+  // Force animations for testing (remove in production)
+  document.querySelectorAll('.servicio-card, .proyecto-card').forEach(card => {
+    card.classList.add('visible');
   });
-  // Agrega esto al final del script para activar todas las animaciones
-document.querySelectorAll('.servicio-card, .proyecto-card').forEach(card => {
-  card.classList.add('visible');
 });
-}
