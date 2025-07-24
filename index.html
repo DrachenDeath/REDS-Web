@@ -1,310 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="REDS Ingeniería & Construcción - Soluciones técnicas en diseño estructural, gestión vial y ejecución de obras públicas y privadas">
-  <meta name="keywords" content="ingeniería civil, construcción, diseño estructural, gestión vial, obras públicas, Ecuador">
-  <meta name="author" content="Francisco Rojas">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-  
-  <!-- Preconexión para mejorar performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Fuentes de Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-  
-  <!-- Iconos de Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <title>REDS | Ingeniería & Construcción - Soluciones Estructurales y Viales</title>
+  <title>REDS | Ingeniería & Construcción</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <!-- Barra de navegación superior -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="#inicio" class="logo">
-        <img src="img/logo.svg" alt="REDS Ingeniería & Construcción" width="120">
-      </a>
-      
-      <button class="menu-toggle" aria-label="Abrir menú">
-        <i class="fas fa-bars"></i>
-      </button>
-      
-      <div class="navbar-links">
-        <a href="#inicio" class="nav-link active">Inicio</a>
-        <a href="#servicios" class="nav-link">Servicios</a>
-        <a href="#proyectos" class="nav-link">Proyectos</a>
-        <a href="#perfil" class="nav-link">Perfil</a>
-        <a href="#contacto" class="nav-link cta-button">Contacto</a>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <header id="inicio" class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container">
-      <h1 class="hero-title">Soluciones técnicas con visión estratégica</h1>
-      <p class="hero-subtitle">Diseño estructural, gestión vial y ejecución de obras públicas y privadas</p>
-      <a href="#contacto" class="cta-button">Contáctanos <i class="fas fa-arrow-right"></i></a>
-    </div>
+  <header>
+    <h1>REDS Ingeniería & Construcción</h1>
+    <p>Diseño estructural, gestión vial y ejecución de obras públicas y privadas</p>
   </header>
 
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#perfil">Perfil</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
   <main>
-    <!-- Sección de Servicios -->
-    <section id="servicios" class="section servicios">
-      <div class="container">
-        <h2 class="section-title">Nuestros Servicios</h2>
-        <p class="section-subtitle">Expertos en ingeniería civil con más de 15 años de experiencia</p>
-        
-        <div class="servicios-grid">
-          <div class="servicio-card">
-            <i class="fas fa-bridge icon"></i>
-            <h3>Diseño Estructural</h3>
-            <p>Análisis y diseño de estructuras eficientes y seguras para todo tipo de proyectos.</p>
-          </div>
-          
-          <div class="servicio-card">
-            <i class="fas fa-road icon"></i>
-            <h3>Ingeniería Vial</h3>
-            <p>Planeamiento, diseño y gestión de proyectos viales urbanos e interurbanos.</p>
-          </div>
-          
-          <div class="servicio-card">
-            <i class="fas fa-building icon"></i>
-            <h3>Gestión de Obras</h3>
-            <p>Supervisión y ejecución de obras públicas y privadas con altos estándares.</p>
-          </div>
-        </div>
-      </div>
+    <section id="inicio" class="fade-in">
+      <h2>Bienvenido</h2>
+      <p>Soluciones técnicas con visión estratégica y eficiencia estructural.</p>
     </section>
 
-    <!-- Sección de Proyectos -->
-    <section id="proyectos" class="section proyectos">
-      <div class="container">
-        <h2 class="section-title">Proyectos Destacados</h2>
-        <p class="section-subtitle">Nuestro trabajo habla por nosotros</p>
-        
-        <div class="proyectos-grid">
-          <!-- Proyecto 1 -->
-          <div class="proyecto-card">
-            <img src="img/proyecto1.jpg" alt="Proyecto Vial Guayaquil" class="proyecto-img">
-            <div class="proyecto-info">
-              <h3>Rediseño Vial Guayaquil</h3>
-              <p>Mejoramiento de 12km de vía principal con gestión de tráfico optimizado.</p>
-              <a href="#" class="proyecto-link">Ver detalles <i class="fas fa-external-link-alt"></i></a>
-            </div>
-          </div>
-          
-          <!-- Proyecto 2 -->
-          <div class="proyecto-card">
-            <img src="img/proyecto2.jpg" alt="Edificio Comercial Quito" class="proyecto-img">
-            <div class="proyecto-info">
-              <h3>Edificio Comercial Quito</h3>
-              <p>Diseño estructural para edificio de 18 pisos con certificación sismo-resistente.</p>
-              <a href="#" class="proyecto-link">Ver detalles <i class="fas fa-external-link-alt"></i></a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="text-center">
-          <a href="#" class="cta-button secondary">Ver todos los proyectos</a>
-        </div>
-      </div>
+    <section id="proyectos" class="fade-in">
+      <h2>Proyectos</h2>
+      <p>Detalles destacados en ingeniería vial, estructural y urbana.</p>
     </section>
 
-    <!-- Sección de Perfil -->
-    <section id="perfil" class="section perfil">
-      <div class="container">
-        <div class="perfil-content">
-          <div class="perfil-text">
-            <h2 class="section-title">Francisco Rojas</h2>
-            <h3 class="section-subtitle">Ingeniero Civil - Especialista en Estructuras</h3>
-            
-            <div class="perfil-desc">
-              <p>Con más de 15 años de experiencia en el sector de la construcción e ingeniería civil, he liderado proyectos de diversa envergadura tanto en el ámbito público como privado.</p>
-              
-              <ul class="perfil-skills">
-                <li><i class="fas fa-check"></i> Diseño estructural avanzado</li>
-                <li><i class="fas fa-check"></i> Gestión de proyectos viales</li>
-                <li><i class="fas fa-check"></i> Supervisión de obras civiles</li>
-                <li><i class="fas fa-check"></i> Análisis de costos y presupuestos</li>
-              </ul>
-            </div>
-            
-            <div class="perfil-certificaciones">
-              <h4>Certificaciones:</h4>
-              <div class="certificaciones-grid">
-                <span class="cert-badge">Sismo-Resistente</span>
-                <span class="cert-badge">Normas ISO</span>
-                <span class="cert-badge">BIM</span>
-              </div>
-            </div>
-          </div>
-          
-          <div class="perfil-image">
-            <img src="img/perfil.jpg" alt="Francisco Rojas - Ingeniero Civil" class="profile-pic">
-          </div>
-        </div>
-      </div>
+    <section id="perfil" class="fade-in">
+      <h2>Perfil Profesional</h2>
+      <p>Francisco Rojas – Ingeniero Civil enfocado en estructuras, vialidad y gestión pública.</p>
     </section>
 
-    <!-- Sección de Contacto -->
-    <section id="contacto" class="section contacto">
-      <div class="container">
-        <h2 class="section-title">Contáctanos</h2>
-        <p class="section-subtitle">Estamos listos para comenzar tu próximo proyecto</p>
-        
-        <div class="contacto-grid">
-          <div class="contacto-info">
-            <div class="info-item">
-              <i class="fas fa-envelope"></i>
-              <div>
-                <h4>Correo Electrónico</h4>
-                <a href="mailto:p.rojas.77@hotmail.com">p.rojas.77@hotmail.com</a>
-              </div>
-            </div>
-            
-            <div class="info-item">
-              <i class="fas fa-phone"></i>
-              <div>
-                <h4>Teléfono</h4>
-                <a href="tel:+5930982242982">+593 098 224 2982</a>
-              </div>
-            </div>
-            
-            <div class="info-item">
-              <i class="fab fa-linkedin"></i>
-              <div>
-                <h4>LinkedIn</h4>
-                <a href="https://www.linkedin.com/in/francisco-antonio-rojas-rosas-261b16307/" target="_blank">Francisco Rojas</a>
-              </div>
-            </div>
-            
-            <div class="info-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <div>
-                <h4>Ubicación</h4>
-                <p>Guayaquil, Ecuador</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="contacto-form">
-            <form id="formulario-contacto" class="contact-form">
-              <div class="form-group">
-                <input type="text" id="nombre" name="nombre" required placeholder="Nombre completo">
-              </div>
-              
-              <div class="form-group">
-                <input type="email" id="email" name="email" required placeholder="Correo electrónico">
-              </div>
-              
-              <div class="form-group">
-                <input type="tel" id="telefono" name="telefono" placeholder="Teléfono (opcional)">
-              </div>
-              
-              <div class="form-group">
-                <select id="servicio" name="servicio" required>
-                  <option value="" disabled selected>Seleccione un servicio</option>
-                  <option value="estructural">Diseño Estructural</option>
-                  <option value="vial">Ingeniería Vial</option>
-                  <option value="gestion">Gestión de Obras</option>
-                  <option value="otro">Otro</option>
-                </select>
-              </div>
-              
-              <div class="form-group">
-                <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos sobre tu proyecto"></textarea>
-              </div>
-              
-              <button type="submit" class="cta-button full-width">Enviar Mensaje <i class="fas fa-paper-plane"></i></button>
-            </form>
-          </div>
-        </div>
-      </div>
+    <section id="contacto" class="fade-in">
+      <h2>Contacto</h2>
+      <p>📧 <a href="mailto:p.rojas.77@hotmail.com">p.rojas.77@hotmail.com</a></p>
+      <p>📞 +593 098 224 2982</p>
+      <p><a href="https://www.linkedin.com/in/francisco-antonio-rojas-rosas-261b16307/" target="_blank">LinkedIn</a></p>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <img src="img/logo-white.svg" alt="REDS Ingeniería & Construcción" width="150">
-          <p>Soluciones técnicas con visión estratégica y eficiencia estructural.</p>
-        </div>
-        
-        <div class="footer-col">
-          <h4>Enlaces Rápidos</h4>
-          <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#perfil">Perfil</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-col">
-          <h4>Servicios</h4>
-          <ul>
-            <li><a href="#">Diseño Estructural</a></li>
-            <li><a href="#">Ingeniería Vial</a></li>
-            <li><a href="#">Gestión de Obras</a></li>
-            <li><a href="#">Consultoría</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-col">
-          <h4>Contacto</h4>
-          <ul class="contact-info">
-            <li><i class="fas fa-envelope"></i> p.rojas.77@hotmail.com</li>
-            <li><i class="fas fa-phone"></i> +593 098 224 2982</li>
-            <li><i class="fas fa-map-marker-alt"></i> Guayaquil, Ecuador</li>
-          </ul>
-          
-          <div class="social-links">
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 REDS Ingeniería & Construcción. Todos los derechos reservados.</p>
-        <div class="legal-links">
-          <a href="#">Política de Privacidad</a>
-          <a href="#">Términos de Servicio</a>
-        </div>
-      </div>
-    </div>
+  <footer>
+    <p>© 2025 REDS Ingeniería & Construcción</p>
   </footer>
 
-  <!-- Botón flotante de WhatsApp -->
-  <a href="https://wa.me/5930982242982" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <!-- Logo SVG flotante a la derecha -->
+  <div class="logo-fijo">
+    <object type="image/svg+xml" data="img/logo.svg"></object>
+  </div>
 
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="script.js"></script>
-  
-  <!-- Google Analytics (opcional) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX');
-  </script>
 </body>
 </html>
