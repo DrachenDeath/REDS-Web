@@ -26,8 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       
       animatableElements.forEach((element, index) => {
-        if (element.classList.contains('servicio-card')) {
-          element.dataset.delay = `${index * 0.1}s`;
+        if (element.classList.contains('servicio-card') || 
+            element.classList.contains('proyecto-card')) {
+          element.dataset.delay = `${index * 0.15}s`;
         }
         observer.observe(element);
       });
@@ -36,9 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
     animateElement: function(element) {
       element.classList.add('visible');
       
-      if (element.classList.contains('servicio-card')) {
-        const delay = element.dataset.delay || '0s';
-        element.style.animation = `fadeInUp 0.5s ease forwards ${delay}`;
+      if (element.dataset.delay) {
+        element.style.animationDelay = element.dataset.delay;
       }
     }
   };
@@ -129,9 +129,12 @@ document.addEventListener('DOMContentLoaded', function() {
       
       if (!this.validateForm(form)) return;
       
-      // In production: this.sendFormData(new FormData(form));
+      // Simulación de envío exitoso
       this.showAlert('Mensaje enviado con éxito. Nos pondremos en contacto pronto.', 'success');
       form.reset();
+      
+      // En producción real: 
+      // this.sendFormData(new FormData(form));
     },
     
     validateForm: function(form) {
@@ -158,6 +161,10 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     
     showAlert: function(message, type) {
+      // Eliminar alertas existentes
+      const existingAlerts = document.querySelectorAll('.alert');
+      existingAlerts.forEach(alert => alert.remove());
+      
       const alertBox = document.createElement('div');
       alertBox.className = `alert alert-${type}`;
       alertBox.textContent = message;
@@ -193,28 +200,9 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   // =============================================
-  // Gallery Controller
-  // =============================================
-  const galleryController = {
-    init: function() {
-      this.setupProjectGallery();
-    },
-    
-    setupProjectGallery: function() {
-      // Implement lightbox/modal functionality here
-    }
-  };
-
-  // =============================================
   // Initialize all controllers
   // =============================================
   animationController.init();
   navigationController.init();
   formController.init();
-  galleryController.init();
-
-  // Force animations for testing (remove in production)
-  document.querySelectorAll('.servicio-card, .proyecto-card').forEach(card => {
-    card.classList.add('visible');
-  });
 });
