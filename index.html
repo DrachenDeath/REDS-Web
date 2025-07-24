@@ -6,110 +6,7 @@
   <title>REDS | Ingeniería & Construcción</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #0056b3;
-      --primary-dark: #003d82;
-      --white: #ffffff;
-      --dark: #2c3e50;
-      --light: #ecf0f1;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      color: var(--dark);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* NAVBAR */
-    .navbar {
-      position: fixed;
-      width: 100%;
-      background-color: var(--white);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 1rem 0;
-      z-index: 1000;
-    }
-
-    .navbar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo svg {
-      height: 50px;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                 url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-      color: var(--white);
-      margin-top: 70px;
-      text-align: center;
-    }
-
-    /* SERVICIOS */
-    .servicios-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .servicio-card {
-      background: var(--white);
-      padding: 2rem;
-      text-align: center;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease;
-    }
-
-    .servicio-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* FOOTER */
-    .footer {
-      background-color: var(--dark);
-      color: var(--white);
-      padding: 4rem 0 0;
-    }
-
-    .footer svg path {
-      fill: var(--white);
-      stroke: var(--white);
-    }
-
-    /* ANIMACIONES */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .visible {
-      animation: fadeIn 0.8s ease forwards;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -117,7 +14,6 @@
   <nav class="navbar">
     <div class="container">
       <a href="#inicio" class="logo">
-        <!-- SVG optimizado para navbar -->
         <svg width="150" viewBox="0 0 386.28 188.89">
           <path d="M205.86,18.15h9.56V9.81h11.39v8.34h40.89l1.93,10.98c-10.78,9.97-23.19,18.21-34.68,24.21l-5.9-10.27 c7.93-3.66,14.65-7.83,21.26-12.82h-23.5v54.11h-11.39V30.26h-9.56V18.15z M246.85,52.53c7.63,8.44,14.75,17.6,21.46,27.56 l-9.36,7.32c-6.31-9.87-13.83-19.22-21.46-27.56L246.85,52.53z" fill="#0056b3"/>
           <path d="M275.93,19.58h48.72v12.1h-29.7v12h41.9v12.21h-41.9v9.46c0,6.71,1.83,9.97,8.44,9.97h29.8l-2.75,12.1h-27.26 c-14.44,0-19.63-7.53-19.63-22.07v-9.46h-9.66V43.68h9.66v-12h-7.63V19.58z" fill="#0056b3"/>
@@ -125,33 +21,140 @@
           <path d="M337.38,131.28v9.66c0,14.54-5.19,22.07-19.63,22.07h-35.8v-12.1h35.6c6.71,0,8.54-3.26,8.54-9.97v-9.66h-26.24 c-9.15,0-14.14-5.39-14.14-15.16v-8.85h-6.81v-12.1h58.89v12.1H297v8.85c0,2.03,0.61,2.95,2.85,2.95h40.99v12.21H337.38z" fill="#0056b3"/>
         </svg>
       </a>
+      
+      <div class="navbar-links">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#proyectos" class="nav-link">Proyectos</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </div>
+      
+      <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <header id="inicio" class="hero">
     <div class="container">
-      <h1>Soluciones técnicas con visión estratégica</h1>
+      <h1 class="hero-title">Soluciones técnicas con visión estratégica</h1>
+      <p class="hero-subtitle">Innovación en ingeniería y construcción para un futuro sostenible</p>
+      <a href="#servicios" class="btn btn-primary">Nuestros servicios</a>
     </div>
   </header>
 
   <!-- Servicios -->
-  <section class="section servicios">
+  <section id="servicios" class="section servicios">
     <div class="container">
-      <h2>Nuestros Servicios</h2>
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <p class="section-subtitle">Soluciones integrales adaptadas a las necesidades de cada proyecto</p>
+      
       <div class="servicios-grid">
-        <div class="servicio-card visible">
-          <i class="fas fa-bridge fa-3x" style="color:#0056b3;"></i>
+        <div class="servicio-card">
+          <div class="icon">
+            <i class="fas fa-bridge fa-3x"></i>
+          </div>
           <h3>Diseño Estructural</h3>
+          <p>Análisis y diseño de estructuras con tecnología BIM y las últimas normativas sismorresistentes</p>
         </div>
-        <div class="servicio-card visible">
-          <i class="fas fa-road fa-3x" style="color:#0056b3;"></i>
+        
+        <div class="servicio-card">
+          <div class="icon">
+            <i class="fas fa-road fa-3x"></i>
+          </div>
           <h3>Ingeniería Vial</h3>
+          <p>Diseño de infraestructura vial y transporte con enfoque en seguridad y eficiencia</p>
         </div>
-        <div class="servicio-card visible">
-          <i class="fas fa-building fa-3x" style="color:#0056b3;"></i>
+        
+        <div class="servicio-card">
+          <div class="icon">
+            <i class="fas fa-building fa-3x"></i>
+          </div>
           <h3>Gestión de Obras</h3>
+          <p>Control y supervisión de proyectos con metodologías ágiles y seguimiento en tiempo real</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos -->
+  <section id="proyectos" class="section proyectos">
+    <div class="container">
+      <h2 class="section-title">Proyectos Destacados</h2>
+      <p class="section-subtitle">Algunos de nuestros trabajos más representativos</p>
+      
+      <div class="proyectos-grid">
+        <div class="proyecto-card">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+               alt="Puente moderno" class="proyecto-img">
+          <div class="proyecto-info">
+            <h3>Puente Atirantado</h3>
+            <p>Diseño estructural y construcción de puente de 450m en Santiago</p>
+          </div>
+        </div>
+        
+        <div class="proyecto-card">
+          <img src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+               alt="Autopista" class="proyecto-img">
+          <div class="proyecto-info">
+            <h3>Autopista Central</h3>
+            <p>Ampliación de 25km de autopista con sistema de gestión inteligente</p>
+          </div>
+        </div>
+        
+        <div class="proyecto-card">
+          <img src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+               alt="Edificio corporativo" class="proyecto-img">
+          <div class="proyecto-info">
+            <h3>Torre Corporativa</h3>
+            <p>Edificio de 32 pisos con certificación LEED Platinum en Viña del Mar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section contacto">
+    <div class="container">
+      <h2 class="section-title">Contáctenos</h2>
+      <p class="section-subtitle">Estamos listos para hacer realidad su proyecto</p>
+      
+      <div class="contacto-grid">
+        <div class="contact-info">
+          <h3>Información de contacto</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Av. Ingenieros 1234, Santiago</p>
+          <p><i class="fas fa-phone"></i> +56 9 8765 4321</p>
+          <p><i class="fas fa-envelope"></i> contacto@reds.cl</p>
+          
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <form id="formulario-contacto" class="contact-form">
+          <div class="form-group">
+            <input type="text" id="nombre" class="form-control" placeholder="Nombre completo" required>
+          </div>
+          
+          <div class="form-group">
+            <input type="email" id="email" class="form-control" placeholder="Correo electrónico" required>
+          </div>
+          
+          <div class="form-group">
+            <input type="tel" id="telefono" class="form-control" placeholder="Teléfono">
+          </div>
+          
+          <div class="form-group">
+            <textarea id="mensaje" class="form-control" placeholder="Su mensaje" rows="5" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-full">Enviar mensaje</button>
+        </form>
       </div>
     </div>
   </section>
@@ -159,42 +162,63 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <svg width="200" viewBox="0 0 386.28 188.89">
-        <!-- Todo el SVG con colores adaptados al footer -->
-        <rect x="25.83" y="22.26" fill="#fff" stroke="#fff" stroke-width="9.1415" width="160.94" height="17.4"/>
-        <rect x="25.83" y="106.15" fill="#fff" stroke="#fff" stroke-width="9.1415" width="160.94" height="17.4"/>
-        <rect x="25.83" y="65" fill="#fff" stroke="#fff" stroke-width="9.1415" width="160.94" height="17.4"/>
-        <line fill="none" stroke="#fff" stroke-width="24.2399" x1="59.23" y1="154" x2="191.4" y2="154"/>
-        <rect x="25.26" y="80.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)" fill="#fff" stroke="#fff" stroke-width="5.5696" width="190.22" height="17.27"/>
-        <path d="M205.86,18.15h9.56V9.81h11.39v8.34h40.89l1.93,10.98c-10.78,9.97-23.19,18.21-34.68,24.21l-5.9-10.27 c7.93-3.66,14.65-7.83,21.26-12.82h-23.5v54.11h-11.39V30.26h-9.56V18.15z M246.85,52.53c7.63,8.44,14.75,17.6,21.46,27.56 l-9.36,7.32c-6.31-9.87-13.83-19.22-21.46-27.56L246.85,52.53z" fill="#fff"/>
-        <path d="M275.93,19.58h48.72v12.1h-29.7v12h41.9v12.21h-41.9v9.46c0,6.71,1.83,9.97,8.44,9.97h29.8l-2.75,12.1h-27.26 c-14.44,0-19.63-7.53-19.63-22.07v-9.46h-9.66V43.68h9.66v-12h-7.63V19.58z" fill="#fff"/>
-        <path d="M259.68,107.27h-32.24v25.02h-11.29V95.17h54.92v22.17c0,28.48-23.39,43.63-48.72,45.67l-3.56-12 c20.04,0,40.89-12,40.89-32.95V107.27z" fill="#fff"/>
-        <path d="M337.38,131.28v9.66c0,14.54-5.19,22.07-19.63,22.07h-35.8v-12.1h35.6c6.71,0,8.54-3.26,8.54-9.97v-9.66h-26.24 c-9.15,0-14.14-5.39-14.14-15.16v-8.85h-6.81v-12.1h58.89v12.1H297v8.85c0,2.03,0.61,2.95,2.85,2.95h40.99v12.21H337.38z" fill="#fff"/>
-      </svg>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <svg width="150" viewBox="0 0 386.28 188.89">
+            <!-- SVG optimizado para footer -->
+            <path d="M205.86,18.15h9.56V9.81h11.39v8.34h40.89l1.93,10.98c-10.78,9.97-23.19,18.21-34.68,24.21l-5.9-10.27 c7.93-3.66,14.65-7.83,21.26-12.82h-23.5v54.11h-11.39V30.26h-9.56V18.15z M246.85,52.53c7.63,8.44,14.75,17.6,21.46,27.56 l-9.36,7.32c-6.31-9.87-13.83-19.22-21.46-27.56L246.85,52.53z" fill="#fff"/>
+            <path d="M275.93,19.58h48.72v12.1h-29.7v12h41.9v12.21h-41.9v9.46c0,6.71,1.83,9.97,8.44,9.97h29.8l-2.75,12.1h-27.26 c-14.44,0-19.63-7.53-19.63-22.07v-9.46h-9.66V43.68h9.66v-12h-7.63V19.58z" fill="#fff"/>
+            <path d="M259.68,107.27h-32.24v25.02h-11.29V95.17h54.92v22.17c0,28.48-23.39,43.63-48.72,45.67l-3.56-12 c20.04,0,40.89-12,40.89-32.95V107.27z" fill="#fff"/>
+            <path d="M337.38,131.28v9.66c0,14.54-5.19,22.07-19.63,22.07h-35.8v-12.1h35.6c6.71,0,8.54-3.26,8.54-9.97v-9.66h-26.24 c-9.15,0-14.14-5.39-14.14-15.16v-8.85h-6.81v-12.1h58.89v12.1H297v8.85c0,2.03,0.61,2.95,2.85,2.95h40.99v12.21H337.38z" fill="#fff"/>
+          </svg>
+          
+          <p>Soluciones técnicas con visión estratégica para proyectos de ingeniería y construcción</p>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Enlaces rápidos</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="#">Diseño Estructural</a></li>
+            <li><a href="#">Ingeniería Vial</a></li>
+            <li><a href="#">Gestión de Obras</a></li>
+            <li><a href="#">Consultoría Técnica</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Suscríbete</h4>
+          <p>Recibe nuestras últimas novedades y proyectos</p>
+          <form class="footer-form">
+            <input type="email" placeholder="Tu correo electrónico" class="form-control">
+            <button type="submit" class="btn btn-primary">Suscribir</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 REDS Ingeniería & Construcción. Todos los derechos reservados.</p>
+        <div class="legal-links">
+          <a href="#">Términos y Condiciones</a>
+          <a href="#">Política de Privacidad</a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <script>
-    // Activar animaciones automáticamente
-    document.addEventListener('DOMContentLoaded', function() {
-      // Forzar visibilidad para prueba (remover en producción)
-      document.querySelectorAll('.servicio-card').forEach(card => {
-        card.classList.add('visible');
-      });
-      
-      // Animación real (para producción)
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      document.querySelectorAll('.servicio-card').forEach(card => {
-        observer.observe(card);
-      });
-    });
-  </script>
+  <a href="https://wa.me/56987654321" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
 </body>
 </html>
