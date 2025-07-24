@@ -1,10 +1,10 @@
 /* ===== CSS Variables & Reset ===== */
 :root {
   /* Color Palette */
-  --primary: #0056b3;
-  --primary-dark: #003d82;
-  --primary-light: #e6f0fa;
-  --accent: #f39c12;
+  --primary: #2A307B; /* Azul corporativo del logo */
+  --primary-dark: #1c2268;
+  --primary-light: #e6e8f7;
+  --accent: #D02027; /* Rojo corporativo del logo */
   --dark: #2c3e50;
   --medium: #7f8c8d;
   --light: #ecf0f1;
@@ -414,7 +414,7 @@ img {
 .form-control:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+  box-shadow: 0 0 0 3px rgba(42, 48, 123, 0.1);
 }
 
 textarea.form-control {
@@ -439,7 +439,7 @@ textarea.form-control {
   border-radius: 50%;
   transition: var(--transition);
   color: var(--dark);
-  background: rgba(0, 86, 179, 0.1);
+  background: rgba(42, 48, 123, 0.1);
 }
 
 .social-link:hover {
