@@ -3,72 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REDS | Ingeniería & Construcción</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Animación Logo REDS</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Contenedor de animación -->
-  <div class="animation-container">
-    <div class="logo-animation">
-      <!-- SVG LOGO AQUI (omitido para brevedad, se puede incluir como en el original) -->
-      <!-- Usa el mismo SVG del código original para mantener la animación -->
-    </div>
+  <!-- Contenedor del logo -->
+  <div class="logo-container">
+    <svg width="200" viewBox="0 0 386.28 188.89">
+      <!-- Franjas rojas horizontales -->
+      <rect x="25.83" y="22.26" fill="#D02027" stroke="#D02027" stroke-width="9.1415" width="160.94" height="17.4"/>
+      <rect x="25.83" y="106.15" fill="#D02027" stroke="#D02027" stroke-width="9.1415" width="160.94" height="17.4"/>
+      <rect x="25.83" y="65" fill="#D02027" stroke="#D02027" stroke-width="9.1415" width="160.94" height="17.4"/>
+      <!-- Línea negra -->
+      <line fill="none" stroke="#343239" stroke-width="24.2399" stroke-miterlimit="10" x1="59.23" y1="154" x2="191.4" y2="154"/>
+      <!-- Franja azul diagonal -->
+      <rect x="25.26" y="80.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)" fill="#2A307B" stroke="#2A307B" stroke-width="5.5696" width="190.22" height="17.27"/>
+      <!-- Texto "REDS" (4 paths) -->
+      <path d="M205.86,18.15h9.56V9.81h11.39v8.34h40.89l1.93,10.98c-10.78,9.97-23.19,18.21-34.68,24.21l-5.9-10.27 c7.93-3.66,14.65-7.83,21.26-12.82h-23.5v54.11h-11.39V30.26h-9.56V18.15z M246.85,52.53c7.63,8.44,14.75,17.6,21.46,27.56 l-9.36,7.32c-6.31-9.87-13.83-19.22-21.46-27.56L246.85,52.53z" fill="#2A307B"/>
+      <path d="M275.93,19.58h48.72v12.1h-29.7v12h41.9v12.21h-41.9v9.46c0,6.71,1.83,9.97,8.44,9.97h29.8l-2.75,12.1h-27.26 c-14.44,0-19.63-7.53-19.63-22.07v-9.46h-9.66V43.68h9.66v-12h-7.63V19.58z" fill="#2A307B"/>
+      <path d="M259.68,107.27h-32.24v25.02h-11.29V95.17h54.92v22.17c0,28.48-23.39,43.63-48.72,45.67l-3.56-12 c20.04,0,40.89-12,40.89-32.95V107.27z" fill="#2A307B"/>
+      <path d="M337.38,131.28v9.66c0,14.54-5.19,22.07-19.63,22.07h-35.8v-12.1h35.6c6.71,0,8.54-3.26,8.54-9.97v-9.66h-26.24 c-9.15,0-14.14-5.39-14.14-15.16v-8.85h-6.81v-12.1h58.89v12.1H297v8.85c0,2.03,0.61,2.95,2.85,2.95h40.99v12.21H337.38z" fill="#2A307B"/>
+    </svg>
   </div>
-
-  <!-- Navbar y secciones del sitio aquí -->
-  <nav class="navbar">
-    <div class="container">
-      <div class="logo">REDS</div>
-      <button class="menu-toggle"><i class="fas fa-bars"></i></button>
-      <div class="navbar-links">
-        <a href="#inicio" class="nav-link active">Inicio</a>
-        <a href="#servicios" class="nav-link">Servicios</a>
-        <a href="#contacto" class="nav-link">Contacto</a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="hero">
-    <div class="container">
-      <h1 class="hero-title">Soluciones Innovadoras en Construcción</h1>
-      <p class="hero-subtitle">Transformamos ideas en estructuras sólidas y funcionales</p>
-      <a href="#servicios" class="btn btn-primary">Ver Servicios</a>
-    </div>
-  </header>
-
-  <section class="section" id="servicios">
-    <div class="container text-center">
-      <h2 class="section-title">Nuestros Servicios</h2>
-      <p class="section-subtitle">Ofrecemos un amplio abanico de soluciones técnicas adaptadas a cada proyecto.</p>
-      <div class="servicios-grid">
-        <div class="servicio-card">
-          <div class="icon"><i class="fas fa-building"></i></div>
-          <h3>Construcción</h3>
-          <p>Desarrollamos obras civiles y estructurales con altos estándares de calidad.</p>
-        </div>
-        <div class="servicio-card">
-          <div class="icon"><i class="fas fa-drafting-compass"></i></div>
-          <h3>Diseño Arquitectónico</h3>
-          <p>Planificamos cada detalle con un enfoque funcional y estético.</p>
-        </div>
-        <div class="servicio-card">
-          <div class="icon"><i class="fas fa-hard-hat"></i></div>
-          <h3>Supervisión de Obras</h3>
-          <p>Velamos por el cumplimiento de normas y cronogramas en cada fase.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="section text-center">
-    <div class="container">
-      <p>&copy; 2025 REDS Ingeniería & Construcción. Todos los derechos reservados.</p>
-    </div>
-  </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
-
