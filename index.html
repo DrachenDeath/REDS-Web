@@ -6,15 +6,444 @@
   <title>REDS | Ingeniería & Construcción</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Variables y reset */
+    :root {
+      --primary: #1a3a6c;
+      --secondary: #f39c12;
+      --accent: #2c3e50;
+      --light: #ecf0f1;
+      --dark: #2c3e50;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      background-color: #f9f9f9;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Barra de navegación */
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    /* Animación del logo */
+    .logo svg {
+      width: 150px;
+      animation: logoFloat 6s ease-in-out infinite;
+      transition: var(--transition);
+    }
+    
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(3deg); }
+    }
+    
+    .navbar-links {
+      display: flex;
+      gap: 25px;
+    }
+    
+    .nav-link {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 16px;
+      transition: var(--transition);
+      position: relative;
+      padding: 5px 0;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--secondary);
+      transition: var(--transition);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--primary);
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary), #2c3e50);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjEiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+      opacity: 0.1;
+    }
+    
+    .hero-content {
+      max-width: 700px;
+      z-index: 2;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+    
+    /* Botones */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      text-align: center;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-primary {
+      background-color: var(--secondary);
+      color: white;
+      box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+    }
+    
+    .btn-primary:hover {
+      background-color: #e67e22;
+      transform: translateY(-3px);
+      box-shadow: 0 7px 20px rgba(243, 156, 18, 0.4);
+    }
+    
+    /* Secciones */
+    .section {
+      padding: 100px 0;
+      background-color: white;
+      position: relative;
+    }
+    
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 60px;
+      font-weight: 300;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Sobre mí */
+    .sobre-mi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .sobre-mi-info p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    
+    .sobre-mi-img {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+    
+    .sobre-mi-img:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .sobre-mi-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Servicios */
+    .servicios {
+      background-color: #f8f9fa;
+    }
+    
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .servicio-card {
+      background: white;
+      border-radius: 10px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .servicio-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .servicio-card .icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(26, 58, 108, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      color: var(--primary);
+      font-size: 2rem;
+    }
+    
+    .servicio-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    /* Proyectos */
+    .proyectos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .proyecto-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+    
+    .proyecto-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .proyecto-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .proyecto-info {
+      padding: 25px;
+    }
+    
+    .proyecto-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    /* Animaciones */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 60px 0 30px;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .footer-content p {
+      margin: 20px 0;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .sobre-mi-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-title {
+        font-size: 3rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      .navbar-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: clip-path 0.4s ease;
+      }
+      
+      .navbar-links.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Barra de navegación -->
   <nav class="navbar">
     <div class="container">
       <a href="#inicio" class="logo">
-        <!-- SVG del logo aquí -->
-        <svg width="150" viewBox="0 0 386.28 188.89">[...]</svg>
+        <!-- SVG del logo simplificado con animación -->
+        <svg width="150" viewBox="0 0 386.28 188.89">
+          <defs>
+            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1a3a6c" />
+              <stop offset="100%" stop-color="#f39c12" />
+            </linearGradient>
+          </defs>
+          <path d="M120.5,50.5c0,27.9-22.6,50.5-50.5,50.5S19.5,78.4,19.5,50.5S42.1,0,70,0S120.5,22.6,120.5,50.5z" fill="url(#logoGradient)"/>
+          <text x="150" y="60" font-family="Montserrat" font-weight="700" font-size="40" fill="#1a3a6c">REDS</text>
+          <text x="150" y="100" font-family="Roboto" font-weight="300" font-size="18" fill="#2c3e50">Ingeniería & Construcción</text>
+        </svg>
       </a>
       <div class="navbar-links">
         <a href="#inicio" class="nav-link">Inicio</a>
@@ -32,9 +461,11 @@
   <!-- Hero Section -->
   <header id="inicio" class="hero">
     <div class="container">
-      <h1 class="hero-title">Soluciones técnicas con visión estratégica</h1>
-      <p class="hero-subtitle">Innovación en ingeniería y construcción para un futuro sostenible</p>
-      <a href="#servicios" class="btn btn-primary">Nuestros servicios</a>
+      <div class="hero-content">
+        <h1 class="hero-title">Soluciones técnicas con visión estratégica</h1>
+        <p class="hero-subtitle">Innovación en ingeniería y construcción para un futuro sostenible</p>
+        <a href="#servicios" class="btn btn-primary">Nuestros servicios</a>
+      </div>
     </div>
   </header>
 
@@ -47,10 +478,10 @@
         <div class="sobre-mi-info">
           <p>Soy <strong>Francisco Antonio Rojas Rosas</strong>, ingeniero civil con especialización en Gerencia de la Construcción y maestrías en Gerencia de Proyectos y en Ingeniería Vial. He trabajado en estudios geotécnicos, estructurales, hidrosanitarios y en la ejecución de obras públicas y privadas.</p>
           <p>Mi enfoque combina el dominio técnico con la gestión eficiente de recursos y cumplimiento normativo. Manejo herramientas como AutoCAD Civil 3D, Revit, ETABS, SAP2000 y GIS, y aplico estándares internacionales (ACI, AISC, AASHTO) en cada etapa del proyecto.</p>
-          <a href="CV_ING Francisco A.pdf" class="btn btn-primary" download>Descargar CV</a>
+          <a href="#" class="btn btn-primary" download>Descargar CV</a>
         </div>
         <div class="sobre-mi-img">
-          <img src="https://via.placeholder.com/400x400.png?text=Tu+Foto+Profesional" alt="Francisco A. Rojas">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Francisco A. Rojas">
         </div>
       </div>
     </div>
@@ -94,21 +525,21 @@
       <p class="section-subtitle">Algunos de nuestros trabajos más representativos</p>
       <div class="proyectos-grid">
         <div class="proyecto-card">
-          <img src="https://via.placeholder.com/800x400.png?text=Residencia+Ñamiña" alt="Residencia Ñamiña" class="proyecto-img">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Residencia Ñamiña" class="proyecto-img">
           <div class="proyecto-info">
             <h3>Residencia Sr. Manuel Jesús Ñamiña</h3>
             <p>Estudio y diseño estructural para vivienda de 3 niveles con locales comerciales. Se aplicó un sistema de pórticos especiales de hormigón armado, losa nervada en dos direcciones y vigas descolgadas para garantizar comportamiento monolítico.</p>
           </div>
         </div>
         <div class="proyecto-card">
-          <img src="https://via.placeholder.com/800x400.png?text=Bodega+Simbaina" alt="Bodega Simbaina" class="proyecto-img">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1031&q=80" alt="Bodega Simbaina" class="proyecto-img">
           <div class="proyecto-info">
             <h3>Bodega Sr. Segundo Simbaina</h3>
             <p>Ampliación estructural con uso mixto de hormigón armado y acero estructural. Se diseñó un entrepiso adicional con losa colaborante para circulación, conservando la integridad estructural de los tres bloques existentes.</p>
           </div>
         </div>
         <div class="proyecto-card">
-          <img src="https://via.placeholder.com/800x400.png?text=Residencia+Rosas+Dutan" alt="Residencia Rosas Dutan" class="proyecto-img">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Residencia Rosas Dutan" class="proyecto-img">
           <div class="proyecto-info">
             <h3>Residencia Sra. María Luz Rosas Dután</h3>
             <p>Diseño de vivienda con planta baja comercial y departamentos en niveles superiores. Solución estructural monolítica con pórticos, losas nervadas y adaptación a desnivel del terreno.</p>
@@ -118,7 +549,90 @@
     </div>
   </section>
 
-  <!-- Contacto y Footer se mantienen igual -->
-  <script src="script.js"></script>
+  <!-- Footer -->
+  <footer id="contacto">
+    <div class="container">
+      <div class="footer-content">
+        <h2 class="section-title">Contáctenos</h2>
+        <p>¿Tienes un proyecto en mente? Estamos listos para ayudarte a hacerlo realidad.</p>
+        
+        <div class="social-links">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        
+        <p><i class="fas fa-envelope"></i> contacto@redsingenieria.com</p>
+        <p><i class="fas fa-phone"></i> +593 99 999 9999</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="container">
+        <p>&copy; 2023 REDS Ingeniería & Construcción. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript para funcionalidades básicas
+    document.addEventListener('DOMContentLoaded', function() {
+      // Menú móvil
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navbarLinks = document.querySelector('.navbar-links');
+      
+      menuToggle.addEventListener('click', function() {
+        navbarLinks.classList.toggle('active');
+      });
+      
+      // Cerrar menú al hacer clic en un enlace
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          navbarLinks.classList.remove('active');
+        });
+      });
+      
+      // Scroll suave
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // Animación al hacer scroll
+      const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.servicio-card, .proyecto-card, .sobre-mi-img');
+        
+        elements.forEach(element => {
+          const position = element.getBoundingClientRect();
+          
+          // Si el elemento está en el viewport
+          if(position.top < window.innerHeight - 100) {
+            element.style.opacity = "1";
+            element.style.transform = "translateY(0)";
+          }
+        });
+      };
+      
+      // Configurar las animaciones iniciales
+      document.querySelectorAll('.servicio-card, .proyecto-card, .sobre-mi-img').forEach(element => {
+        element.style.opacity = "0";
+        element.style.transform = "translateY(20px)";
+        element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+      });
+      
+      // Ejecutar al cargar y al hacer scroll
+      window.addEventListener('scroll', animateOnScroll);
+      animateOnScroll(); // Ejecutar al cargar
+    });
+  </script>
 </body>
 </html>
