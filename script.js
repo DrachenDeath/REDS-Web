@@ -1,22 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Reiniciar animación al hacer clic en el logo
-  const logo = document.querySelector('.logo');
-  if (logo) {
-    logo.addEventListener('click', function() {
-      // Clonamos el SVG
-      const svg = this.querySelector('svg');
-      const clone = svg.cloneNode(true);
-      
-      // Reemplazamos el SVG original con el clon
-      svg.parentNode.replaceChild(clone, svg);
-      
-      // Forzamos el repintado para que la animación se reinicie
-      void clone.offsetWidth;
-    });
-  }
+  // Opcional: Reiniciar animación al hacer clic
+  const logo = document.querySelector('.logo-container');
   
-  // Opcional: Retrasar la animación hasta que todo esté cargado
-  window.addEventListener('load', function() {
-    document.body.classList.add('loaded');
+  logo.addEventListener('click', function() {
+    const svg = this.querySelector('svg');
+    const clone = svg.cloneNode(true);
+    
+    // Reemplazar el SVG para reiniciar animación
+    svg.parentNode.replaceChild(clone, svg);
   });
+  
+  console.log('Animación del logo cargada!');
 });
