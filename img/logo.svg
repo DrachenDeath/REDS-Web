@@ -9,7 +9,7 @@
     stroke: #D02027;
     stroke-width: 9.1415;
     stroke-miterlimit: 10;
-    animation: sticker-bounce 0.4s ease forwards;
+    animation: sticker-bounce 0.6s ease forwards;
     animation-iteration-count: 1; /* solo una vez */
   }
 
@@ -25,27 +25,26 @@
     stroke: #2A307B;
     stroke-width: 5.5696;
     stroke-miterlimit: 10;
+    animation: diagonal-bounce 0.6s ease forwards;
+    animation-iteration-count: 1; /* solo una vez */
   }
 
   .st3 {
     fill: #2A307B;
   }
 
-  .diagonal-group {
-    animation: diagonal-slide 3s ease forwards;
-  }
-
-  /* Movimiento pegado y vuelta, termina y queda original */
+  /* Movimiento pegado y vuelta para líneas rojas */
   @keyframes sticker-bounce {
     0% { transform: translateX(0); }
     50% { transform: translateX(5px); }
     100% { transform: translateX(0); }
   }
 
-  /* Línea diagonal se mueve 15px en diagonal y queda fija */
-  @keyframes diagonal-slide {
+  /* Movimiento pegado y vuelta para línea diagonal azul */
+  @keyframes diagonal-bounce {
     0% { transform: translate(0, 0); }
-    100% { transform: translate(15px, -15px); }
+    50% { transform: translate(15px, -15px); }
+    100% { transform: translate(0, 0); }
   }
 </style>
 
@@ -57,13 +56,11 @@
 <!-- Línea gris horizontal gruesa -->
 <line class="st1" x1="59.23" y1="154" x2="191.4" y2="154"/>
 
-<!-- Línea diagonal azul animada -->
-<g class="diagonal-group">
-  <rect x="25.26" y="80.18"
-        transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)"
-        class="st2"
-        width="190.22" height="17.27" />
-</g>
+<!-- Línea diagonal azul animada con movimiento de ida y vuelta -->
+<rect x="25.26" y="80.18"
+      transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)"
+      class="st2"
+      width="190.22" height="17.27" />
 
 <!-- Resto del logo sin animación -->
 <path d="M205.86,18.15h9.56V9.81h11.39v8.34h40.89l1.93,10.98c-10.78,9.97-23.19,18.21-34.68,24.21l-5.9-10.27
