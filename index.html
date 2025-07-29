@@ -70,8 +70,7 @@
     }
     
     .logo-svg .st0 {
-      animation: sticker-bounce 0.6s ease forwards;
-      animation-iteration-count: 1;
+      animation: stripeMove 4s infinite alternate ease-in-out;
     }
     
     .logo-svg .st0:nth-child(1) {
@@ -117,44 +116,628 @@
       }
     }
     
-    /* Nuevas animaciones para el efecto binario */
-    @keyframes sticker-bounce {
-      0% { transform: translateX(0); }
-      50% { transform: translateX(5px); }
-      100% { transform: translateX(0); }
+    .navbar-links {
+      display: flex;
+      gap: 25px;
     }
     
-    @keyframes diagonal-bounce {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(15px, -15px); }
-      100% { transform: translate(0, 0); }
+    .nav-link {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 16px;
+      transition: var(--transition);
+      position: relative;
+      padding: 5px 0;
     }
     
-    /* Animación para el grupo diagonal */
-    #diagonal-group {
-      animation: diagonal-bounce 0.6s ease forwards;
-      animation-iteration-count: 1;
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--secondary);
+      transition: var(--transition);
     }
     
-    /* Estilos para el texto animado */
-    .reds-text-animated {
-      font-family: 'Courier New', monospace;
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--primary);
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary), #2c3e50);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjEiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+      opacity: 0.1;
+    }
+    
+    .hero-content {
+      max-width: 700px;
+      z-index: 2;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    /* Botones */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      min-width: 200px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    
+    .btn-primary {
+      background-color: var(--secondary);
+      color: white;
+      box-shadow: 0 4px 15px rgba(208, 32, 39, 0.3);
+    }
+    
+    .btn-primary:hover {
+      background-color: #b21c22;
+      transform: translateY(-3px);
+      box-shadow: 0 7px 20px rgba(208, 32, 39, 0.4);
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .btn-secondary:hover {
+      background-color: white;
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    /* Secciones */
+    .section {
+      padding: 100px 0;
+      background-color: white;
+      position: relative;
+    }
+    
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 60px;
+      font-weight: 300;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Servicios */
+    .servicios {
+      background-color: #f8f9fa;
+    }
+    
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .servicio-card {
+      background: white;
+      border-radius: 10px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+      border-top: 4px solid var(--primary);
+    }
+    
+    .servicio-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--secondary);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+    
+    .servicio-card:hover::after {
+      transform: translateX(0);
+    }
+    
+    .servicio-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .servicio-card .icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(26, 58, 108, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      color: var(--primary);
+      font-size: 2rem;
+    }
+    
+    .servicio-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    .servicio-card .price {
+      font-size: 1.8rem;
+      color: var(--secondary);
+      font-weight: 700;
+      margin: 20px 0;
+    }
+    
+    .servicio-card .price-note {
+      font-size: 0.9rem;
+      color: #777;
+    }
+    
+    .servicio-features {
+      text-align: left;
+      margin: 20px 0;
+    }
+    
+    .servicio-features li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px;
+    }
+    
+    .servicio-features li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 5 Free';
       font-weight: 900;
-      font-size: 48px;
-      fill: #2A307B;
-      user-select: none;
-      text-anchor: middle;
-      animation: text-glow 3s ease-in-out infinite alternate;
+      position: absolute;
+      left: 0;
+      color: var(--secondary);
     }
     
-    @keyframes text-glow {
-      0% { filter: drop-shadow(0 0 2px #2A307B); }
-      100% { filter: drop-shadow(0 0 8px #4a5bff); }
+    /* Beneficios */
+    .beneficios {
+      background: linear-gradient(135deg, var(--primary), #2a307b);
+      color: white;
     }
     
-    /* Resto de tus estilos... */
-    /* ... (Manteniendo todos tus estilos existentes) ... */
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
     
+    .beneficio-card {
+      text-align: center;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+    
+    .beneficio-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .beneficio-card .icon {
+      font-size: 3rem;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+    
+    .beneficio-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+    
+    /* Proyectos */
+    .proyectos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .proyecto-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .proyecto-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(26, 58, 108, 0.8);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+    
+    .proyecto-card:hover::before {
+      opacity: 1;
+    }
+    
+    .proyecto-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .proyecto-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .proyecto-info {
+      padding: 25px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .proyecto-card:hover .proyecto-info {
+      color: white;
+    }
+    
+    .proyecto-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    .proyecto-card:hover .proyecto-info h3 {
+      color: white;
+    }
+    
+    .proyecto-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+    
+    /* Testimonios */
+    .testimonios {
+      background-color: #f8f9fa;
+    }
+    
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .testimonio-card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+    
+    .testimonio-card::before {
+      content: '\201C';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 5rem;
+      color: rgba(26, 58, 108, 0.1);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    
+    .testimonio-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonio-text {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    
+    .testimonio-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .testimonio-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+      object-fit: cover;
+    }
+    
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, var(--primary), #2a307b);
+      color: white;
+      text-align: center;
+      padding: 80px 0;
+    }
+    
+    .cta-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .cta-subtitle {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    
+    /* Contacto */
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+    }
+    
+    .contacto-info {
+      margin-bottom: 30px;
+    }
+    
+    .contacto-info h3 {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .contacto-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    
+    .contacto-item .icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    
+    .contacto-form .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .contacto-form input,
+    .contacto-form textarea,
+    .contacto-form select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+    }
+    
+    .contacto-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 60px 0 30px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: left;
+    }
+    
+    .footer-col h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--secondary);
+    }
+    
+    .footer-links a {
+      display: block;
+      color: #ddd;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--secondary);
+      transform: translateX(5px);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-top: 50px;
+    }
+    
+    /* Animaciones */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      .navbar-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: clip-path 0.4s ease;
+      }
+      
+      .navbar-links.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
@@ -162,7 +745,7 @@
   <nav class="navbar">
     <div class="container">
       <a href="#inicio" class="logo">
-        <!-- Logo SVG con animación binaria -->
+        <!-- Logo SVG -->
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
            viewBox="0 0 386.28 188.89" style="enable-background:new 0 0 386.28 188.89;" xml:space="preserve" class="logo-svg">
           <style type="text/css">
@@ -171,20 +754,11 @@
             .st2{fill:#2A307B;stroke:#2A307B;stroke-width:5.5696;stroke-miterlimit:10;}
             .st3{fill:#2A307B;}
           </style>
-          <!-- Líneas horizontales rojas animadas -->
           <rect x="25.83" y="22.26" class="st0" width="160.94" height="17.4"/>
-          <rect x="25.83" y="65" class="st0" width="160.94" height="17.4"/>
           <rect x="25.83" y="106.15" class="st0" width="160.94" height="17.4"/>
-          
-          <!-- Línea gris horizontal gruesa -->
+          <rect x="25.83" y="65" class="st0" width="160.94" height="17.4"/>
           <line class="st1" x1="59.23" y1="154" x2="191.4" y2="154"/>
-          
-          <!-- Grupo para línea diagonal azul (animado) -->
-          <g id="diagonal-group" transform="translate(0,0)">
-            <rect x="25.26" y="80.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)" class="st2" width="190.22" height="17.27"/>
-          </g>
-          
-          <!-- Resto del logo sin animación -->
+          <rect x="25.26" y="80.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)" class="st2" width="190.22" height="17.27"/>
           <path d="M205.86,18.15h9.56V9.81h11.39v8.34h40.89l1.93,10.98c-10.78,9.97-23.19,18.21-34.68,24.21l-5.9-10.27
             c7.93-3.66,14.65-7.83,21.26-12.82h-23.5v54.11h-11.39V30.26h-9.56V18.15z M246.85,52.53c7.63,8.44,14.75,17.6,21.46,27.56
             l-9.36,7.32c-6.31-9.87-13.83-19.22-21.46-27.56L246.85,52.53z"/>
@@ -194,9 +768,6 @@
             c20.04,0,40.89-12,40.89-32.95V107.27z"/>
           <path d="M337.38,131.28v9.66c0,14.54-5.19,22.07-19.63,22.07h-35.8v-12.1h35.6c6.71,0,8.54-3.26,8.54-9.97v-9.66h-26.24
             c-9.15,0-14.14-5.39-14.14-15.16v-8.85h-6.81v-12.1h58.89v12.1H297v8.85c0,2.03,0.61,2.95,2.85,2.95h40.99v12.21H337.38z"/>
-          
-          <!-- Texto animado "REDS" -->
-          <text class="reds-text-animated" x="193" y="150">REDS</text>
         </svg>
       </a>
       <div class="navbar-links">
@@ -234,7 +805,71 @@
       <p class="section-subtitle">Soluciones técnicas especializadas para cada fase de su proyecto</p>
       
       <div class="servicios-grid">
-        <!-- ... (Manteniendo el contenido de servicios) ... -->
+        <div class="servicio-card">
+          <div class="icon">
+            <i class="fas fa-bridge fa-3x"></i>
+          </div>
+          <h3>Diseño Estructural</h3>
+          <p>Análisis y diseño de estructuras con tecnología BIM y las últimas normativas sismorresistentes</p>
+          
+          <div class="servicio-features">
+            <ul>
+              <li>Modelado BIM con Revit</li>
+              <li>Análisis con ETABS y SAP2000</li>
+              <li>Cumplimiento normativo ACI, AISC</li>
+              <li>Optimización de materiales</li>
+              <li>Documentación técnica completa</li>
+            </ul>
+          </div>
+          
+          <div class="price">Desde $1,500</div>
+          <div class="price-note">*Precio varía según complejidad del proyecto</div>
+          <a href="#contacto" class="btn btn-primary">Solicitar Análisis</a>
+        </div>
+        
+        <div class="servicio-card">
+          <div class="icon">
+            <i class="fas fa-road fa-3x"></i>
+          </div>
+          <h3>Ingeniería Vial</h3>
+          <p>Diseño de infraestructura vial y transporte con enfoque en seguridad y eficiencia</p>
+          
+          <div class="servicio-features">
+            <ul>
+              <li>Diseño con AutoCAD Civil 3D</li>
+              <li>Análisis de tráfico y capacidad</li>
+              <li>Estudios de impacto vial</li>
+              <li>Cumplimiento AASHTO</li>
+              <li>Optimización de rutas</li>
+            </ul>
+          </div>
+          
+          <div class="price">Desde $2,000</div>
+          <div class="price-note">*Precio varía según extensión del proyecto</div>
+          <a href="#contacto" class="btn btn-primary">Consultar Proyecto</a>
+        </div>
+        
+        <div class="servicio-card">
+          <div class="icon">
+            <i class="fas fa-building fa-3x"></i>
+          </div>
+          <h3>Gestión de Obras</h3>
+          <p>Control y supervisión de proyectos con metodologías ágiles y seguimiento en tiempo real</p>
+          
+          <div class="servicio-features">
+            <ul>
+              <li>Supervisión técnica</li>
+              <li>Control de calidad</li>
+              <li>Gestión de contratos</li>
+              <li>Optimización de recursos</li>
+              <li>Reportes de avance</li>
+            </ul>
+          </div>
+          
+          <div class="price">Desde $3,500/mes</div>
+          <div class="price-note">*Tarifa mensual por supervisión continua</div>
+          <a href="#contacto" class="btn btn-primary">Planificar Proyecto</a>
+        </div>
       </div>
     </div>
   </section>
@@ -246,7 +881,37 @@
       <p class="section-subtitle">Ventajas competitivas que marcan la diferencia en sus proyectos</p>
       
       <div class="beneficios-grid">
-        <!-- ... (Manteniendo el contenido de beneficios) ... -->
+        <div class="beneficio-card">
+          <div class="icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Expertos Certificados</h3>
+          <p>Equipo de ingenieros con maestrías y especializaciones en las áreas clave de construcción y gestión de proyectos</p>
+        </div>
+        
+        <div class="beneficio-card">
+          <div class="icon">
+            <i class="fas fa-clipboard-check"></i>
+          </div>
+          <h3>Cumplimiento Normativo</h3>
+          <p>Garantizamos que todos los diseños cumplen con normativas nacionales e internacionales (ACI, AISC, AASHTO, NEC)</p>
+        </div>
+        
+        <div class="beneficio-card">
+          <div class="icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Tecnología de Vanguardia</h3>
+          <p>Utilizamos software BIM, GIS y herramientas de análisis estructural para resultados precisos y optimizados</p>
+        </div>
+        
+        <div class="beneficio-card">
+          <div class="icon">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <h3>Optimización de Costos</h3>
+          <p>Nuestros diseños maximizan eficiencia y minimizan costos sin comprometer seguridad ni calidad</p>
+        </div>
       </div>
     </div>
   </section>
@@ -258,7 +923,41 @@
       <p class="section-subtitle">Casos de éxito que demuestran nuestra experiencia y capacidad</p>
       
       <div class="proyectos-grid">
-        <!-- ... (Manteniendo el contenido de proyectos) ... -->
+        <div class="proyecto-card">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Residencia Ñamiña" class="proyecto-img">
+          <div class="proyecto-info">
+            <h3>Residencia Sr. Manuel Jesús Ñamiña</h3>
+            <p>Diseño estructural para vivienda de 3 niveles con locales comerciales. Sistema de pórticos especiales de hormigón armado con losa nervada en dos direcciones.</p>
+            <div class="proyecto-meta">
+              <span>Monto: $144,168</span>
+              <span>6 meses</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="proyecto-card">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1031&q=80" alt="Bodega Simbaina" class="proyecto-img">
+          <div class="proyecto-info">
+            <h3>Bodega Sr. Segundo Simbaina</h3>
+            <p>Ampliación estructural con uso mixto de hormigón armado y acero estructural. Diseño de entrepiso adicional con losa colaborante.</p>
+            <div class="proyecto-meta">
+              <span>Monto: $92,750</span>
+              <span>4 meses</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="proyecto-card">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Residencia Rosas Dutan" class="proyecto-img">
+          <div class="proyecto-info">
+            <h3>Residencia Sra. María Luz Rosas Dután</h3>
+            <p>Vivienda con planta baja comercial y departamentos en niveles superiores. Solución estructural monolítica adaptada a desnivel del terreno.</p>
+            <div class="proyecto-meta">
+              <span>Monto: $370,242</span>
+              <span>8 meses</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -270,7 +969,50 @@
       <p class="section-subtitle">Experiencias reales de proyectos exitosos</p>
       
       <div class="testimonios-grid">
-        <!-- ... (Manteniendo el contenido de testimonios) ... -->
+        <div class="testimonio-card">
+          <div class="testimonio-content">
+            <div class="testimonio-text">
+              "REDS transformó nuestro proyecto con su enfoque técnico y conocimiento normativo. El diseño estructural no solo cumplió con todos los requisitos, sino que también optimizó nuestros costos en un 15%."
+            </div>
+            <div class="testimonio-author">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente">
+              <div>
+                <strong>Manuel Jesús Ñamiña</strong>
+                <div>Cliente Residencial</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonio-card">
+          <div class="testimonio-content">
+            <div class="testimonio-text">
+              "La gestión de obra realizada por REDS fue fundamental para completar nuestro proyecto a tiempo y dentro del presupuesto. Su atención al detalle y conocimiento de normativas nos evitó múltiples problemas."
+            </div>
+            <div class="testimonio-author">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente">
+              <div>
+                <strong>María Luz Rosas Dután</strong>
+                <div>Cliente Comercial</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonio-card">
+          <div class="testimonio-content">
+            <div class="testimonio-text">
+              "Contratamos a REDS para el diseño vial de nuestro proyecto urbano. Su solución no solo cumplió con las normativas, sino que mejoró significativamente la fluidez del tráfico en la zona."
+            </div>
+            <div class="testimonio-author">
+              <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Cliente">
+              <div>
+                <strong>Diego Serrano Vásquez</strong>
+                <div>Municipalidad de Cuenca</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -291,7 +1033,93 @@
       <p class="section-subtitle">Estamos listos para responder sus preguntas y comenzar a trabajar en su proyecto</p>
       
       <div class="contacto-grid">
-        <!-- ... (Manteniendo el contenido de contacto) ... -->
+        <div>
+          <div class="contacto-info">
+            <h3>Información de contacto</h3>
+            <div class="contacto-item">
+              <div class="icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <strong>Ubicación:</strong>
+                <p>Cuenca, Ecuador</p>
+              </div>
+            </div>
+            
+            <div class="contacto-item">
+              <div class="icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <strong>Teléfono:</strong>
+                <p>+593 098 224 2982</p>
+              </div>
+            </div>
+            
+            <div class="contacto-item">
+              <div class="icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <strong>Email:</strong>
+                <p>p.rojas.77@hotmail.com</p>
+              </div>
+            </div>
+            
+            <div class="contacto-item">
+              <div class="icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <strong>Horario:</strong>
+                <p>Lun-Vie: 8:00 - 17:00</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contacto-info">
+            <h3>Síganos</h3>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contacto-form">
+          <h3>Envíenos un mensaje</h3>
+          <form>
+            <div class="form-group">
+              <input type="text" placeholder="Nombre completo" required>
+            </div>
+            
+            <div class="form-group">
+              <input type="email" placeholder="Correo electrónico" required>
+            </div>
+            
+            <div class="form-group">
+              <input type="tel" placeholder="Teléfono">
+            </div>
+            
+            <div class="form-group">
+              <select required>
+                <option value="" disabled selected>Seleccione un servicio</option>
+                <option value="diseño">Diseño Estructural</option>
+                <option value="vial">Ingeniería Vial</option>
+                <option value="gestion">Gestión de Obras</option>
+                <option value="otros">Otros servicios</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <textarea placeholder="Describa su proyecto o consulta" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -302,7 +1130,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <a href="#inicio" class="logo">
-            <!-- Logo SVG con animación binaria -->
+            <!-- Logo SVG -->
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                viewBox="0 0 386.28 188.89" style="enable-background:new 0 0 386.28 188.89;" xml:space="preserve" class="logo-svg" width="120">
               <style type="text/css">
@@ -325,9 +1153,6 @@
                 c20.04,0,40.89-12,40.89-32.95V107.27z"/>
               <path d="M337.38,131.28v9.66c0,14.54-5.19,22.07-19.63,22.07h-35.8v-12.1h35.6c6.71,0,8.54-3.26,8.54-9.97v-9.66h-26.24
                 c-9.15,0-14.14-5.39-14.14-15.16v-8.85h-6.81v-12.1h58.89v12.1H297v8.85c0,2.03,0.61,2.95,2.85,2.95h40.99v12.21H337.38z"/>
-              
-              <!-- Texto animado "REDS" -->
-              <text class="reds-text-animated" x="193" y="150">REDS</text>
             </svg>
           </a>
           <p>Soluciones técnicas con visión estratégica para proyectos de ingeniería y construcción.</p>
@@ -449,47 +1274,6 @@
           contactForm.reset();
         });
       }
-
-      // Animación binaria para el texto "REDS" en los logos
-      const textElems = document.querySelectorAll('.reds-text-animated');
-      const originalText = "REDS";
-      const binaryChars = ['0', '1'];
-      
-      function getRandomBinaryString(length) {
-        let str = "";
-        for (let i = 0; i < length; i++) {
-          str += binaryChars[Math.floor(Math.random() * binaryChars.length)];
-        }
-        return str;
-      }
-      
-      function animateBinary(elem, times, interval) {
-        let count = 0;
-        const maxCount = times;
-        
-        const anim = setInterval(() => {
-          if (count >= maxCount) {
-            clearInterval(anim);
-            elem.textContent = originalText;
-          } else {
-            elem.textContent = getRandomBinaryString(originalText.length);
-            count++;
-          }
-        }, interval);
-      }
-      
-      // Iniciar animación para todos los elementos de texto
-      textElems.forEach(elem => {
-        // Animación inicial
-        setTimeout(() => {
-          animateBinary(elem, 20, 70);
-        }, 1000);
-        
-        // Repetir cada 4 segundos
-        setInterval(() => {
-          animateBinary(elem, 20, 70);
-        }, 4000);
-      });
     });
   </script>
 </body>
