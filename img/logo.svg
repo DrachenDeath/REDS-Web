@@ -10,8 +10,7 @@
     stroke-width: 9.1415;
     stroke-miterlimit: 10;
     animation: sticker-bounce 0.4s ease forwards;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation-iteration-count: 1; /* solo una vez */
   }
 
   .st1 {
@@ -36,21 +35,21 @@
     animation: diagonal-slide 3s ease forwards;
   }
 
-  /* Animación "sticker": se mueve 5px a la derecha y vuelve */
+  /* Movimiento pegado y vuelta, termina y queda original */
   @keyframes sticker-bounce {
     0% { transform: translateX(0); }
     50% { transform: translateX(5px); }
     100% { transform: translateX(0); }
   }
 
-  /* Animación diagonal: mueve 15px diagonal y queda fija */
+  /* Línea diagonal se mueve 15px en diagonal y queda fija */
   @keyframes diagonal-slide {
     0% { transform: translate(0, 0); }
     100% { transform: translate(15px, -15px); }
   }
 </style>
 
-<!-- Líneas horizontales rojas animadas -->
+<!-- Líneas horizontales rojas animadas una vez -->
 <rect x="25.83" y="22.26" class="st0" width="160.94" height="17.4"/>
 <rect x="25.83" y="65" class="st0" width="160.94" height="17.4"/>
 <rect x="25.83" y="106.15" class="st0" width="160.94" height="17.4"/>
@@ -58,7 +57,7 @@
 <!-- Línea gris horizontal gruesa -->
 <line class="st1" x1="59.23" y1="154" x2="191.4" y2="154"/>
 
-<!-- Línea diagonal azul animada en grupo -->
+<!-- Línea diagonal azul animada -->
 <g class="diagonal-group">
   <rect x="25.26" y="80.18"
         transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)"
