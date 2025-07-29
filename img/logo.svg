@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" 
      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 386.28 188.89" style="enable-background:new 0 0 386.28 188.89;" xml:space="preserve">
@@ -50,15 +51,6 @@
     animation: diagonal-bounce 0.6s ease forwards;
     animation-iteration-count: 1;
   }
-
-  /* Texto animado */
-  #reds-text {
-    font-family: monospace, monospace;
-    font-weight: bold;
-    font-size: 40px;
-    fill: #2A307B;
-    user-select: none;
-  }
 </style>
 
 <!-- Líneas horizontales rojas animadas -->
@@ -84,41 +76,4 @@
   c20.04,0,40.89-12,40.89-32.95V107.27z"/>
 <path d="M337.38,131.28v9.66c0,14.54-5.19,22.07-19.63,22.07h-35.8v-12.1h35.6c6.71,0,8.54-3.26,8.54-9.97v-9.66h-26.24
   c-9.15,0-14.14-5.39-14.14-15.16v-8.85h-6.81v-12.1h58.89v12.1H297v8.85c0,2.03,0.61,2.95,2.85,2.95h40.99v12.21H337.38z"/>
-
-<!-- Texto animado "REDS" -->
-<text id="reds-text" x="200" y="140">REDS</text>
-
-<script type="application/ecmascript"><![CDATA[
-  const textElem = document.getElementById('reds-text');
-  const originalText = "REDS";
-  const binaryChars = ['0', '1'];
-
-  function getRandomBinaryString(length) {
-    let str = "";
-    for (let i = 0; i < length; i++) {
-      str += binaryChars[Math.floor(Math.random() * binaryChars.length)];
-    }
-    return str;
-  }
-
-  function animateBinary(times, interval, callback) {
-    let count = 0;
-    const maxCount = times;
-    const anim = setInterval(() => {
-      if (count >= maxCount) {
-        clearInterval(anim);
-        callback();
-      } else {
-        textElem.textContent = getRandomBinaryString(originalText.length);
-        count++;
-      }
-    }, interval);
-  }
-
-  // Ejecutar animación y luego volver al texto original
-  animateBinary(20, 70, () => {
-    textElem.textContent = originalText;
-  });
-]]></script>
-
 </svg>
