@@ -1,191 +1,232 @@
-/* Base */
-body {
-  font-family: 'Roboto', sans-serif;
+/* Variables de color */
+:root {
+  --primary-color: #2A307B;
+  --secondary-color: #D02027;
+  --text-color: #343239;
+  --light-color: #f9f9f9;
+  --dark-color: #111;
+  --gray: #777;
+}
+
+/* Reset básico */
+* {
   margin: 0;
   padding: 0;
-  color: #343239;
-  background-color: #f8f8f8;
+  box-sizing: border-box;
 }
-a {
-  text-decoration: none;
-  color: inherit;
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: white;
 }
+
 .container {
+  width: 90%;
   max-width: 1200px;
-  margin: auto;
-  padding: 0 1rem;
+  margin: 0 auto;
 }
 
 /* Navbar */
 .navbar {
-  background: #fff;
-  border-bottom: 2px solid #ddd;
+  background-color: white;
   padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 999;
 }
+
 .navbar .logo svg {
-  max-width: 150px;
+  height: 40px;
+  animation: slide-horizontal 4s ease-in-out infinite;
 }
-.navbar-links {
+
+.navbar .navbar-links {
   display: flex;
   gap: 1.5rem;
+  justify-content: flex-end;
+  align-items: center;
 }
-.nav-link {
-  font-weight: 600;
-  color: #2A307B;
+
+.navbar .nav-link {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
 }
-.menu-toggle {
+
+.navbar .menu-toggle {
   display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
 }
 
 /* Hero */
 .hero {
-  background: linear-gradient(to right, #2A307B, #D02027);
-  color: #fff;
+  background-color: var(--light-color);
   padding: 5rem 0;
   text-align: center;
 }
+
 .hero-title {
   font-size: 2.5rem;
+  color: var(--primary-color);
   margin-bottom: 1rem;
 }
+
 .hero-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  color: var(--gray);
   margin-bottom: 2rem;
 }
+
 .btn {
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 5px;
-  font-weight: 600;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: white;
   cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
-.btn-primary {
-  background-color: #fff;
-  color: #2A307B;
-}
-.btn-primary:hover {
-  background-color: #f0f0f0;
+
+.btn:hover {
+  background-color: var(--secondary-color);
 }
 
 /* Secciones */
 .section {
   padding: 4rem 0;
-  background-color: #fff;
 }
+
 .section-title {
   text-align: center;
   font-size: 2rem;
-  color: #2A307B;
-  margin-bottom: 1rem;
-}
-.section-subtitle {
-  text-align: center;
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 3rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
 }
 
-/* Sobre mí */
-.sobre-mi-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
-}
-.sobre-mi-info p {
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-.sobre-mi-img img {
-  width: 100%;
-  border-radius: 10px;
-  object-fit: cover;
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--gray);
 }
 
 /* Servicios */
 .servicios-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
+
 .servicio-card {
-  background: #f5f5f5;
+  background-color: var(--light-color);
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 8px;
   text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.servicio-card .icon {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
 }
 
 /* Proyectos */
 .proyectos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
+
 .proyecto-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
+
 .proyecto-img {
   width: 100%;
+  display: block;
   height: 200px;
   object-fit: cover;
 }
+
 .proyecto-info {
   padding: 1rem;
 }
 
 /* Contacto */
 .contacto-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
 }
-.contact-form .form-control {
+
+.contact-info,
+.contact-form {
+  flex: 1;
+  min-width: 280px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
   width: 100%;
   padding: 0.75rem;
-  margin-bottom: 1rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.btn-full {
-  width: 100%;
+  border-radius: 4px;
 }
 
 /* Footer */
 .footer {
-  background: #2A307B;
-  color: #fff;
-  padding: 3rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 4rem 0 2rem;
 }
+
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
   margin-bottom: 2rem;
 }
+
 .footer-col h4 {
   margin-bottom: 1rem;
+  color: white;
 }
-.footer-form input {
-  width: 100%;
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: none;
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
   margin-bottom: 0.5rem;
 }
+
+.footer-col a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 1rem;
   text-align: center;
   font-size: 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 1rem;
+}
+
+.legal-links a {
+  margin: 0 0.5rem;
+  color: white;
+  text-decoration: underline;
+  font-size: 0.85rem;
 }
 
 /* WhatsApp */
@@ -193,13 +234,37 @@ a {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #25d366;
-  color: #fff;
-  padding: 0.8rem 1rem;
+  background-color: #25d366;
+  color: white;
   border-radius: 50%;
-  font-size: 1.8rem;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   z-index: 1000;
 }
-.whatsapp-float:hover {
-  background-color: #128c7e;
+
+/* Animaciones para el logo */
+@keyframes slide-horizontal {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
 }
+
+@keyframes slide-vertical {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* Aplicar slide-vertical a la línea diagonal si se separa del logo SVG */
+/* Puedes usar una clase como .logo-diagonal si la extraes */
