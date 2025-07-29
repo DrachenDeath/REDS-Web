@@ -10,7 +10,7 @@
     /* Variables y reset */
     :root {
       --primary: #1a3a6c;
-      --secondary: #f39c12;
+      --secondary: #d02027;
       --accent: #2c3e50;
       --light: #ecf0f1;
       --dark: #2c3e50;
@@ -64,7 +64,7 @@
     }
     
     /* Animación del logo */
-    .logo svg {
+    .logo-svg {
       width: 150px;
       animation: logoFloat 6s ease-in-out infinite;
       transition: var(--transition);
@@ -175,13 +175,13 @@
     .btn-primary {
       background-color: var(--secondary);
       color: white;
-      box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+      box-shadow: 0 4px 15px rgba(208, 32, 39, 0.3);
     }
     
     .btn-primary:hover {
-      background-color: #e67e22;
+      background-color: #b21c22;
       transform: translateY(-3px);
-      box-shadow: 0 7px 20px rgba(243, 156, 18, 0.4);
+      box-shadow: 0 7px 20px rgba(208, 32, 39, 0.4);
     }
     
     /* Secciones */
@@ -285,6 +285,75 @@
       color: var(--primary);
     }
     
+    /* Experiencia */
+    .experiencia {
+      background: linear-gradient(rgba(26, 58, 108, 0.9), rgba(26, 58, 108, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a3a6c"/><path d="M0 0L100 100M100 0L0 100" stroke="%232a307b" stroke-width="1"/></svg>');
+      background-size: 200px;
+      color: white;
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--secondary);
+      left: 50%;
+      margin-left: -2px;
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      width: 100%;
+    }
+    
+    .timeline-content {
+      position: relative;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      width: 45%;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content {
+      left: 0;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content {
+      left: 55%;
+    }
+    
+    .timeline-content h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: white;
+    }
+    
+    .timeline-content .date {
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
+    
+    .timeline-content .monto {
+      font-weight: 500;
+      background: rgba(208, 32, 39, 0.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    
     /* Proyectos */
     .proyectos-grid {
       display: grid;
@@ -320,6 +389,95 @@
       font-size: 1.4rem;
       margin-bottom: 15px;
       color: var(--primary);
+    }
+    
+    /* Formación */
+    .formacion {
+      background-color: #f8f9fa;
+    }
+    
+    .formacion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .formacion-card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .formacion-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .formacion-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    .formacion-card .institucion {
+      font-weight: 500;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .formacion-card .fecha {
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+    
+    /* Habilidades */
+    .habilidades-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .habilidad-categoria {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .habilidad-categoria h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 10px;
+    }
+    
+    .habilidad-item {
+      margin-bottom: 15px;
+    }
+    
+    .habilidad-nombre {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    
+    .habilidad-bar {
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .habilidad-progreso {
+      height: 100%;
+      background: var(--secondary);
+      border-radius: 4px;
     }
     
     /* Animaciones */
@@ -392,6 +550,19 @@
       .hero-title {
         font-size: 3rem;
       }
+      
+      .timeline::before {
+        left: 31px;
+      }
+      
+      .timeline-content {
+        width: calc(100% - 80px);
+        margin-left: 80px;
+      }
+      
+      .timeline-item:nth-child(even) .timeline-content {
+        left: 0;
+      }
     }
     
     @media (max-width: 768px) {
@@ -424,6 +595,11 @@
       .hero-subtitle {
         font-size: 1.2rem;
       }
+      
+      .timeline-content {
+        width: calc(100% - 40px);
+        margin-left: 40px;
+      }
     }
   </style>
 </head>
@@ -432,23 +608,37 @@
   <nav class="navbar">
     <div class="container">
       <a href="#inicio" class="logo">
-        <!-- SVG del logo simplificado con animación -->
-        <svg width="150" viewBox="0 0 386.28 188.89">
-          <defs>
-            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#1a3a6c" />
-              <stop offset="100%" stop-color="#f39c12" />
-            </linearGradient>
-          </defs>
-          <path d="M120.5,50.5c0,27.9-22.6,50.5-50.5,50.5S19.5,78.4,19.5,50.5S42.1,0,70,0S120.5,22.6,120.5,50.5z" fill="url(#logoGradient)"/>
-          <text x="150" y="60" font-family="Montserrat" font-weight="700" font-size="40" fill="#1a3a6c">REDS</text>
-          <text x="150" y="100" font-family="Roboto" font-weight="300" font-size="18" fill="#2c3e50">Ingeniería & Construcción</text>
+        <!-- Logo SVG proporcionado -->
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 386.28 188.89" style="enable-background:new 0 0 386.28 188.89;" xml:space="preserve" class="logo-svg">
+          <style type="text/css">
+            .st0{fill:#D02027;stroke:#D02027;stroke-width:9.1415;stroke-miterlimit:10;}
+            .st1{fill:none;stroke:#343239;stroke-width:24.2399;stroke-miterlimit:10;}
+            .st2{fill:#2A307B;stroke:#2A307B;stroke-width:5.5696;stroke-miterlimit:10;}
+            .st3{fill:#2A307B;}
+          </style>
+          <rect x="25.83" y="22.26" class="st0" width="160.94" height="17.4"/>
+          <rect x="25.83" y="106.15" class="st0" width="160.94" height="17.4"/>
+          <rect x="25.83" y="65" class="st0" width="160.94" height="17.4"/>
+          <line class="st1" x1="59.23" y1="154" x2="191.4" y2="154"/>
+          <rect x="25.26" y="80.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)" class="st2" width="190.22" height="17.27"/>
+          <path d="M205.86,18.15h9.56V9.81h11.39v8.34h40.89l1.93,10.98c-10.78,9.97-23.19,18.21-34.68,24.21l-5.9-10.27
+            c7.93-3.66,14.65-7.83,21.26-12.82h-23.5v54.11h-11.39V30.26h-9.56V18.15z M246.85,52.53c7.63,8.44,14.75,17.6,21.46,27.56
+            l-9.36,7.32c-6.31-9.87-13.83-19.22-21.46-27.56L246.85,52.53z"/>
+          <path d="M275.93,19.58h48.72v12.1h-29.7v12h41.9v12.21h-41.9v9.46c0,6.71,1.83,9.97,8.44,9.97h29.8l-2.75,12.1h-27.26
+            c-14.44,0-19.63-7.53-19.63-22.07v-9.46h-9.66V43.68h9.66v-12h-7.63V19.58z"/>
+          <path class="st3" d="M259.68,107.27h-32.24v25.02h-11.29V95.17h54.92v22.17c0,28.48-23.39,43.63-48.72,45.67l-3.56-12
+            c20.04,0,40.89-12,40.89-32.95V107.27z"/>
+          <path d="M337.38,131.28v9.66c0,14.54-5.19,22.07-19.63,22.07h-35.8v-12.1h35.6c6.71,0,8.54-3.26,8.54-9.97v-9.66h-26.24
+            c-9.15,0-14.14-5.39-14.14-15.16v-8.85h-6.81v-12.1h58.89v12.1H297v8.85c0,2.03,0.61,2.95,2.85,2.95h40.99v12.21H337.38z"/>
         </svg>
       </a>
       <div class="navbar-links">
         <a href="#inicio" class="nav-link">Inicio</a>
         <a href="#sobre-mi" class="nav-link">Sobre mí</a>
-        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#experiencia" class="nav-link">Experiencia</a>
+        <a href="#formacion" class="nav-link">Formación</a>
+        <a href="#habilidades" class="nav-link">Habilidades</a>
         <a href="#proyectos" class="nav-link">Proyectos</a>
         <a href="#contacto" class="nav-link">Contacto</a>
       </div>
@@ -464,7 +654,7 @@
       <div class="hero-content">
         <h1 class="hero-title">Soluciones técnicas con visión estratégica</h1>
         <p class="hero-subtitle">Innovación en ingeniería y construcción para un futuro sostenible</p>
-        <a href="#servicios" class="btn btn-primary">Nuestros servicios</a>
+        <a href="#sobre-mi" class="btn btn-primary">Conoce mi trayectoria</a>
       </div>
     </div>
   </header>
@@ -478,7 +668,9 @@
         <div class="sobre-mi-info">
           <p>Soy <strong>Francisco Antonio Rojas Rosas</strong>, ingeniero civil con especialización en Gerencia de la Construcción y maestrías en Gerencia de Proyectos y en Ingeniería Vial. He trabajado en estudios geotécnicos, estructurales, hidrosanitarios y en la ejecución de obras públicas y privadas.</p>
           <p>Mi enfoque combina el dominio técnico con la gestión eficiente de recursos y cumplimiento normativo. Manejo herramientas como AutoCAD Civil 3D, Revit, ETABS, SAP2000 y GIS, y aplico estándares internacionales (ACI, AISC, AASHTO) en cada etapa del proyecto.</p>
-          <a href="#" class="btn btn-primary" download>Descargar CV</a>
+          <a href="CV_ESP_RELACIONADO CON ING CIVIL.pdf" class="btn btn-primary" download>
+            <i class="fas fa-download"></i> Descargar CV
+          </a>
         </div>
         <div class="sobre-mi-img">
           <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Francisco A. Rojas">
@@ -487,32 +679,224 @@
     </div>
   </section>
 
-  <!-- Servicios -->
-  <section id="servicios" class="section servicios">
+  <!-- Experiencia -->
+  <section id="experiencia" class="section experiencia">
     <div class="container">
-      <h2 class="section-title">Nuestros Servicios</h2>
-      <p class="section-subtitle">Soluciones integrales adaptadas a las necesidades de cada proyecto</p>
-      <div class="servicios-grid">
-        <div class="servicio-card">
-          <div class="icon">
-            <i class="fas fa-bridge fa-3x"></i>
+      <h2 class="section-title">Experiencia Profesional</h2>
+      <p class="section-subtitle">Proyectos destacados en mi carrera</p>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="date">2024</div>
+            <h3>Residente de Obra</h3>
+            <p>Mantenimiento de 15 Unidades Médicas – CPSSCA</p>
+            <div class="monto">Monto: $370,242.93</div>
+            <p>Pichincha, Ecuador</p>
           </div>
-          <h3>Diseño Estructural</h3>
-          <p>Análisis y diseño de estructuras con tecnología BIM y las últimas normativas sismorresistentes</p>
         </div>
-        <div class="servicio-card">
-          <div class="icon">
-            <i class="fas fa-road fa-3x"></i>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="date">2024</div>
+            <h3>Obras Viales y Urbanas</h3>
+            <p>Proyecto Calle Miguel Arias y otras</p>
+            <div class="monto">Monto: $92,750.00</div>
+            <p>Azuay, Ecuador</p>
           </div>
-          <h3>Ingeniería Vial</h3>
-          <p>Diseño de infraestructura vial y transporte con enfoque en seguridad y eficiencia</p>
         </div>
-        <div class="servicio-card">
-          <div class="icon">
-            <i class="fas fa-building fa-3x"></i>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="date">2023</div>
+            <h3>Proyectos Municipales</h3>
+            <p>Parque Barrial Guadalupana – Cañar</p>
+            <p>Feria de Productores – Cañar</p>
+            <p>Centro de Capacitación – Sector Guantug</p>
+            <div class="monto">Monto total: $63,810.00</div>
           </div>
-          <h3>Gestión de Obras</h3>
-          <p>Control y supervisión de proyectos con metodologías ágiles y seguimiento en tiempo real</p>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="date">2023</div>
+            <h3>Residente de Obra</h3>
+            <p>Pasos de Agua en General Morales y Chontamarca</p>
+            <div class="monto">Monto: $73,385.53</div>
+            <p>Cañar, Ecuador</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="date">2022</div>
+            <h3>Residente de Obra</h3>
+            <p>Primera Etapa Junta Parroquial de Ventura</p>
+            <div class="monto">Monto: $144,168.11</div>
+            <p>Cañar, Ecuador</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formación -->
+  <section id="formacion" class="section formacion">
+    <div class="container">
+      <h2 class="section-title">Formación Académica</h2>
+      <p class="section-subtitle">Mi trayectoria educativa y capacitaciones</p>
+      
+      <div class="formacion-grid">
+        <div class="formacion-card">
+          <h3>Magíster en Vialidad y Transporte</h3>
+          <span class="institucion">Universidad Politécnica Salesiana</span>
+          <span class="fecha">En curso (2024)</span>
+          <p>Especialización en diseño y gestión de infraestructura vial y sistemas de transporte.</p>
+        </div>
+        
+        <div class="formacion-card">
+          <h3>Máster en Dirección de Empresas y Gestión de Proyectos</h3>
+          <span class="institucion">EUDE European Business School</span>
+          <span class="fecha">2021</span>
+          <p>Enfoque en gestión estratégica, dirección de equipos y metodologías de gestión de proyectos.</p>
+        </div>
+        
+        <div class="formacion-card">
+          <h3>Ingeniero Civil con Mención en Gerencia en Construcción</h3>
+          <span class="institucion">Universidad del Azuay</span>
+          <span class="fecha">2022</span>
+          <p>Formación técnica en ingeniería civil con especialización en gestión de construcción.</p>
+        </div>
+        
+        <div class="formacion-card">
+          <h3>Diplomados Relevantes</h3>
+          <span class="institucion">EPEC (2020)</span>
+          <ul style="text-align: left; margin-top: 15px;">
+            <li>Diseño y Cálculo de Cimentaciones</li>
+            <li>Ingeniería de Puentes</li>
+            <li>Geotecnia Aplicada</li>
+            <li>Estructuras</li>
+            <li>Gestión de Proyectos Viales</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Habilidades -->
+  <section id="habilidades" class="section">
+    <div class="container">
+      <h2 class="section-title">Habilidades y Tecnologías</h2>
+      <p class="section-subtitle">Competencias técnicas y profesionales</p>
+      
+      <div class="habilidades-grid">
+        <div class="habilidad-categoria">
+          <h3>Software</h3>
+          <div class="habilidad-item">
+            <div class="habilidad-nombre">
+              <span>AutoCAD, Civil 3D</span>
+              <span>95%</span>
+            </div>
+            <div class="habilidad-bar">
+              <div class="habilidad-progreso" style="width: 95%"></div>
+            </div>
+          </div>
+          
+          <div class="habilidad-item">
+            <div class="habilidad-nombre">
+              <span>Revit, SAP2000, ETABS</span>
+              <span>90%</span>
+            </div>
+            <div class="habilidad-bar">
+              <div class="habilidad-progreso" style="width: 90%"></div>
+            </div>
+          </div>
+          
+          <div class="habilidad-item">
+            <div class="habilidad-nombre">
+              <span>Inventor, Matlab, Mathcad</span>
+              <span>85%</span>
+            </div>
+            <div class="habilidad-bar">
+              <div class="habilidad-progreso" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="habilidad-item">
+            <div class="habilidad-nombre">
+              <span>QGIS, ArcGIS</span>
+              <span>80%</span>
+            </div>
+            <div class="habilidad-bar">
+              <div class="habilidad-progreso" style="width: 80%"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="habilidad-categoria">
+          <h3>Gestión</h3>
+          <div class="habilidad-item">
+            <div class="habilidad-nombre">
+              <span>Presupuestos y APU</span>
+              <span>95%</span>
+            </div>
+            <div class="habilidad-bar">
+              <div class="habilidad-progreso" style="width: 95%"></div>
+            </div>
+          </div>
+          
+          <div class="habilidad-item">
+            <div class="habilidad-nombre">
+              <span>Cronogramas Valorados</span>
+              <span>90%</span>
+            </div>
+            <div class="habilidad-bar">
+              <div class="habilidad-progreso" style="width: 90%"></div>
+            </div>
+          </div>
+          
+          <div class="habilidad-item">
+            <div class="habilidad-nombre">
+              <span>Contratación Pública</span>
+              <span>85%</span>
+            </div>
+            <div class="habilidad-bar">
+              <div class="habilidad-progreso" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="habilidad-categoria">
+          <h3>Conocimientos Especializados</h3>
+          <div class="habilidad-item">
+            <div class="habilidad-nombre">
+              <span>Normas ACI, AISC</span>
+              <span>95%</span>
+            </div>
+            <div class="habilidad-bar">
+              <div class="habilidad-progreso" style="width: 95%"></div>
+            </div>
+          </div>
+          
+          <div class="habilidad-item">
+            <div class="habilidad-nombre">
+              <span>ASCE, ASTM, AASHTO</span>
+              <span>90%</span>
+            </div>
+            <div class="habilidad-bar">
+              <div class="habilidad-progreso" style="width: 90%"></div>
+            </div>
+          </div>
+          
+          <div class="habilidad-item">
+            <div class="habilidad-nombre">
+              <span>Normativa NEC, MTOP</span>
+              <span>90%</span>
+            </div>
+            <div class="habilidad-bar">
+              <div class="habilidad-progreso" style="width: 90%"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -563,13 +947,13 @@
           <a href="#"><i class="fab fa-facebook-f"></i></a>
         </div>
         
-        <p><i class="fas fa-envelope"></i> contacto@redsingenieria.com</p>
-        <p><i class="fas fa-phone"></i> +593 99 999 9999</p>
+        <p><i class="fas fa-envelope"></i> p.rojas.77@hotmail.com</p>
+        <p><i class="fas fa-phone"></i> +593 098 224 2982</p>
       </div>
     </div>
     <div class="copyright">
       <div class="container">
-        <p>&copy; 2023 REDS Ingeniería & Construcción. Todos los derechos reservados.</p>
+        <p>&copy; 2024 REDS Ingeniería & Construcción. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
@@ -609,7 +993,7 @@
       
       // Animación al hacer scroll
       const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.servicio-card, .proyecto-card, .sobre-mi-img');
+        const elements = document.querySelectorAll('.servicio-card, .proyecto-card, .sobre-mi-img, .timeline-content, .formacion-card');
         
         elements.forEach(element => {
           const position = element.getBoundingClientRect();
@@ -623,7 +1007,7 @@
       };
       
       // Configurar las animaciones iniciales
-      document.querySelectorAll('.servicio-card, .proyecto-card, .sobre-mi-img').forEach(element => {
+      document.querySelectorAll('.servicio-card, .proyecto-card, .sobre-mi-img, .timeline-content, .formacion-card').forEach(element => {
         element.style.opacity = "0";
         element.style.transform = "translateY(20px)";
         element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
