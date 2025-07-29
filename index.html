@@ -66,13 +66,54 @@
     /* Animación del logo */
     .logo-svg {
       width: 150px;
-      animation: logoFloat 6s ease-in-out infinite;
       transition: var(--transition);
     }
     
-    @keyframes logoFloat {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(3deg); }
+    .logo-svg .st0 {
+      animation: stripeMove 4s infinite alternate ease-in-out;
+    }
+    
+    .logo-svg .st0:nth-child(1) {
+      animation-delay: 0s;
+    }
+    
+    .logo-svg .st0:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+    
+    .logo-svg .st0:nth-child(3) {
+      animation-delay: 1s;
+    }
+    
+    .logo-svg .st2 {
+      animation: diagonalMove 5s infinite alternate ease-in-out;
+    }
+    
+    @keyframes stripeMove {
+      0% {
+        transform: translateX(0);
+      }
+      25% {
+        transform: translateX(-5px);
+      }
+      50% {
+        transform: translateX(5px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes diagonalMove {
+      0% {
+        transform: translate(0, 0) rotate(45deg);
+      }
+      50% {
+        transform: translate(-3px, 3px) rotate(45deg);
+      }
+      100% {
+        transform: translate(3px, -3px) rotate(45deg);
+      }
     }
     
     .navbar-links {
@@ -228,6 +269,32 @@
       overflow: hidden;
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
       transition: var(--transition);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .sobre-mi-img::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      z-index: -1;
+      border-radius: 12px;
+      animation: borderAnimation 3s infinite alternate;
+    }
+    
+    @keyframes borderAnimation {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(1.02);
+        opacity: 1;
+      }
     }
     
     .sobre-mi-img:hover {
@@ -239,50 +306,7 @@
       width: 100%;
       height: auto;
       display: block;
-    }
-    
-    /* Servicios */
-    .servicios {
-      background-color: #f8f9fa;
-    }
-    
-    .servicios-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    
-    .servicio-card {
-      background: white;
       border-radius: 10px;
-      padding: 40px 30px;
-      text-align: center;
-      transition: var(--transition);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    }
-    
-    .servicio-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    }
-    
-    .servicio-card .icon {
-      width: 80px;
-      height: 80px;
-      background: rgba(26, 58, 108, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 25px;
-      color: var(--primary);
-      font-size: 2rem;
-    }
-    
-    .servicio-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      color: var(--primary);
     }
     
     /* Experiencia */
@@ -307,6 +331,12 @@
       background: var(--secondary);
       left: 50%;
       margin-left: -2px;
+      animation: linePulse 2s infinite alternate;
+    }
+    
+    @keyframes linePulse {
+      0% { box-shadow: 0 0 0 0 rgba(208, 32, 39, 0.7); }
+      100% { box-shadow: 0 0 0 10px rgba(208, 32, 39, 0); }
     }
     
     .timeline-item {
@@ -323,6 +353,7 @@
       width: 45%;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
     }
     
     .timeline-item:nth-child(odd) .timeline-content {
@@ -331,6 +362,10 @@
     
     .timeline-item:nth-child(even) .timeline-content {
       left: 55%;
+    }
+    
+    .timeline-content:hover {
+      transform: scale(1.05);
     }
     
     .timeline-content h3 {
@@ -354,43 +389,6 @@
       margin-top: 10px;
     }
     
-    /* Proyectos */
-    .proyectos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 30px;
-    }
-    
-    .proyecto-card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      transition: var(--transition);
-    }
-    
-    .proyecto-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    }
-    
-    .proyecto-img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      display: block;
-    }
-    
-    .proyecto-info {
-      padding: 25px;
-    }
-    
-    .proyecto-info h3 {
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-      color: var(--primary);
-    }
-    
     /* Formación */
     .formacion {
       background-color: #f8f9fa;
@@ -409,6 +407,24 @@
       text-align: center;
       transition: var(--transition);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .formacion-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--secondary);
+      transform: translateY(-100%);
+      transition: transform 0.5s ease;
+    }
+    
+    .formacion-card:hover::before {
+      transform: translateY(0);
     }
     
     .formacion-card:hover {
@@ -447,6 +463,11 @@
       border-radius: 10px;
       padding: 30px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+    
+    .habilidad-categoria:hover {
+      transform: translateY(-5px);
     }
     
     .habilidad-categoria h3 {
@@ -478,6 +499,8 @@
       height: 100%;
       background: var(--secondary);
       border-radius: 4px;
+      width: 0;
+      transition: width 1.5s ease;
     }
     
     /* Animaciones */
@@ -498,6 +521,7 @@
       color: white;
       padding: 60px 0 30px;
       text-align: center;
+      position: relative;
     }
     
     .footer-content {
@@ -608,7 +632,7 @@
   <nav class="navbar">
     <div class="container">
       <a href="#inicio" class="logo">
-        <!-- Logo SVG proporcionado -->
+        <!-- Logo SVG con animaciones mejoradas -->
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
            viewBox="0 0 386.28 188.89" style="enable-background:new 0 0 386.28 188.89;" xml:space="preserve" class="logo-svg">
           <style type="text/css">
@@ -639,7 +663,6 @@
         <a href="#experiencia" class="nav-link">Experiencia</a>
         <a href="#formacion" class="nav-link">Formación</a>
         <a href="#habilidades" class="nav-link">Habilidades</a>
-        <a href="#proyectos" class="nav-link">Proyectos</a>
         <a href="#contacto" class="nav-link">Contacto</a>
       </div>
       <button class="menu-toggle">
@@ -673,7 +696,7 @@
           </a>
         </div>
         <div class="sobre-mi-img">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Francisco A. Rojas">
+          <img src="yo.jpg" alt="Francisco A. Rojas">
         </div>
       </div>
     </div>
@@ -798,7 +821,7 @@
               <span>95%</span>
             </div>
             <div class="habilidad-bar">
-              <div class="habilidad-progreso" style="width: 95%"></div>
+              <div class="habilidad-progreso" data-width="95"></div>
             </div>
           </div>
           
@@ -808,7 +831,7 @@
               <span>90%</span>
             </div>
             <div class="habilidad-bar">
-              <div class="habilidad-progreso" style="width: 90%"></div>
+              <div class="habilidad-progreso" data-width="90"></div>
             </div>
           </div>
           
@@ -818,7 +841,7 @@
               <span>85%</span>
             </div>
             <div class="habilidad-bar">
-              <div class="habilidad-progreso" style="width: 85%"></div>
+              <div class="habilidad-progreso" data-width="85"></div>
             </div>
           </div>
           
@@ -828,7 +851,7 @@
               <span>80%</span>
             </div>
             <div class="habilidad-bar">
-              <div class="habilidad-progreso" style="width: 80%"></div>
+              <div class="habilidad-progreso" data-width="80"></div>
             </div>
           </div>
         </div>
@@ -841,7 +864,7 @@
               <span>95%</span>
             </div>
             <div class="habilidad-bar">
-              <div class="habilidad-progreso" style="width: 95%"></div>
+              <div class="habilidad-progreso" data-width="95"></div>
             </div>
           </div>
           
@@ -851,7 +874,7 @@
               <span>90%</span>
             </div>
             <div class="habilidad-bar">
-              <div class="habilidad-progreso" style="width: 90%"></div>
+              <div class="habilidad-progreso" data-width="90"></div>
             </div>
           </div>
           
@@ -861,7 +884,7 @@
               <span>85%</span>
             </div>
             <div class="habilidad-bar">
-              <div class="habilidad-progreso" style="width: 85%"></div>
+              <div class="habilidad-progreso" data-width="85"></div>
             </div>
           </div>
         </div>
@@ -874,7 +897,7 @@
               <span>95%</span>
             </div>
             <div class="habilidad-bar">
-              <div class="habilidad-progreso" style="width: 95%"></div>
+              <div class="habilidad-progreso" data-width="95"></div>
             </div>
           </div>
           
@@ -884,7 +907,7 @@
               <span>90%</span>
             </div>
             <div class="habilidad-bar">
-              <div class="habilidad-progreso" style="width: 90%"></div>
+              <div class="habilidad-progreso" data-width="90"></div>
             </div>
           </div>
           
@@ -894,39 +917,8 @@
               <span>90%</span>
             </div>
             <div class="habilidad-bar">
-              <div class="habilidad-progreso" style="width: 90%"></div>
+              <div class="habilidad-progreso" data-width="90"></div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proyectos -->
-  <section id="proyectos" class="section proyectos">
-    <div class="container">
-      <h2 class="section-title">Proyectos Destacados</h2>
-      <p class="section-subtitle">Algunos de nuestros trabajos más representativos</p>
-      <div class="proyectos-grid">
-        <div class="proyecto-card">
-          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Residencia Ñamiña" class="proyecto-img">
-          <div class="proyecto-info">
-            <h3>Residencia Sr. Manuel Jesús Ñamiña</h3>
-            <p>Estudio y diseño estructural para vivienda de 3 niveles con locales comerciales. Se aplicó un sistema de pórticos especiales de hormigón armado, losa nervada en dos direcciones y vigas descolgadas para garantizar comportamiento monolítico.</p>
-          </div>
-        </div>
-        <div class="proyecto-card">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1031&q=80" alt="Bodega Simbaina" class="proyecto-img">
-          <div class="proyecto-info">
-            <h3>Bodega Sr. Segundo Simbaina</h3>
-            <p>Ampliación estructural con uso mixto de hormigón armado y acero estructural. Se diseñó un entrepiso adicional con losa colaborante para circulación, conservando la integridad estructural de los tres bloques existentes.</p>
-          </div>
-        </div>
-        <div class="proyecto-card">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Residencia Rosas Dutan" class="proyecto-img">
-          <div class="proyecto-info">
-            <h3>Residencia Sra. María Luz Rosas Dután</h3>
-            <p>Diseño de vivienda con planta baja comercial y departamentos en niveles superiores. Solución estructural monolítica con pórticos, losas nervadas y adaptación a desnivel del terreno.</p>
           </div>
         </div>
       </div>
@@ -993,7 +985,7 @@
       
       // Animación al hacer scroll
       const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.servicio-card, .proyecto-card, .sobre-mi-img, .timeline-content, .formacion-card');
+        const elements = document.querySelectorAll('.servicio-card, .proyecto-card, .sobre-mi-img, .timeline-content, .formacion-card, .habilidad-categoria');
         
         elements.forEach(element => {
           const position = element.getBoundingClientRect();
@@ -1007,7 +999,7 @@
       };
       
       // Configurar las animaciones iniciales
-      document.querySelectorAll('.servicio-card, .proyecto-card, .sobre-mi-img, .timeline-content, .formacion-card').forEach(element => {
+      document.querySelectorAll('.servicio-card, .proyecto-card, .sobre-mi-img, .timeline-content, .formacion-card, .habilidad-categoria').forEach(element => {
         element.style.opacity = "0";
         element.style.transform = "translateY(20px)";
         element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
@@ -1016,6 +1008,15 @@
       // Ejecutar al cargar y al hacer scroll
       window.addEventListener('scroll', animateOnScroll);
       animateOnScroll(); // Ejecutar al cargar
+      
+      // Animación de barras de habilidades
+      const skillBars = document.querySelectorAll('.habilidad-progreso');
+      skillBars.forEach(bar => {
+        const width = bar.getAttribute('data-width') + '%';
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 300);
+      });
     });
   </script>
 </body>
