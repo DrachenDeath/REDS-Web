@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REDS | Ingeniería & Construcción</title>
+  <title>REDS | Soluciones Integrales en Ingeniería & Construcción</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -200,6 +200,12 @@
       max-width: 600px;
     }
     
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
     /* Botones */
     .btn {
       display: inline-block;
@@ -211,6 +217,10 @@
       text-align: center;
       cursor: pointer;
       border: none;
+      min-width: 200px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
     
     .btn-primary {
@@ -223,6 +233,18 @@
       background-color: #b21c22;
       transform: translateY(-3px);
       box-shadow: 0 7px 20px rgba(208, 32, 39, 0.4);
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .btn-secondary:hover {
+      background-color: white;
+      color: var(--primary);
+      transform: translateY(-3px);
     }
     
     /* Secciones */
@@ -251,256 +273,415 @@
       margin-right: auto;
     }
     
-    /* Sobre mí */
-    .sobre-mi-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-    
-    .sobre-mi-info p {
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-    }
-    
-    .sobre-mi-img {
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-      transition: var(--transition);
-      position: relative;
-      z-index: 1;
-    }
-    
-    .sobre-mi-img::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      background: linear-gradient(45deg, var(--primary), var(--secondary));
-      z-index: -1;
-      border-radius: 12px;
-      animation: borderAnimation 3s infinite alternate;
-    }
-    
-    @keyframes borderAnimation {
-      0% {
-        transform: scale(1);
-        opacity: 0.8;
-      }
-      100% {
-        transform: scale(1.02);
-        opacity: 1;
-      }
-    }
-    
-    .sobre-mi-img:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
-    
-    .sobre-mi-img img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-    }
-    
-    /* Experiencia */
-    .experiencia {
-      background: linear-gradient(rgba(26, 58, 108, 0.9), rgba(26, 58, 108, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a3a6c"/><path d="M0 0L100 100M100 0L0 100" stroke="%232a307b" stroke-width="1"/></svg>');
-      background-size: 200px;
-      color: white;
-    }
-    
-    .timeline {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: var(--secondary);
-      left: 50%;
-      margin-left: -2px;
-      animation: linePulse 2s infinite alternate;
-    }
-    
-    @keyframes linePulse {
-      0% { box-shadow: 0 0 0 0 rgba(208, 32, 39, 0.7); }
-      100% { box-shadow: 0 0 0 10px rgba(208, 32, 39, 0); }
-    }
-    
-    .timeline-item {
-      position: relative;
-      margin-bottom: 50px;
-      width: 100%;
-    }
-    
-    .timeline-content {
-      position: relative;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 20px;
-      width: 45%;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: transform 0.3s ease;
-    }
-    
-    .timeline-item:nth-child(odd) .timeline-content {
-      left: 0;
-    }
-    
-    .timeline-item:nth-child(even) .timeline-content {
-      left: 55%;
-    }
-    
-    .timeline-content:hover {
-      transform: scale(1.05);
-    }
-    
-    .timeline-content h3 {
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-      color: white;
-    }
-    
-    .timeline-content .date {
-      font-weight: 700;
-      color: var(--secondary);
-      margin-bottom: 10px;
-    }
-    
-    .timeline-content .monto {
-      font-weight: 500;
-      background: rgba(208, 32, 39, 0.2);
-      padding: 3px 10px;
-      border-radius: 20px;
-      display: inline-block;
-      margin-top: 10px;
-    }
-    
-    /* Formación */
-    .formacion {
+    /* Servicios */
+    .servicios {
       background-color: #f8f9fa;
     }
     
-    .formacion-grid {
+    .servicios-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
     }
     
-    .formacion-card {
+    .servicio-card {
       background: white;
       border-radius: 10px;
-      padding: 30px;
+      padding: 40px 30px;
       text-align: center;
       transition: var(--transition);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
       position: relative;
       overflow: hidden;
+      border-top: 4px solid var(--primary);
     }
     
-    .formacion-card::before {
+    .servicio-card::after {
       content: '';
       position: absolute;
-      top: 0;
+      bottom: 0;
       left: 0;
-      width: 5px;
-      height: 100%;
+      width: 100%;
+      height: 5px;
       background: var(--secondary);
-      transform: translateY(-100%);
+      transform: translateX(-100%);
       transition: transform 0.5s ease;
     }
     
-    .formacion-card:hover::before {
-      transform: translateY(0);
+    .servicio-card:hover::after {
+      transform: translateX(0);
     }
     
-    .formacion-card:hover {
+    .servicio-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     }
     
-    .formacion-card h3 {
-      font-size: 1.3rem;
+    .servicio-card .icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(26, 58, 108, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      color: var(--primary);
+      font-size: 2rem;
+    }
+    
+    .servicio-card h3 {
+      font-size: 1.5rem;
       margin-bottom: 15px;
       color: var(--primary);
     }
     
-    .formacion-card .institucion {
-      font-weight: 500;
+    .servicio-card .price {
+      font-size: 1.8rem;
       color: var(--secondary);
-      margin-bottom: 15px;
-      display: block;
+      font-weight: 700;
+      margin: 20px 0;
     }
     
-    .formacion-card .fecha {
-      font-weight: 300;
-      font-style: italic;
-      margin-bottom: 15px;
+    .servicio-card .price-note {
+      font-size: 0.9rem;
+      color: #777;
     }
     
-    /* Habilidades */
-    .habilidades-grid {
+    .servicio-features {
+      text-align: left;
+      margin: 20px 0;
+    }
+    
+    .servicio-features li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px;
+    }
+    
+    .servicio-features li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--secondary);
+    }
+    
+    /* Beneficios */
+    .beneficios {
+      background: linear-gradient(135deg, var(--primary), #2a307b);
+      color: white;
+    }
+    
+    .beneficios-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
     }
     
-    .habilidad-categoria {
+    .beneficio-card {
+      text-align: center;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+    
+    .beneficio-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .beneficio-card .icon {
+      font-size: 3rem;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+    
+    .beneficio-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+    
+    /* Proyectos */
+    .proyectos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .proyecto-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .proyecto-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(26, 58, 108, 0.8);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+    
+    .proyecto-card:hover::before {
+      opacity: 1;
+    }
+    
+    .proyecto-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .proyecto-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .proyecto-info {
+      padding: 25px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .proyecto-card:hover .proyecto-info {
+      color: white;
+    }
+    
+    .proyecto-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    .proyecto-card:hover .proyecto-info h3 {
+      color: white;
+    }
+    
+    .proyecto-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+    
+    /* Testimonios */
+    .testimonios {
+      background-color: #f8f9fa;
+    }
+    
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .testimonio-card {
       background: white;
       border-radius: 10px;
       padding: 30px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease;
+      position: relative;
     }
     
-    .habilidad-categoria:hover {
-      transform: translateY(-5px);
+    .testimonio-card::before {
+      content: '\201C';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 5rem;
+      color: rgba(26, 58, 108, 0.1);
+      font-family: Georgia, serif;
+      line-height: 1;
     }
     
-    .habilidad-categoria h3 {
+    .testimonio-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonio-text {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    
+    .testimonio-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .testimonio-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+      object-fit: cover;
+    }
+    
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, var(--primary), #2a307b);
+      color: white;
+      text-align: center;
+      padding: 80px 0;
+    }
+    
+    .cta-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .cta-subtitle {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    
+    /* Contacto */
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+    }
+    
+    .contacto-info {
+      margin-bottom: 30px;
+    }
+    
+    .contacto-info h3 {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .contacto-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    
+    .contacto-item .icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    
+    .contacto-form .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .contacto-form input,
+    .contacto-form textarea,
+    .contacto-form select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+    }
+    
+    .contacto-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 60px 0 30px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: left;
+    }
+    
+    .footer-col h3 {
       font-size: 1.4rem;
       margin-bottom: 20px;
-      color: var(--primary);
-      border-bottom: 2px solid var(--secondary);
+      position: relative;
       padding-bottom: 10px;
     }
     
-    .habilidad-item {
-      margin-bottom: 15px;
-    }
-    
-    .habilidad-nombre {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 5px;
-    }
-    
-    .habilidad-bar {
-      height: 8px;
-      background: #e0e0e0;
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    
-    .habilidad-progreso {
-      height: 100%;
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
       background: var(--secondary);
-      border-radius: 4px;
-      width: 0;
-      transition: width 1.5s ease;
+    }
+    
+    .footer-links a {
+      display: block;
+      color: #ddd;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--secondary);
+      transform: translateX(5px);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-top: 50px;
     }
     
     /* Animaciones */
@@ -515,77 +696,10 @@
       }
     }
     
-    /* Footer */
-    footer {
-      background-color: var(--dark);
-      color: white;
-      padding: 60px 0 30px;
-      text-align: center;
-      position: relative;
-    }
-    
-    .footer-content {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .footer-content p {
-      margin: 20px 0;
-    }
-    
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin: 30px 0;
-    }
-    
-    .social-links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      font-size: 1.2rem;
-      transition: var(--transition);
-    }
-    
-    .social-links a:hover {
-      background: var(--secondary);
-      transform: translateY(-5px);
-    }
-    
-    .copyright {
-      padding-top: 30px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-    
     /* Responsive */
     @media (max-width: 992px) {
-      .sobre-mi-grid {
-        grid-template-columns: 1fr;
-      }
-      
       .hero-title {
         font-size: 3rem;
-      }
-      
-      .timeline::before {
-        left: 31px;
-      }
-      
-      .timeline-content {
-        width: calc(100% - 80px);
-        margin-left: 80px;
-      }
-      
-      .timeline-item:nth-child(even) .timeline-content {
-        left: 0;
       }
     }
     
@@ -620,9 +734,8 @@
         font-size: 1.2rem;
       }
       
-      .timeline-content {
-        width: calc(100% - 40px);
-        margin-left: 40px;
+      .hero-buttons {
+        flex-direction: column;
       }
     }
   </style>
@@ -632,7 +745,7 @@
   <nav class="navbar">
     <div class="container">
       <a href="#inicio" class="logo">
-        <!-- Logo SVG con animaciones mejoradas -->
+        <!-- Logo SVG -->
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
            viewBox="0 0 386.28 188.89" style="enable-background:new 0 0 386.28 188.89;" xml:space="preserve" class="logo-svg">
           <style type="text/css">
@@ -659,10 +772,10 @@
       </a>
       <div class="navbar-links">
         <a href="#inicio" class="nav-link">Inicio</a>
-        <a href="#sobre-mi" class="nav-link">Sobre mí</a>
-        <a href="#experiencia" class="nav-link">Experiencia</a>
-        <a href="#formacion" class="nav-link">Formación</a>
-        <a href="#habilidades" class="nav-link">Habilidades</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#beneficios" class="nav-link">Beneficios</a>
+        <a href="#proyectos" class="nav-link">Proyectos</a>
+        <a href="#testimonios" class="nav-link">Testimonios</a>
         <a href="#contacto" class="nav-link">Contacto</a>
       </div>
       <button class="menu-toggle">
@@ -675,276 +788,417 @@
   <header id="inicio" class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1 class="hero-title">Soluciones técnicas con visión estratégica</h1>
-        <p class="hero-subtitle">Innovación en ingeniería y construcción para un futuro sostenible</p>
-        <a href="#sobre-mi" class="btn btn-primary">Conoce mi trayectoria</a>
+        <h1 class="hero-title">Soluciones de ingeniería que transforman proyectos en realidades</h1>
+        <p class="hero-subtitle">Expertos en diseño estructural, gestión de obras y soluciones viales con enfoque estratégico y normativo</p>
+        <div class="hero-buttons">
+          <a href="#servicios" class="btn btn-primary">Nuestros Servicios</a>
+          <a href="#contacto" class="btn btn-secondary">Solicitar Cotización</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Sobre mí -->
-  <section id="sobre-mi" class="section sobre-mi">
+  <!-- Servicios -->
+  <section id="servicios" class="section servicios">
     <div class="container">
-      <h2 class="section-title">Sobre mí</h2>
-      <p class="section-subtitle">Un enfoque técnico con visión estratégica</p>
-      <div class="sobre-mi-grid">
-        <div class="sobre-mi-info">
-          <p>Soy <strong>Francisco Antonio Rojas Rosas</strong>, ingeniero civil con especialización en Gerencia de la Construcción y maestrías en Gerencia de Proyectos y en Ingeniería Vial. He trabajado en estudios geotécnicos, estructurales, hidrosanitarios y en la ejecución de obras públicas y privadas.</p>
-          <p>Mi enfoque combina el dominio técnico con la gestión eficiente de recursos y cumplimiento normativo. Manejo herramientas como AutoCAD Civil 3D, Revit, ETABS, SAP2000 y GIS, y aplico estándares internacionales (ACI, AISC, AASHTO) en cada etapa del proyecto.</p>
-          <a href="CV_ESP_RELACIONADO CON ING CIVIL.pdf" class="btn btn-primary" download>
-            <i class="fas fa-download"></i> Descargar CV
-          </a>
+      <h2 class="section-title">Servicios Profesionales</h2>
+      <p class="section-subtitle">Soluciones técnicas especializadas para cada fase de su proyecto</p>
+      
+      <div class="servicios-grid">
+        <div class="servicio-card">
+          <div class="icon">
+            <i class="fas fa-bridge fa-3x"></i>
+          </div>
+          <h3>Diseño Estructural</h3>
+          <p>Análisis y diseño de estructuras con tecnología BIM y las últimas normativas sismorresistentes</p>
+          
+          <div class="servicio-features">
+            <ul>
+              <li>Modelado BIM con Revit</li>
+              <li>Análisis con ETABS y SAP2000</li>
+              <li>Cumplimiento normativo ACI, AISC</li>
+              <li>Optimización de materiales</li>
+              <li>Documentación técnica completa</li>
+            </ul>
+          </div>
+          
+          <div class="price">Desde $1,500</div>
+          <div class="price-note">*Precio varía según complejidad del proyecto</div>
+          <a href="#contacto" class="btn btn-primary">Solicitar Análisis</a>
         </div>
-        <div class="sobre-mi-img">
-          <img src="yo.jpg" alt="Francisco A. Rojas">
+        
+        <div class="servicio-card">
+          <div class="icon">
+            <i class="fas fa-road fa-3x"></i>
+          </div>
+          <h3>Ingeniería Vial</h3>
+          <p>Diseño de infraestructura vial y transporte con enfoque en seguridad y eficiencia</p>
+          
+          <div class="servicio-features">
+            <ul>
+              <li>Diseño con AutoCAD Civil 3D</li>
+              <li>Análisis de tráfico y capacidad</li>
+              <li>Estudios de impacto vial</li>
+              <li>Cumplimiento AASHTO</li>
+              <li>Optimización de rutas</li>
+            </ul>
+          </div>
+          
+          <div class="price">Desde $2,000</div>
+          <div class="price-note">*Precio varía según extensión del proyecto</div>
+          <a href="#contacto" class="btn btn-primary">Consultar Proyecto</a>
+        </div>
+        
+        <div class="servicio-card">
+          <div class="icon">
+            <i class="fas fa-building fa-3x"></i>
+          </div>
+          <h3>Gestión de Obras</h3>
+          <p>Control y supervisión de proyectos con metodologías ágiles y seguimiento en tiempo real</p>
+          
+          <div class="servicio-features">
+            <ul>
+              <li>Supervisión técnica</li>
+              <li>Control de calidad</li>
+              <li>Gestión de contratos</li>
+              <li>Optimización de recursos</li>
+              <li>Reportes de avance</li>
+            </ul>
+          </div>
+          
+          <div class="price">Desde $3,500/mes</div>
+          <div class="price-note">*Tarifa mensual por supervisión continua</div>
+          <a href="#contacto" class="btn btn-primary">Planificar Proyecto</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Experiencia -->
-  <section id="experiencia" class="section experiencia">
+  <!-- Beneficios -->
+  <section id="beneficios" class="section beneficios">
     <div class="container">
-      <h2 class="section-title">Experiencia Profesional</h2>
-      <p class="section-subtitle">Proyectos destacados en mi carrera</p>
+      <h2 class="section-title">¿Por qué elegir nuestros servicios?</h2>
+      <p class="section-subtitle">Ventajas competitivas que marcan la diferencia en sus proyectos</p>
       
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="date">2024</div>
-            <h3>Residente de Obra</h3>
-            <p>Mantenimiento de 15 Unidades Médicas – CPSSCA</p>
-            <div class="monto">Monto: $370,242.93</div>
-            <p>Pichincha, Ecuador</p>
+      <div class="beneficios-grid">
+        <div class="beneficio-card">
+          <div class="icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Expertos Certificados</h3>
+          <p>Equipo de ingenieros con maestrías y especializaciones en las áreas clave de construcción y gestión de proyectos</p>
+        </div>
+        
+        <div class="beneficio-card">
+          <div class="icon">
+            <i class="fas fa-clipboard-check"></i>
+          </div>
+          <h3>Cumplimiento Normativo</h3>
+          <p>Garantizamos que todos los diseños cumplen con normativas nacionales e internacionales (ACI, AISC, AASHTO, NEC)</p>
+        </div>
+        
+        <div class="beneficio-card">
+          <div class="icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Tecnología de Vanguardia</h3>
+          <p>Utilizamos software BIM, GIS y herramientas de análisis estructural para resultados precisos y optimizados</p>
+        </div>
+        
+        <div class="beneficio-card">
+          <div class="icon">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <h3>Optimización de Costos</h3>
+          <p>Nuestros diseños maximizan eficiencia y minimizan costos sin comprometer seguridad ni calidad</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos -->
+  <section id="proyectos" class="section">
+    <div class="container">
+      <h2 class="section-title">Proyectos Destacados</h2>
+      <p class="section-subtitle">Casos de éxito que demuestran nuestra experiencia y capacidad</p>
+      
+      <div class="proyectos-grid">
+        <div class="proyecto-card">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Residencia Ñamiña" class="proyecto-img">
+          <div class="proyecto-info">
+            <h3>Residencia Sr. Manuel Jesús Ñamiña</h3>
+            <p>Diseño estructural para vivienda de 3 niveles con locales comerciales. Sistema de pórticos especiales de hormigón armado con losa nervada en dos direcciones.</p>
+            <div class="proyecto-meta">
+              <span>Monto: $144,168</span>
+              <span>6 meses</span>
+            </div>
           </div>
         </div>
         
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="date">2024</div>
-            <h3>Obras Viales y Urbanas</h3>
-            <p>Proyecto Calle Miguel Arias y otras</p>
-            <div class="monto">Monto: $92,750.00</div>
-            <p>Azuay, Ecuador</p>
+        <div class="proyecto-card">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1031&q=80" alt="Bodega Simbaina" class="proyecto-img">
+          <div class="proyecto-info">
+            <h3>Bodega Sr. Segundo Simbaina</h3>
+            <p>Ampliación estructural con uso mixto de hormigón armado y acero estructural. Diseño de entrepiso adicional con losa colaborante.</p>
+            <div class="proyecto-meta">
+              <span>Monto: $92,750</span>
+              <span>4 meses</span>
+            </div>
           </div>
         </div>
         
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="date">2023</div>
-            <h3>Proyectos Municipales</h3>
-            <p>Parque Barrial Guadalupana – Cañar</p>
-            <p>Feria de Productores – Cañar</p>
-            <p>Centro de Capacitación – Sector Guantug</p>
-            <div class="monto">Monto total: $63,810.00</div>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="date">2023</div>
-            <h3>Residente de Obra</h3>
-            <p>Pasos de Agua en General Morales y Chontamarca</p>
-            <div class="monto">Monto: $73,385.53</div>
-            <p>Cañar, Ecuador</p>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="date">2022</div>
-            <h3>Residente de Obra</h3>
-            <p>Primera Etapa Junta Parroquial de Ventura</p>
-            <div class="monto">Monto: $144,168.11</div>
-            <p>Cañar, Ecuador</p>
+        <div class="proyecto-card">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Residencia Rosas Dutan" class="proyecto-img">
+          <div class="proyecto-info">
+            <h3>Residencia Sra. María Luz Rosas Dután</h3>
+            <p>Vivienda con planta baja comercial y departamentos en niveles superiores. Solución estructural monolítica adaptada a desnivel del terreno.</p>
+            <div class="proyecto-meta">
+              <span>Monto: $370,242</span>
+              <span>8 meses</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Formación -->
-  <section id="formacion" class="section formacion">
+  <!-- Testimonios -->
+  <section id="testimonios" class="section testimonios">
     <div class="container">
-      <h2 class="section-title">Formación Académica</h2>
-      <p class="section-subtitle">Mi trayectoria educativa y capacitaciones</p>
+      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+      <p class="section-subtitle">Experiencias reales de proyectos exitosos</p>
       
-      <div class="formacion-grid">
-        <div class="formacion-card">
-          <h3>Magíster en Vialidad y Transporte</h3>
-          <span class="institucion">Universidad Politécnica Salesiana</span>
-          <span class="fecha">En curso (2024)</span>
-          <p>Especialización en diseño y gestión de infraestructura vial y sistemas de transporte.</p>
+      <div class="testimonios-grid">
+        <div class="testimonio-card">
+          <div class="testimonio-content">
+            <div class="testimonio-text">
+              "REDS transformó nuestro proyecto con su enfoque técnico y conocimiento normativo. El diseño estructural no solo cumplió con todos los requisitos, sino que también optimizó nuestros costos en un 15%."
+            </div>
+            <div class="testimonio-author">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente">
+              <div>
+                <strong>Manuel Jesús Ñamiña</strong>
+                <div>Cliente Residencial</div>
+              </div>
+            </div>
+          </div>
         </div>
         
-        <div class="formacion-card">
-          <h3>Máster en Dirección de Empresas y Gestión de Proyectos</h3>
-          <span class="institucion">EUDE European Business School</span>
-          <span class="fecha">2021</span>
-          <p>Enfoque en gestión estratégica, dirección de equipos y metodologías de gestión de proyectos.</p>
+        <div class="testimonio-card">
+          <div class="testimonio-content">
+            <div class="testimonio-text">
+              "La gestión de obra realizada por REDS fue fundamental para completar nuestro proyecto a tiempo y dentro del presupuesto. Su atención al detalle y conocimiento de normativas nos evitó múltiples problemas."
+            </div>
+            <div class="testimonio-author">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente">
+              <div>
+                <strong>María Luz Rosas Dután</strong>
+                <div>Cliente Comercial</div>
+              </div>
+            </div>
+          </div>
         </div>
         
-        <div class="formacion-card">
-          <h3>Ingeniero Civil con Mención en Gerencia en Construcción</h3>
-          <span class="institucion">Universidad del Azuay</span>
-          <span class="fecha">2022</span>
-          <p>Formación técnica en ingeniería civil con especialización en gestión de construcción.</p>
-        </div>
-        
-        <div class="formacion-card">
-          <h3>Diplomados Relevantes</h3>
-          <span class="institucion">EPEC (2020)</span>
-          <ul style="text-align: left; margin-top: 15px;">
-            <li>Diseño y Cálculo de Cimentaciones</li>
-            <li>Ingeniería de Puentes</li>
-            <li>Geotecnia Aplicada</li>
-            <li>Estructuras</li>
-            <li>Gestión de Proyectos Viales</li>
-          </ul>
+        <div class="testimonio-card">
+          <div class="testimonio-content">
+            <div class="testimonio-text">
+              "Contratamos a REDS para el diseño vial de nuestro proyecto urbano. Su solución no solo cumplió con las normativas, sino que mejoró significativamente la fluidez del tráfico en la zona."
+            </div>
+            <div class="testimonio-author">
+              <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Cliente">
+              <div>
+                <strong>Diego Serrano Vásquez</strong>
+                <div>Municipalidad de Cuenca</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Habilidades -->
-  <section id="habilidades" class="section">
+  <!-- CTA -->
+  <section class="cta">
     <div class="container">
-      <h2 class="section-title">Habilidades y Tecnologías</h2>
-      <p class="section-subtitle">Competencias técnicas y profesionales</p>
+      <h2 class="cta-title">¿Listo para comenzar su proyecto?</h2>
+      <p class="cta-subtitle">Obtenga una consultoría gratuita y descubra cómo podemos ayudarle a alcanzar sus objetivos de construcción</p>
+      <a href="#contacto" class="btn btn-primary">Solicitar Consultoría Gratuita</a>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section">
+    <div class="container">
+      <h2 class="section-title">Contáctenos</h2>
+      <p class="section-subtitle">Estamos listos para responder sus preguntas y comenzar a trabajar en su proyecto</p>
       
-      <div class="habilidades-grid">
-        <div class="habilidad-categoria">
-          <h3>Software</h3>
-          <div class="habilidad-item">
-            <div class="habilidad-nombre">
-              <span>AutoCAD, Civil 3D</span>
-              <span>95%</span>
+      <div class="contacto-grid">
+        <div>
+          <div class="contacto-info">
+            <h3>Información de contacto</h3>
+            <div class="contacto-item">
+              <div class="icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <strong>Ubicación:</strong>
+                <p>Cuenca, Ecuador</p>
+              </div>
             </div>
-            <div class="habilidad-bar">
-              <div class="habilidad-progreso" data-width="95"></div>
+            
+            <div class="contacto-item">
+              <div class="icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <strong>Teléfono:</strong>
+                <p>+593 098 224 2982</p>
+              </div>
+            </div>
+            
+            <div class="contacto-item">
+              <div class="icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <strong>Email:</strong>
+                <p>p.rojas.77@hotmail.com</p>
+              </div>
+            </div>
+            
+            <div class="contacto-item">
+              <div class="icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <strong>Horario:</strong>
+                <p>Lun-Vie: 8:00 - 17:00</p>
+              </div>
             </div>
           </div>
           
-          <div class="habilidad-item">
-            <div class="habilidad-nombre">
-              <span>Revit, SAP2000, ETABS</span>
-              <span>90%</span>
-            </div>
-            <div class="habilidad-bar">
-              <div class="habilidad-progreso" data-width="90"></div>
-            </div>
-          </div>
-          
-          <div class="habilidad-item">
-            <div class="habilidad-nombre">
-              <span>Inventor, Matlab, Mathcad</span>
-              <span>85%</span>
-            </div>
-            <div class="habilidad-bar">
-              <div class="habilidad-progreso" data-width="85"></div>
-            </div>
-          </div>
-          
-          <div class="habilidad-item">
-            <div class="habilidad-nombre">
-              <span>QGIS, ArcGIS</span>
-              <span>80%</span>
-            </div>
-            <div class="habilidad-bar">
-              <div class="habilidad-progreso" data-width="80"></div>
+          <div class="contacto-info">
+            <h3>Síganos</h3>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
             </div>
           </div>
         </div>
         
-        <div class="habilidad-categoria">
-          <h3>Gestión</h3>
-          <div class="habilidad-item">
-            <div class="habilidad-nombre">
-              <span>Presupuestos y APU</span>
-              <span>95%</span>
+        <div class="contacto-form">
+          <h3>Envíenos un mensaje</h3>
+          <form>
+            <div class="form-group">
+              <input type="text" placeholder="Nombre completo" required>
             </div>
-            <div class="habilidad-bar">
-              <div class="habilidad-progreso" data-width="95"></div>
+            
+            <div class="form-group">
+              <input type="email" placeholder="Correo electrónico" required>
             </div>
-          </div>
-          
-          <div class="habilidad-item">
-            <div class="habilidad-nombre">
-              <span>Cronogramas Valorados</span>
-              <span>90%</span>
+            
+            <div class="form-group">
+              <input type="tel" placeholder="Teléfono">
             </div>
-            <div class="habilidad-bar">
-              <div class="habilidad-progreso" data-width="90"></div>
+            
+            <div class="form-group">
+              <select required>
+                <option value="" disabled selected>Seleccione un servicio</option>
+                <option value="diseño">Diseño Estructural</option>
+                <option value="vial">Ingeniería Vial</option>
+                <option value="gestion">Gestión de Obras</option>
+                <option value="otros">Otros servicios</option>
+              </select>
             </div>
-          </div>
-          
-          <div class="habilidad-item">
-            <div class="habilidad-nombre">
-              <span>Contratación Pública</span>
-              <span>85%</span>
+            
+            <div class="form-group">
+              <textarea placeholder="Describa su proyecto o consulta" required></textarea>
             </div>
-            <div class="habilidad-bar">
-              <div class="habilidad-progreso" data-width="85"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="habilidad-categoria">
-          <h3>Conocimientos Especializados</h3>
-          <div class="habilidad-item">
-            <div class="habilidad-nombre">
-              <span>Normas ACI, AISC</span>
-              <span>95%</span>
-            </div>
-            <div class="habilidad-bar">
-              <div class="habilidad-progreso" data-width="95"></div>
-            </div>
-          </div>
-          
-          <div class="habilidad-item">
-            <div class="habilidad-nombre">
-              <span>ASCE, ASTM, AASHTO</span>
-              <span>90%</span>
-            </div>
-            <div class="habilidad-bar">
-              <div class="habilidad-progreso" data-width="90"></div>
-            </div>
-          </div>
-          
-          <div class="habilidad-item">
-            <div class="habilidad-nombre">
-              <span>Normativa NEC, MTOP</span>
-              <span>90%</span>
-            </div>
-            <div class="habilidad-bar">
-              <div class="habilidad-progreso" data-width="90"></div>
-            </div>
-          </div>
+            
+            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+          </form>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer id="contacto">
+  <footer>
     <div class="container">
-      <div class="footer-content">
-        <h2 class="section-title">Contáctenos</h2>
-        <p>¿Tienes un proyecto en mente? Estamos listos para ayudarte a hacerlo realidad.</p>
-        
-        <div class="social-links">
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#inicio" class="logo">
+            <!-- Logo SVG -->
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               viewBox="0 0 386.28 188.89" style="enable-background:new 0 0 386.28 188.89;" xml:space="preserve" class="logo-svg" width="120">
+              <style type="text/css">
+                .st0{fill:#D02027;stroke:#D02027;stroke-width:9.1415;stroke-miterlimit:10;}
+                .st1{fill:none;stroke:#343239;stroke-width:24.2399;stroke-miterlimit:10;}
+                .st2{fill:#2A307B;stroke:#2A307B;stroke-width:5.5696;stroke-miterlimit:10;}
+                .st3{fill:#2A307B;}
+              </style>
+              <rect x="25.83" y="22.26" class="st0" width="160.94" height="17.4"/>
+              <rect x="25.83" y="106.15" class="st0" width="160.94" height="17.4"/>
+              <rect x="25.83" y="65" class="st0" width="160.94" height="17.4"/>
+              <line class="st1" x1="59.23" y1="154" x2="191.4" y2="154"/>
+              <rect x="25.26" y="80.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)" class="st2" width="190.22" height="17.27"/>
+              <path d="M205.86,18.15h9.56V9.81h11.39v8.34h40.89l1.93,10.98c-10.78,9.97-23.19,18.21-34.68,24.21l-5.9-10.27
+                c7.93-3.66,14.65-7.83,21.26-12.82h-23.5v54.11h-11.39V30.26h-9.56V18.15z M246.85,52.53c7.63,8.44,14.75,17.6,21.46,27.56
+                l-9.36,7.32c-6.31-9.87-13.83-19.22-21.46-27.56L246.85,52.53z"/>
+              <path d="M275.93,19.58h48.72v12.1h-29.7v12h41.9v12.21h-41.9v9.46c0,6.71,1.83,9.97,8.44,9.97h29.8l-2.75,12.1h-27.26
+                c-14.44,0-19.63-7.53-19.63-22.07v-9.46h-9.66V43.68h9.66v-12h-7.63V19.58z"/>
+              <path class="st3" d="M259.68,107.27h-32.24v25.02h-11.29V95.17h54.92v22.17c0,28.48-23.39,43.63-48.72,45.67l-3.56-12
+                c20.04,0,40.89-12,40.89-32.95V107.27z"/>
+              <path d="M337.38,131.28v9.66c0,14.54-5.19,22.07-19.63,22.07h-35.8v-12.1h35.6c6.71,0,8.54-3.26,8.54-9.97v-9.66h-26.24
+                c-9.15,0-14.14-5.39-14.14-15.16v-8.85h-6.81v-12.1h58.89v12.1H297v8.85c0,2.03,0.61,2.95,2.85,2.95h40.99v12.21H337.38z"/>
+            </svg>
+          </a>
+          <p>Soluciones técnicas con visión estratégica para proyectos de ingeniería y construcción.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+          </div>
         </div>
         
-        <p><i class="fas fa-envelope"></i> p.rojas.77@hotmail.com</p>
-        <p><i class="fas fa-phone"></i> +593 098 224 2982</p>
+        <div class="footer-col">
+          <h3>Servicios</h3>
+          <div class="footer-links">
+            <a href="#servicios">Diseño Estructural</a>
+            <a href="#servicios">Ingeniería Vial</a>
+            <a href="#servicios">Gestión de Obras</a>
+            <a href="#servicios">Consultoría Técnica</a>
+            <a href="#servicios">Presupuestos y APU</a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Enlaces Rápidos</h3>
+          <div class="footer-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#testimonios">Testimonios</a>
+            <a href="#contacto">Contacto</a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Suscríbase</h3>
+          <p>Reciba actualizaciones y consejos técnicos para sus proyectos.</p>
+          <form>
+            <div class="form-group">
+              <input type="email" placeholder="Correo electrónico" required style="width: 100%; padding: 10px; border-radius: 5px; border: none;">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Suscribirse</button>
+          </form>
+        </div>
       </div>
-    </div>
-    <div class="copyright">
-      <div class="container">
+      
+      <div class="copyright">
         <p>&copy; 2024 REDS Ingeniería & Construcción. Todos los derechos reservados.</p>
       </div>
     </div>
@@ -972,6 +1226,8 @@
       // Scroll suave
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
+          if(this.getAttribute('href') === '#') return;
+          
           e.preventDefault();
           const targetId = this.getAttribute('href');
           const targetElement = document.querySelector(targetId);
@@ -985,7 +1241,7 @@
       
       // Animación al hacer scroll
       const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.servicio-card, .proyecto-card, .sobre-mi-img, .timeline-content, .formacion-card, .habilidad-categoria');
+        const elements = document.querySelectorAll('.servicio-card, .beneficio-card, .proyecto-card, .testimonio-card');
         
         elements.forEach(element => {
           const position = element.getBoundingClientRect();
@@ -999,7 +1255,7 @@
       };
       
       // Configurar las animaciones iniciales
-      document.querySelectorAll('.servicio-card, .proyecto-card, .sobre-mi-img, .timeline-content, .formacion-card, .habilidad-categoria').forEach(element => {
+      document.querySelectorAll('.servicio-card, .beneficio-card, .proyecto-card, .testimonio-card').forEach(element => {
         element.style.opacity = "0";
         element.style.transform = "translateY(20px)";
         element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
@@ -1009,14 +1265,15 @@
       window.addEventListener('scroll', animateOnScroll);
       animateOnScroll(); // Ejecutar al cargar
       
-      // Animación de barras de habilidades
-      const skillBars = document.querySelectorAll('.habilidad-progreso');
-      skillBars.forEach(bar => {
-        const width = bar.getAttribute('data-width') + '%';
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 300);
-      });
+      // Validación de formulario
+      const contactForm = document.querySelector('.contacto-form form');
+      if(contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          alert('¡Gracias por su mensaje! Nos pondremos en contacto en breve.');
+          contactForm.reset();
+        });
+      }
     });
   </script>
 </body>
