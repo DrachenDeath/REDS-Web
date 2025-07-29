@@ -1,359 +1,124 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REDS Glitch Effect</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 900px;
-            width: 100%;
-            text-align: center;
-        }
-        
-        .title {
-            color: #fff;
-            margin-bottom: 40px;
-            text-shadow: 0 0 10px rgba(208, 32, 39, 0.7);
-        }
-        
-        .title h1 {
-            font-size: 2.8rem;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        
-        .title p {
-            font-size: 1.2rem;
-            opacity: 0.8;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .svg-container {
-            background: rgba(25, 25, 35, 0.8);
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(90, 90, 110, 0.3);
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .svg-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #D02027, #2A307B, #D02027);
-            animation: scanline 6s linear infinite;
-        }
-        
-        @keyframes scanline {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(188px); }
-        }
-        
-        /* Estilos para el SVG */
-        svg {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-        
-        .st0 {
-            fill: #D02027;
-            stroke: #D02027;
-            stroke-width: 9.1415;
-            stroke-miterlimit: 10;
-            animation: sticker-bounce 0.6s ease forwards;
-            animation-iteration-count: 1;
-        }
-        
-        .st1 {
-            fill: none;
-            stroke: #343239;
-            stroke-width: 24.2399;
-            stroke-miterlimit: 10;
-        }
-        
-        .st2 {
-            fill: #2A307B;
-            stroke: #2A307B;
-            stroke-width: 5.5696;
-            stroke-miterlimit: 10;
-        }
-        
-        .st3 {
-            fill: #2A307B;
-        }
-        
-        /* Movimiento pegado y vuelta para líneas rojas */
-        @keyframes sticker-bounce {
-            0% { transform: translateX(0); }
-            50% { transform: translateX(5px); }
-            100% { transform: translateX(0); }
-        }
-        
-        /* Movimiento pegado y vuelta para línea diagonal (grupo) */
-        @keyframes diagonal-bounce {
-            0% { transform: translate(0, 0); }
-            50% { transform: translate(15px, -15px); }
-            100% { transform: translate(0, 0); }
-        }
-        
-        /* Aplicar animación al grupo */
-        #diagonal-group {
-            animation: diagonal-bounce 0.6s ease forwards;
-            animation-iteration-count: 1;
-        }
-        
-        /* Texto animado */
-        #reds-text {
-            font-family: 'Courier New', monospace;
-            font-weight: 900;
-            font-size: 48px;
-            fill: #2A307B;
-            user-select: none;
-            text-anchor: middle;
-            animation: text-glow 3s ease-in-out infinite alternate;
-        }
-        
-        @keyframes text-glow {
-            0% { filter: drop-shadow(0 0 2px #2A307B); }
-            100% { filter: drop-shadow(0 0 8px #4a5bff); }
-        }
-        
-        .glitch-effect {
-            animation: glitch-anim 0.4s linear infinite;
-        }
-        
-        @keyframes glitch-anim {
-            0% { transform: translate(0); }
-            20% { transform: translate(-5px, 5px); }
-            40% { transform: translate(-5px, -5px); }
-            60% { transform: translate(5px, 5px); }
-            80% { transform: translate(5px, -5px); }
-            100% { transform: translate(0); }
-        }
-        
-        .controls {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .btn {
-            background: linear-gradient(to right, #2A307B, #D02027);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(42, 48, 123, 0.4);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(208, 32, 39, 0.6);
-        }
-        
-        .btn:active {
-            transform: translateY(1px);
-        }
-        
-        .instructions {
-            color: #aaa;
-            margin-top: 25px;
-            font-size: 0.95rem;
-        }
-        
-        /* Efectos de distorsión */
-        .distortion {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                0deg,
-                rgba(0, 0, 0, 0.15),
-                rgba(0, 0, 0, 0.15) 1px,
-                transparent 1px,
-                transparent 2px
-            );
-            pointer-events: none;
-            opacity: 0.2;
-            animation: distortion 10s infinite linear;
-        }
-        
-        @keyframes distortion {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-100%); }
-        }
-        
-        @media (max-width: 768px) {
-            .title h1 { font-size: 2.2rem; }
-            .title p { font-size: 1rem; }
-            .controls { flex-direction: column; align-items: center; }
-            .btn { width: 80%; }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="title">
-            <h1>EFECTO GLITCH DIGITAL</h1>
-            <p>Animación SVG con efecto de distorsión digital y texto binario intermitente</p>
-        </div>
-        
-        <div class="svg-container">
-            <div class="distortion"></div>
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" 
-                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                 viewBox="0 0 386.28 188.89" style="enable-background:new 0 0 386.28 188.89;" xml:space="preserve">
-                
-                <!-- Líneas horizontales rojas animadas -->
-                <rect x="25.83" y="22.26" class="st0" width="160.94" height="17.4"/>
-                <rect x="25.83" y="65" class="st0" width="160.94" height="17.4"/>
-                <rect x="25.83" y="106.15" class="st0" width="160.94" height="17.4"/>
-                
-                <!-- Línea gris horizontal gruesa -->
-                <line class="st1" x1="59.23" y1="154" x2="191.4" y2="154"/>
-                
-                <!-- Grupo para línea diagonal azul (animado) -->
-                <g id="diagonal-group" transform="translate(0,0)">
-                  <rect x="25.26" y="80.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)" class="st2" width="190.22" height="17.27"/>
-                </g>
-                
-                <!-- Resto del logo sin animación -->
-                <path d="M205.86,18.15h9.56V9.81h11.39v8.34h40.89l1.93,10.98c-10.78,9.97-23.19,18.21-34.68,24.21l-5.9-10.27
-                  c7.93-3.66,14.65-7.83,21.26-12.82h-23.5v54.11h-11.39V30.26h-9.56V18.15z M246.85,52.53c7.63,8.44,14.75,17.6,21.46,27.56
-                  l-9.36,7.32c-6.31-9.87-13.83-19.22-21.46-27.56L246.85,52.53z"/>
-                <path d="M275.93,19.58h48.72v12.1h-29.7v12h41.9v12.21h-41.9v9.46c0,6.71,1.83,9.97,8.44,9.97h29.8l-2.75,12.1h-27.26
-                  c-14.44,0-19.63-7.53-19.63-22.07v-9.46h-9.66V43.68h9.66v-12h-7.63V19.58z"/>
-                <path class="st3" d="M259.68,107.27h-32.24v25.02h-11.29V95.17h54.92v22.17c0,28.48-23.39,43.63-48.72,45.67l-3.56-12
-                  c20.04,0,40.89-12,40.89-32.95V107.27z"/>
-                <path d="M337.38,131.28v9.66c0,14.54-5.19,22.07-19.63,22.07h-35.8v-12.1h35.6c6.71,0,8.54-3.26,8.54-9.97v-9.66h-26.24
-                  c-9.15,0-14.14-5.39-14.14-15.16v-8.85h-6.81v-12.1h58.89v12.1H297v8.85c0,2.03,0.61,2.95,2.85,2.95h40.99v12.21H337.38z"/>
-                
-                <!-- Texto animado "REDS" -->
-                <text id="reds-text" x="193" y="150">REDS</text>
-            </svg>
-        </div>
-        
-        <div class="controls">
-            <button class="btn" id="triggerBtn">Activar Glitch</button>
-            <button class="btn" id="resetBtn">Reiniciar</button>
-        </div>
-        
-        <div class="instructions">
-            <p>El texto "REDS" cambiará a código binario cada 4 segundos con efecto de distorsión digital</p>
-        </div>
-    </div>
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 386.28 188.89" style="enable-background:new 0 0 386.28 188.89;" xml:space="preserve">
 
-    <script>
-        const textElem = document.getElementById('reds-text');
-        const triggerBtn = document.getElementById('triggerBtn');
-        const resetBtn = document.getElementById('resetBtn');
-        const svgContainer = document.querySelector('.svg-container');
-        const originalText = "REDS";
-        const binaryChars = ['0', '1'];
-        let animationInterval;
-        let isAnimating = false;
+<style type="text/css">
+  .st0 {
+    fill: #D02027;
+    stroke: #D02027;
+    stroke-width: 9.1415;
+    stroke-miterlimit: 10;
+    animation: sticker-bounce 0.6s ease forwards;
+    animation-iteration-count: 1;
+  }
 
-        function getRandomBinaryString(length) {
-            let str = "";
-            for (let i = 0; i < length; i++) {
-                str += binaryChars[Math.floor(Math.random() * binaryChars.length)];
-            }
-            return str;
-        }
+  .st1 {
+    fill: none;
+    stroke: #343239;
+    stroke-width: 24.2399;
+    stroke-miterlimit: 10;
+  }
 
-        function animateBinary(times, interval) {
-            let count = 0;
-            const maxCount = times;
-            
-            // Añadir clase de efecto glitch al contenedor
-            svgContainer.classList.add('glitch-effect');
-            
-            const anim = setInterval(() => {
-                if (count >= maxCount) {
-                    clearInterval(anim);
-                    textElem.textContent = originalText;
-                    svgContainer.classList.remove('glitch-effect');
-                    
-                    // Añadir efecto de desenfoque al finalizar
-                    textElem.style.filter = "blur(0px)";
-                    setTimeout(() => {
-                        textElem.style.filter = "none";
-                    }, 1000);
-                } else {
-                    textElem.textContent = getRandomBinaryString(originalText.length);
-                    
-                    // Añadir efecto de desenfoque aleatorio
-                    textElem.style.filter = `blur(${Math.random() * 3}px)`;
-                    count++;
-                }
-            }, interval);
-        }
+  .st2 {
+    fill: #2A307B;
+    stroke: #2A307B;
+    stroke-width: 5.5696;
+    stroke-miterlimit: 10;
+  }
 
-        function startAnimation() {
-            if (isAnimating) return;
-            
-            isAnimating = true;
-            triggerBtn.textContent = "Animando...";
-            triggerBtn.disabled = true;
-            
-            // Ejecutar la animación inmediatamente y luego cada 4 segundos
-            animateBinary(20, 70);
-            animationInterval = setInterval(() => {
-                animateBinary(20, 70);
-            }, 4000);
-        }
+  .st3 {
+    fill: #2A307B;
+  }
 
-        function resetAnimation() {
-            clearInterval(animationInterval);
-            textElem.textContent = originalText;
-            svgContainer.classList.remove('glitch-effect');
-            textElem.style.filter = "none";
-            isAnimating = false;
-            triggerBtn.textContent = "Activar Glitch";
-            triggerBtn.disabled = false;
-        }
+  /* Movimiento pegado y vuelta para líneas rojas */
+  @keyframes sticker-bounce {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+  }
 
-        // Event listeners
-        triggerBtn.addEventListener('click', startAnimation);
-        resetBtn.addEventListener('click', resetAnimation);
-        
-        // Iniciar automáticamente después de 2 segundos
-        setTimeout(startAnimation, 2000);
-    </script>
-</body>
-    
+  /* Movimiento pegado y vuelta para línea diagonal (grupo) */
+  @keyframes diagonal-bounce {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(15px, -15px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  /* Aplicar animación al grupo */
+  #diagonal-group {
+    animation: diagonal-bounce 0.6s ease forwards;
+    animation-iteration-count: 1;
+  }
+
+  /* Texto animado */
+  #reds-text {
+    font-family: monospace, monospace;
+    font-weight: bold;
+    font-size: 40px;
+    fill: #2A307B;
+    user-select: none;
+  }
+</style>
+
+<!-- Líneas horizontales rojas animadas -->
+<rect x="25.83" y="22.26" class="st0" width="160.94" height="17.4"/>
+<rect x="25.83" y="65" class="st0" width="160.94" height="17.4"/>
+<rect x="25.83" y="106.15" class="st0" width="160.94" height="17.4"/>
+
+<!-- Línea gris horizontal gruesa -->
+<line class="st1" x1="59.23" y1="154" x2="191.4" y2="154"/>
+
+<!-- Grupo para línea diagonal azul (animado) -->
+<g id="diagonal-group" transform="translate(0,0)">
+  <rect x="25.26" y="80.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)" class="st2" width="190.22" height="17.27"/>
+</g>
+
+<!-- Resto del logo sin animación -->
+<path d="M205.86,18.15h9.56V9.81h11.39v8.34h40.89l1.93,10.98c-10.78,9.97-23.19,18.21-34.68,24.21l-5.9-10.27
+  c7.93-3.66,14.65-7.83,21.26-12.82h-23.5v54.11h-11.39V30.26h-9.56V18.15z M246.85,52.53c7.63,8.44,14.75,17.6,21.46,27.56
+  l-9.36,7.32c-6.31-9.87-13.83-19.22-21.46-27.56L246.85,52.53z"/>
+<path d="M275.93,19.58h48.72v12.1h-29.7v12h41.9v12.21h-41.9v9.46c0,6.71,1.83,9.97,8.44,9.97h29.8l-2.75,12.1h-27.26
+  c-14.44,0-19.63-7.53-19.63-22.07v-9.46h-9.66V43.68h9.66v-12h-7.63V19.58z"/>
+<path class="st3" d="M259.68,107.27h-32.24v25.02h-11.29V95.17h54.92v22.17c0,28.48-23.39,43.63-48.72,45.67l-3.56-12
+  c20.04,0,40.89-12,40.89-32.95V107.27z"/>
+<path d="M337.38,131.28v9.66c0,14.54-5.19,22.07-19.63,22.07h-35.8v-12.1h35.6c6.71,0,8.54-3.26,8.54-9.97v-9.66h-26.24
+  c-9.15,0-14.14-5.39-14.14-15.16v-8.85h-6.81v-12.1h58.89v12.1H297v8.85c0,2.03,0.61,2.95,2.85,2.95h40.99v12.21H337.38z"/>
+
+<!-- Texto animado "REDS" -->
+<text id="reds-text" x="200" y="140">REDS</text>
+
+<script type="application/ecmascript"><![CDATA[
+  const textElem = document.getElementById('reds-text');
+  const originalText = "REDS";
+  const binaryChars = ['0', '1'];
+
+  function getRandomBinaryString(length) {
+    let str = "";
+    for (let i = 0; i < length; i++) {
+      str += binaryChars[Math.floor(Math.random() * binaryChars.length)];
+    }
+    return str;
+  }
+
+  function animateBinary(times, interval, callback) {
+    let count = 0;
+    const maxCount = times;
+    const anim = setInterval(() => {
+      if (count >= maxCount) {
+        clearInterval(anim);
+        callback();
+      } else {
+        textElem.textContent = getRandomBinaryString(originalText.length);
+        count++;
+      }
+    }, interval);
+  }
+
+  // Ejecutar animación y luego volver al texto original
+  animateBinary(20, 70, () => {
+    textElem.textContent = originalText;
+  });
+]]></script>
+
+</svg>
