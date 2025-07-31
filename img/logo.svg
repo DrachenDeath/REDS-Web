@@ -19,6 +19,9 @@
     stroke: #343239;
     stroke-width: 24.2399;
     stroke-miterlimit: 10;
+    /* NEW ANIMATION ADDED HERE */
+    animation: grayline-bounce 0.7s ease forwards;
+    animation-iteration-count: 1;
   }
 
   .st2 {
@@ -45,6 +48,13 @@
     50% { transform: translate(15px, -15px); }
     100% { transform: translate(0, 0); }
   }
+  
+  /* NEW ANIMATION FOR GRAY LINE */
+  @keyframes grayline-bounce {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+    100% { transform: translateX(0); }
+  }
 
   /* Aplicar animación al grupo */
   #diagonal-group {
@@ -58,7 +68,7 @@
 <rect x="25.83" y="65" class="st0" width="160.94" height="17.4"/>
 <rect x="25.83" y="106.15" class="st0" width="160.94" height="17.4"/>
 
-<!-- Línea gris horizontal gruesa -->
+<!-- Línea gris horizontal gruesa (now animated) -->
 <line class="st1" x1="59.23" y1="154" x2="191.4" y2="154"/>
 
 <!-- Grupo para línea diagonal azul (animado) -->
