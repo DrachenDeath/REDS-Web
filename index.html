@@ -61,14 +61,13 @@
       align-items: center;
       text-decoration: none;
       transition: var(--transition);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--primary);
+      height: 50px;
     }
     
-    .logo span {
-      color: var(--secondary);
+    .logo-svg {
+      height: 100%;
+      width: auto;
+      max-width: 200px;
     }
     
     .navbar-links {
@@ -679,6 +678,53 @@
         transform: translateY(0);
       }
     }
+
+    /* Nuevas animaciones para el logo */
+    @keyframes sticker-bounce {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(5px); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes diagonal-bounce {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(15px, -15px); }
+      100% { transform: translate(0, 0); }
+    }
+    
+    @keyframes grayline-bounce {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(20px); }
+      100% { transform: translateX(0); }
+    }
+
+    /* Aplicar animaciones al logo */
+    .logo-rect {
+      fill: #D02027;
+      stroke: #D02027;
+      stroke-width: 9.1415;
+      stroke-miterlimit: 10;
+      animation: sticker-bounce 0.9s ease forwards;
+      animation-iteration-count: 1;
+    }
+
+    .logo-grayline {
+      fill: none;
+      stroke: #343239;
+      stroke-width: 24.2399;
+      stroke-miterlimit: 10;
+      animation: grayline-bounce 0.7s ease forwards;
+      animation-iteration-count: 1;
+    }
+
+    .logo-diagonal {
+      fill: #2A307B;
+      stroke: #2A307B;
+      stroke-width: 5.5696;
+      stroke-miterlimit: 10;
+      animation: diagonal-bounce 0.6s ease forwards;
+      animation-iteration-count: 1;
+    }
     
     /* Responsive */
     @media (max-width: 992px) {
@@ -721,6 +767,10 @@
       .hero-buttons {
         flex-direction: column;
       }
+
+      .logo {
+        height: 40px;
+      }
     }
   </style>
 </head>
@@ -729,7 +779,32 @@
   <nav class="navbar">
     <div class="container">
       <a href="#inicio" class="logo">
-        Francisco <span>Rojas</span>
+        <svg class="logo-svg" viewBox="0 0 386.28 188.89">
+          <title>Francisco Rojas - Ingeniero Civil</title>
+          <!-- Líneas horizontales rojas animadas -->
+          <rect x="25.83" y="22.26" class="logo-rect" width="160.94" height="17.4"/>
+          <rect x="25.83" y="65" class="logo-rect" width="160.94" height="17.4"/>
+          <rect x="25.83" y="106.15" class="logo-rect" width="160.94" height="17.4"/>
+
+          <!-- Línea gris horizontal gruesa (now animated) -->
+          <line class="logo-grayline" x1="59.23" y1="154" x2="191.4" y2="154"/>
+
+          <!-- Grupo para línea diagonal azul (animado) -->
+          <g transform="translate(0,0)">
+            <rect x="25.26" y="80.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)" class="logo-diagonal" width="190.22" height="17.27"/>
+          </g>
+
+          <!-- Resto del logo -->
+          <path d="M205.86,18.15h9.56V9.81h11.39v8.34h40.89l1.93,10.98c-10.78,9.97-23.19,18.21-34.68,24.21l-5.9-10.27
+            c7.93-3.66,14.65-7.83,21.26-12.82h-23.5v54.11h-11.39V30.26h-9.56V18.15z M246.85,52.53c7.63,8.44,14.75,17.6,21.46,27.56
+            l-9.36,7.32c-6.31-9.87-13.83-19.22-21.46-27.56L246.85,52.53z"/>
+          <path d="M275.93,19.58h48.72v12.1h-29.7v12h41.9v12.21h-41.9v9.46c0,6.71,1.83,9.97,8.44,9.97h29.8l-2.75,12.1h-27.26
+            c-14.44,0-19.63-7.53-19.63-22.07v-9.46h-9.66V43.68h9.66v-12h-7.63V19.58z"/>
+          <path fill="#2A307B" d="M259.68,107.27h-32.24v25.02h-11.29V95.17h54.92v22.17c0,28.48-23.39,43.63-48.72,45.67l-3.56-12
+            c20.04,0,40.89-12,40.89-32.95V107.27z"/>
+          <path d="M337.38,131.28v9.66c0,14.54-5.19,22.07-19.63,22.07h-35.8v-12.1h35.6c6.71,0,8.54-3.26,8.54-9.97v-9.66h-26.24
+            c-9.15,0-14.14-5.39-14.14-15.16v-8.85h-6.81v-12.1h58.89v12.1H297v8.85c0,2.03,0.61,2.95,2.85,2.95h40.99v12.21H337.38z"/>
+        </svg>
       </a>
       <div class="navbar-links">
         <a href="#inicio" class="nav-link">Inicio</a>
@@ -1139,7 +1214,15 @@
       <div class="footer-grid">
         <div class="footer-col">
           <a href="#inicio" class="logo" style="color: white; font-size: 1.8rem;">
-            Francisco <span>Rojas</span>
+            <svg class="logo-svg" style="height: 50px; filter: brightness(0) invert(1);" viewBox="0 0 386.28 188.89">
+              <title>Francisco Rojas - Ingeniero Civil</title>
+              <!-- Solo elementos principales del logo para mantener simplicidad -->
+              <rect x="25.83" y="22.26" class="logo-rect" width="160.94" height="17.4"/>
+              <rect x="25.83" y="65" class="logo-rect" width="160.94" height="17.4"/>
+              <rect x="25.83" y="106.15" class="logo-rect" width="160.94" height="17.4"/>
+              <line class="logo-grayline" x1="59.23" y1="154" x2="191.4" y2="154"/>
+              <rect x="25.26" y="80.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)" class="logo-diagonal" width="190.22" height="17.27"/>
+            </svg>
           </a>
           <p>Ingeniero Civil especializado en Gestión de Construcción con experiencia en diseño, ejecución y supervisión de obras públicas y privadas.</p>
           <div class="social-links">
