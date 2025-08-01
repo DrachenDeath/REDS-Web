@@ -789,10 +789,8 @@
           <!-- Línea gris horizontal gruesa (now animated) -->
           <line class="logo-grayline" x1="59.23" y1="154" x2="191.4" y2="154"/>
 
-          <!-- Grupo para línea diagonal azul (animado) -->
-          <g transform="translate(0,0)">
-            <rect x="25.26" y="80.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)" class="logo-diagonal" width="190.22" height="17.27"/>
-          </g>
+          <!-- CORRECCIÓN: Línea diagonal con transformación correcta -->
+          <rect x="25.26" y="80.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)" class="logo-diagonal" width="190.22" height="17.27"/>
 
           <!-- Resto del logo -->
           <path d="M205.86,18.15h9.56V9.81h11.39v8.34h40.89l1.93,10.98c-10.78,9.97-23.19,18.21-34.68,24.21l-5.9-10.27
@@ -1216,7 +1214,6 @@
           <a href="#inicio" class="logo" style="color: white; font-size: 1.8rem;">
             <svg class="logo-svg" style="height: 50px; filter: brightness(0) invert(1);" viewBox="0 0 386.28 188.89">
               <title>Francisco Rojas - Ingeniero Civil</title>
-              <!-- Solo elementos principales del logo para mantener simplicidad -->
               <rect x="25.83" y="22.26" class="logo-rect" width="160.94" height="17.4"/>
               <rect x="25.83" y="65" class="logo-rect" width="160.94" height="17.4"/>
               <rect x="25.83" y="106.15" class="logo-rect" width="160.94" height="17.4"/>
