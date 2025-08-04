@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francisco A. Rojas Rosas | Ingeniero Civil Especializado</title>
+  <title>Soluciones de Ingeniería Civil | Francisco Rojas</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -11,7 +11,7 @@
     :root {
       --primary: #1a3a6c;
       --secondary: #d02027;
-      --accent: #2c3e50;
+      --accent: #2a307b;
       --light: #ecf0f1;
       --dark: #2c3e50;
       --transition: all 0.3s ease;
@@ -109,7 +109,7 @@
       cursor: pointer;
     }
     
-    /* Hero Section */
+    /* Hero Section - Transformado a enfoque de ventas */
     .hero {
       background: linear-gradient(135deg, var(--primary), #2c3e50);
       color: white;
@@ -119,6 +119,7 @@
       padding-top: 80px;
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
     
     .hero::before {
@@ -133,9 +134,10 @@
     }
     
     .hero-content {
-      max-width: 700px;
+      max-width: 900px;
       z-index: 2;
       animation: fadeInUp 1s ease-out;
+      margin: 0 auto;
     }
     
     .hero-title {
@@ -148,22 +150,30 @@
     }
     
     .hero-subtitle {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 300;
       margin-bottom: 40px;
-      max-width: 600px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-highlight {
+      color: var(--secondary);
+      font-weight: 700;
     }
     
     .hero-buttons {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
+      justify-content: center;
     }
     
     /* Botones */
     .btn {
       display: inline-block;
-      padding: 12px 30px;
+      padding: 16px 40px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 500;
@@ -171,10 +181,11 @@
       text-align: center;
       cursor: pointer;
       border: none;
-      min-width: 200px;
+      min-width: 220px;
       text-transform: uppercase;
       font-weight: 600;
       letter-spacing: 1px;
+      font-size: 1.1rem;
     }
     
     .btn-primary {
@@ -185,23 +196,23 @@
     
     .btn-primary:hover {
       background-color: #b21c22;
-      transform: translateY(-3px);
-      box-shadow: 0 7px 20px rgba(208, 32, 39, 0.4);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(208, 32, 39, 0.4);
     }
     
     .btn-secondary {
-      background-color: transparent;
-      color: white;
+      background-color: white;
+      color: var(--primary);
       border: 2px solid white;
     }
     
     .btn-secondary:hover {
-      background-color: white;
-      color: var(--primary);
-      transform: translateY(-3px);
+      background-color: transparent;
+      color: white;
+      transform: translateY(-5px);
     }
     
-    /* Secciones */
+    /* Secciones de ventas */
     .section {
       padding: 100px 0;
       background-color: white;
@@ -217,63 +228,43 @@
     }
     
     .section-subtitle {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: var(--dark);
       text-align: center;
       margin-bottom: 60px;
       font-weight: 300;
-      max-width: 700px;
+      max-width: 800px;
       margin-left: auto;
       margin-right: auto;
     }
     
-    /* Experiencia */
-    .experiencia {
-      background-color: #f8f9fa;
-    }
-    
-    .experiencia-grid {
+    .benefits-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      gap: 40px;
+      margin-top: 50px;
     }
     
-    .experiencia-card {
+    .benefit-card {
       background: white;
-      border-radius: 10px;
+      border-radius: 15px;
       padding: 40px 30px;
       text-align: center;
       transition: var(--transition);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       position: relative;
       overflow: hidden;
-      border-top: 4px solid var(--primary);
+      border-top: 5px solid var(--primary);
     }
     
-    .experiencia-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: var(--secondary);
-      transform: translateX(-100%);
-      transition: transform 0.5s ease;
-    }
-    
-    .experiencia-card:hover::after {
-      transform: translateX(0);
-    }
-    
-    .experiencia-card:hover {
+    .benefit-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     }
     
-    .experiencia-card .icon {
-      width: 80px;
-      height: 80px;
+    .benefit-card .icon {
+      width: 100px;
+      height: 100px;
       background: rgba(26, 58, 108, 0.1);
       border-radius: 50%;
       display: flex;
@@ -281,216 +272,68 @@
       justify-content: center;
       margin: 0 auto 25px;
       color: var(--primary);
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
     
-    .experiencia-card h3 {
-      font-size: 1.5rem;
+    .benefit-card h3 {
+      font-size: 1.6rem;
       margin-bottom: 15px;
       color: var(--primary);
     }
     
-    .experiencia-card .project-details {
+    .benefit-card p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    
+    .benefit-list {
       text-align: left;
       margin: 20px 0;
     }
     
-    .experiencia-card .project-details li {
-      margin-bottom: 10px;
+    .benefit-list li {
+      margin-bottom: 12px;
       position: relative;
-      padding-left: 25px;
+      padding-left: 30px;
+      font-size: 1.1rem;
     }
     
-    .experiencia-card .project-details li::before {
-      content: '\f105';
+    .benefit-list li::before {
+      content: '\f00c';
       font-family: 'Font Awesome 5 Free';
       font-weight: 900;
       position: absolute;
       left: 0;
       color: var(--secondary);
+      font-size: 1.2rem;
     }
     
-    /* Educación */
-    .educacion {
-      background: linear-gradient(135deg, var(--primary), #2a307b);
-      color: white;
-    }
-    
-    .educacion-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-    
-    .educacion-card {
-      text-align: center;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      backdrop-filter: blur(10px);
-      transition: var(--transition);
-    }
-    
-    .educacion-card:hover {
-      transform: translateY(-10px);
-      background: rgba(255, 255, 255, 0.15);
-    }
-    
-    .educacion-card .icon {
-      font-size: 3rem;
-      color: var(--secondary);
-      margin-bottom: 20px;
-    }
-    
-    .educacion-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-    }
-    
-    /* Proyectos */
-    .proyectos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 30px;
-    }
-    
-    .proyecto-card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      transition: var(--transition);
-      position: relative;
-    }
-    
-    .proyecto-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(26, 58, 108, 0.8);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 1;
-    }
-    
-    .proyecto-card:hover::before {
-      opacity: 1;
-    }
-    
-    .proyecto-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    }
-    
-    .proyecto-img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      display: block;
-    }
-    
-    .proyecto-info {
-      padding: 25px;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .proyecto-card:hover .proyecto-info {
-      color: white;
-    }
-    
-    .proyecto-info h3 {
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-      color: var(--primary);
-    }
-    
-    .proyecto-card:hover .proyecto-info h3 {
-      color: white;
-    }
-    
-    .proyecto-meta {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 15px;
-      font-weight: 500;
-    }
-    
-    /* Habilidades */
-    .habilidades {
+    /* Testimonios */
+    .testimonials {
       background-color: #f8f9fa;
     }
     
-    .habilidades-grid {
+    .testimonials-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
     }
     
-    .habilidad-card {
+    .testimonial-card {
       background: white;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border-radius: 15px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       position: relative;
+      transition: var(--transition);
     }
     
-    .habilidad-card::before {
-      content: '\f0ad';
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 5rem;
-      color: rgba(26, 58, 108, 0.1);
-      font-family: 'Font Awesome 5 Free';
-      font-weight: 900;
-      line-height: 1;
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     }
     
-    .habilidad-content {
-      position: relative;
-      z-index: 1;
-    }
-    
-    .habilidad-title {
-      font-size: 1.4rem;
-      color: var(--primary);
-      margin-bottom: 20px;
-    }
-    
-    .habilidad-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 15px;
-    }
-    
-    .habilidad-item {
-      background: rgba(26, 58, 108, 0.05);
-      border-radius: 5px;
-      padding: 10px;
-      text-align: center;
-      font-weight: 500;
-    }
-    
-    /* Referencias */
-    .referencias-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    
-    .referencia-card {
-      background: white;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      position: relative;
-    }
-    
-    .referencia-card::before {
+    .testimonial-card::before {
       content: '\f10d';
       position: absolute;
       top: 20px;
@@ -500,30 +343,33 @@
       font-family: 'Font Awesome 5 Free';
       font-weight: 900;
       line-height: 1;
+      z-index: 0;
     }
     
-    .referencia-content {
+    .testimonial-content {
       position: relative;
       z-index: 1;
     }
     
-    .referencia-text {
+    .testimonial-text {
       font-style: italic;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+      line-height: 1.8;
     }
     
-    .referencia-author {
+    .testimonial-author {
       display: flex;
       align-items: center;
       border-top: 1px solid #eee;
-      padding-top: 15px;
+      padding-top: 20px;
     }
     
-    .referencia-author img {
-      width: 50px;
-      height: 50px;
+    .testimonial-author img {
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
-      margin-right: 15px;
+      margin-right: 20px;
       object-fit: cover;
       background: var(--primary);
       display: flex;
@@ -533,138 +379,123 @@
       font-weight: bold;
     }
     
-    /* Contacto */
-    .contacto-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 50px;
+    /* Paquetes de servicios */
+    .pricing {
+      background: linear-gradient(135deg, var(--primary), #2a307b);
+      color: white;
     }
     
-    .contacto-info {
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+    
+    .pricing-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 50px 30px;
+      text-align: center;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .popular {
+      border: 2px solid var(--secondary);
+      transform: scale(1.05);
+      z-index: 1;
+    }
+    
+    .popular .pricing-header::after {
+      content: 'MÁS POPULAR';
+      position: absolute;
+      top: 15px;
+      right: -30px;
+      background: var(--secondary);
+      color: white;
+      padding: 5px 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transform: rotate(45deg);
+    }
+    
+    .pricing-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-10px);
+    }
+    
+    .popular:hover {
+      transform: translateY(-10px) scale(1.05);
+    }
+    
+    .pricing-header {
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .pricing-title {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    
+    .pricing-price {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: white;
+    }
+    
+    .pricing-price span {
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+    
+    .pricing-features {
+      margin-bottom: 40px;
+    }
+    
+    .pricing-features li {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      position: relative;
+      padding-left: 25px;
+    }
+    
+    .pricing-features li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--secondary);
+    }
+    
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--secondary), #b21c22);
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+    }
+    
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
       margin-bottom: 30px;
     }
     
-    .contacto-info h3 {
+    .cta-text {
       font-size: 1.4rem;
-      color: var(--primary);
-      margin-bottom: 20px;
-    }
-    
-    .contacto-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 20px;
-    }
-    
-    .contacto-item .icon {
-      width: 40px;
-      height: 40px;
-      background: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 15px;
-      flex-shrink: 0;
-    }
-    
-    .contacto-form .form-group {
-      margin-bottom: 20px;
-    }
-    
-    .contacto-form input,
-    .contacto-form textarea,
-    .contacto-form select {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-family: 'Roboto', sans-serif;
-      font-size: 1rem;
-    }
-    
-    .contacto-form textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-    
-    /* Footer */
-    footer {
-      background-color: var(--dark);
-      color: white;
-      padding: 60px 0 30px;
-      text-align: center;
-      position: relative;
-    }
-    
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      text-align: left;
-    }
-    
-    .footer-col h3 {
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-      position: relative;
-      padding-bottom: 10px;
-    }
-    
-    .footer-col h3::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 50px;
-      height: 2px;
-      background: var(--secondary);
-    }
-    
-    .footer-links a {
-      display: block;
-      color: #ddd;
-      text-decoration: none;
-      margin-bottom: 10px;
-      transition: var(--transition);
-    }
-    
-    .footer-links a:hover {
-      color: var(--secondary);
-      transform: translateX(5px);
-    }
-    
-    .social-links {
-      display: flex;
-      gap: 15px;
-      margin-top: 20px;
-    }
-    
-    .social-links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      font-size: 1rem;
-      transition: var(--transition);
-    }
-    
-    .social-links a:hover {
-      background: var(--secondary);
-      transform: translateY(-5px);
-    }
-    
-    .copyright {
-      padding-top: 30px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.9rem;
-      opacity: 0.7;
-      margin-top: 50px;
+      margin-bottom: 50px;
+      font-weight: 300;
     }
     
     /* Animaciones */
@@ -679,7 +510,6 @@
       }
     }
 
-    /* Nuevas animaciones para el logo */
     @keyframes sticker-bounce {
       0% { transform: translateX(0); }
       50% { transform: translateX(5px); }
@@ -731,6 +561,9 @@
       .hero-title {
         font-size: 3rem;
       }
+      .hero-subtitle {
+        font-size: 1.5rem;
+      }
     }
     
     @media (max-width: 768px) {
@@ -757,7 +590,7 @@
       }
       
       .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
       }
       
       .hero-subtitle {
@@ -766,6 +599,12 @@
       
       .hero-buttons {
         flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
       }
 
       .logo {
@@ -780,36 +619,35 @@
     <div class="container">
       <a href="#inicio" class="logo">
         <svg class="logo-svg" viewBox="0 0 386.28 188.89">
-          <title>Francisco Rojas - Ingeniero Civil</title>
+          <title>Soluciones de Ingeniería Civil</title>
           <!-- Líneas horizontales rojas animadas -->
           <rect x="25.83" y="22.26" class="logo-rect" width="160.94" height="17.4"/>
           <rect x="25.83" y="65" class="logo-rect" width="160.94" height="17.4"/>
           <rect x="25.83" y="106.15" class="logo-rect" width="160.94" height="17.4"/>
 
-          <!-- Línea gris horizontal gruesa (now animated) -->
+          <!-- Línea gris horizontal gruesa -->
           <line class="logo-grayline" x1="59.23" y1="154" x2="191.4" y2="154"/>
 
-          <!-- Línea diagonal azul con transformación corregida -->
-          <rect x="25.26" y="80.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)" class="logo-diagonal" width="190.22" height="17.27"/>
+          <!-- Línea diagonal CORREGIDA con path -->
+          <path class="logo-diagonal" d="M25.26,80.18 L215.48,270.4" stroke="#2A307B" stroke-width="17.27" stroke-linecap="square"/>
 
           <!-- Resto del logo -->
           <path d="M205.86,18.15h9.56V9.81h11.39v8.34h40.89l1.93,10.98c-10.78,9.97-23.19,18.21-34.68,24.21l-5.9-10.27
             c7.93-3.66,14.65-7.83,21.26-12.82h-23.5v54.11h-11.39V30.26h-9.56V18.15z M246.85,52.53c7.63,8.44,14.75,17.6,21.46,27.56
-            l-9.36,7.32c-6.31-9.87-13.83-19.22-21.46-27.56L246.85,52.53z"/>
+            l-9.36,7.32c-6.31-9.87-13.83-19.22-21.46-27.56L246.85,52.53z" fill="#2A307B"/>
           <path d="M275.93,19.58h48.72v12.1h-29.7v12h41.9v12.21h-41.9v9.46c0,6.71,1.83,9.97,8.44,9.97h29.8l-2.75,12.1h-27.26
-            c-14.44,0-19.63-7.53-19.63-22.07v-9.46h-9.66V43.68h9.66v-12h-7.63V19.58z"/>
+            c-14.44,0-19.63-7.53-19.63-22.07v-9.46h-9.66V43.68h9.66v-12h-7.63V19.58z" fill="#2A307B"/>
           <path fill="#2A307B" d="M259.68,107.27h-32.24v25.02h-11.29V95.17h54.92v22.17c0,28.48-23.39,43.63-48.72,45.67l-3.56-12
             c20.04,0,40.89-12,40.89-32.95V107.27z"/>
           <path d="M337.38,131.28v9.66c0,14.54-5.19,22.07-19.63,22.07h-35.8v-12.1h35.6c6.71,0,8.54-3.26,8.54-9.97v-9.66h-26.24
-            c-9.15,0-14.14-5.39-14.14-15.16v-8.85h-6.81v-12.1h58.89v12.1H297v8.85c0,2.03,0.61,2.95,2.85,2.95h40.99v12.21H337.38z"/>
+            c-9.15,0-14.14-5.39-14.14-15.16v-8.85h-6.81v-12.1h58.89v12.1H297v8.85c0,2.03,0.61,2.95,2.85,2.95h40.99v12.21H337.38z" fill="#2A307B"/>
         </svg>
       </a>
       <div class="navbar-links">
-        <a href="#inicio" class="nav-link">Inicio</a>
-        <a href="#experiencia" class="nav-link">Experiencia</a>
-        <a href="#educacion" class="nav-link">Educación</a>
-        <a href="#proyectos" class="nav-link">Proyectos</a>
-        <a href="#habilidades" class="nav-link">Habilidades</a>
+        <a href="#beneficios" class="nav-link">Beneficios</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#testimonios" class="nav-link">Testimonios</a>
+        <a href="#precios" class="nav-link">Precios</a>
         <a href="#contacto" class="nav-link">Contacto</a>
       </div>
       <button class="menu-toggle">
@@ -818,68 +656,132 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero Section - Transformado a enfoque de ventas -->
   <header id="inicio" class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1 class="hero-title">Francisco A. Rojas Rosas</h1>
-        <p class="hero-subtitle">Ingeniero Civil especializado en Gestión de Construcción con maestrías en Gestión de Proyectos e Ingeniería Vial</p>
+        <h1 class="hero-title">Soluciones Profesionales para <span class="hero-highlight">Tu Proyecto de Construcción</span></h1>
+        <p class="hero-subtitle">Expertos en gestión de proyectos de construcción que garantizan calidad, ahorro de tiempo y reducción de costos</p>
         <div class="hero-buttons">
-          <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
-          <a href="#contacto" class="btn btn-secondary">Contactar</a>
+          <a href="#servicios" class="btn btn-primary">Ver Nuestros Servicios</a>
+          <a href="#contacto" class="btn btn-secondary">Solicitar Cotización</a>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Experiencia -->
-  <section id="experiencia" class="section experiencia">
+  <!-- Beneficios -->
+  <section id="beneficios" class="section">
     <div class="container">
-      <h2 class="section-title">Experiencia Profesional</h2>
-      <p class="section-subtitle">Más de 5 años de experiencia en diseño, ejecución y supervisión de obras públicas y privadas</p>
+      <h2 class="section-title">Beneficios Clave de Nuestros Servicios</h2>
+      <p class="section-subtitle">Por qué más de 50 empresas constructoras confían en nuestros servicios profesionales</p>
       
-      <div class="experiencia-grid">
-        <div class="experiencia-card">
+      <div class="benefits-grid">
+        <div class="benefit-card">
           <div class="icon">
-            <i class="fas fa-hospital fa-3x"></i>
+            <i class="fas fa-money-bill-wave fa-3x"></i>
           </div>
-          <h3>Site Manager</h3>
-          <p>Mantenimiento de 15 Unidades Médicas – CPSSCA</p>
-          <div class="project-details">
+          <h3>Ahorro de Costos</h3>
+          <p>Optimizamos tus recursos y reducimos gastos innecesarios</p>
+          <div class="benefit-list">
             <ul>
-              <li>Monto: $370,242.93</li>
-              <li>Ubicación: Pichincha, Ecuador</li>
-              <li>Año: 2024</li>
+              <li>Reducción de costos hasta en un 30%</li>
+              <li>Optimización de materiales y recursos humanos</li>
+              <li>Prevención de costosos errores de construcción</li>
+              <li>Control estricto de presupuestos</li>
             </ul>
           </div>
         </div>
         
-        <div class="experiencia-card">
+        <div class="benefit-card">
+          <div class="icon">
+            <i class="fas fa-clock fa-3x"></i>
+          </div>
+          <h3>Entrega a Tiempo</h3>
+          <p>Cumplimos con los plazos establecidos sin comprometer la calidad</p>
+          <div class="benefit-list">
+            <ul>
+              <li>Planificación detallada de cada fase del proyecto</li>
+              <li>Gestión eficiente de recursos y plazos</li>
+              <li>Supervisión constante para evitar retrasos</li>
+              <li>98% de proyectos entregados a tiempo</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="icon">
+            <i class="fas fa-medal fa-3x"></i>
+          </div>
+          <h3>Calidad Garantizada</h3>
+          <p>Resultados que superan los estándares de la industria</p>
+          <div class="benefit-list">
+            <ul>
+              <li>Cumplimiento estricto de normativas y estándares</li>
+              <li>Materiales de primera calidad certificados</li>
+              <li>Supervisión técnica especializada</li>
+              <li>Garantía de satisfacción en todos nuestros proyectos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="section">
+    <div class="container">
+      <h2 class="section-title">Nuestros Servicios Profesionales</h2>
+      <p class="section-subtitle">Soluciones integrales para cada fase de tu proyecto constructivo</p>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="icon">
+            <i class="fas fa-drafting-compass fa-3x"></i>
+          </div>
+          <h3>Diseño y Planificación</h3>
+          <p>Creación de proyectos constructivos optimizados y eficientes</p>
+          <div class="benefit-list">
+            <ul>
+              <li>Planos arquitectónicos y estructurales</li>
+              <li>Estudios de viabilidad técnica y económica</li>
+              <li>Optimización de espacios y funcionalidad</li>
+              <li>Planificación detallada de fases y recursos</li>
+              <li>Gestión de permisos y documentación legal</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="icon">
+            <i class="fas fa-hard-hat fa-3x"></i>
+          </div>
+          <h3>Gestión de Construcción</h3>
+          <p>Dirección técnica y supervisión de obras</p>
+          <div class="benefit-list">
+            <ul>
+              <li>Coordinación de equipos y proveedores</li>
+              <li>Control de calidad en todas las fases</li>
+              <li>Seguimiento de avances y presupuesto</li>
+              <li>Gestión de contratos y subcontratos</li>
+              <li>Solución rápida de imprevistos</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="benefit-card">
           <div class="icon">
             <i class="fas fa-road fa-3x"></i>
           </div>
-          <h3>Obras Viales y Urbanas</h3>
-          <p>Proyecto Calle Miguel Arias y otros</p>
-          <div class="project-details">
+          <h3>Infraestructura Vial</h3>
+          <p>Especialistas en proyectos de infraestructura vial</p>
+          <div class="benefit-list">
             <ul>
-              <li>Monto: $92,750.00</li>
-              <li>Ubicación: Azuay, Ecuador</li>
-              <li>Año: 2024</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="experiencia-card">
-          <div class="icon">
-            <i class="fas fa-city fa-3x"></i>
-          </div>
-          <h3>Proyectos Municipales</h3>
-          <p>Parque Barrio Guadalupana, Feria de Productores, Centro de Capacitación</p>
-          <div class="project-details">
-            <ul>
-              <li>Monto Total: $63,810.00</li>
-              <li>Ubicación: Cañar, Ecuador</li>
-              <li>Año: 2023</li>
+              <li>Diseño y construcción de carreteras</li>
+              <li>Proyectos de urbanización y pavimentación</li>
+              <li>Señalización y seguridad vial</li>
+              <li>Drenajes y sistemas hidráulicos</li>
+              <li>Mantenimiento y rehabilitación vial</li>
             </ul>
           </div>
         </div>
@@ -887,91 +789,57 @@
     </div>
   </section>
 
-  <!-- Educación -->
-  <section id="educacion" class="section educacion">
+  <!-- Testimonios -->
+  <section id="testimonios" class="section testimonials">
     <div class="container">
-      <h2 class="section-title">Formación Académica</h2>
-      <p class="section-subtitle">Especialización en áreas clave de ingeniería y gestión de proyectos</p>
+      <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+      <p class="section-subtitle">Más de 50 proyectos exitosos con clientes satisfechos</p>
       
-      <div class="educacion-grid">
-        <div class="educacion-card">
-          <div class="icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <h3>Maestría en Ingeniería de Vías Terrestres</h3>
-          <p>Universidad Politécnica Salesiana - Ecuador</p>
-          <p>En curso (2024)</p>
-        </div>
-        
-        <div class="educacion-card">
-          <div class="icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <h3>Maestría en Administración de Empresas y Gestión de Proyectos</h3>
-          <p>EUDE European Business School - España</p>
-          <p>2021</p>
-        </div>
-        
-        <div class="educacion-card">
-          <div class="icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <h3>Ingeniero Civil con Especialización en Gestión de Construcción</h3>
-          <p>Universidad de Azuay - Ecuador</p>
-          <p>2022</p>
-        </div>
-        
-        <div class="educacion-card">
-          <div class="icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <h3>Licenciatura en Artes Visuales, Especialización en Ilustración</h3>
-          <p>Universidad de Cuenca - Ecuador</p>
-          <p>2013</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proyectos -->
-  <section id="proyectos" class="section">
-    <div class="container">
-      <h2 class="section-title">Proyectos Destacados</h2>
-      <p class="section-subtitle">Casos de éxito que demuestran mi experiencia y capacidad</p>
-      
-      <div class="proyectos-grid">
-        <div class="proyecto-card">
-          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Residencia Ñamiña" class="proyecto-img">
-          <div class="proyecto-info">
-            <h3>Primera Etapa del Consejo Parroquial de Ventura</h3>
-            <p>Gestión y supervisión de obra como Site Manager en el proyecto de construcción inicial.</p>
-            <div class="proyecto-meta">
-              <span>Monto: $144,168.11</span>
-              <span>2022</span>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-text">
+              "Contratamos los servicios de gestión de construcción para nuestro proyecto de centro comercial. Gracias a su profesionalismo, completamos la obra 3 semanas antes de lo previsto y un 15% por debajo del presupuesto inicial. ¡Recomendados al 100%!"
+            </div>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Testimonio">
+              <div>
+                <strong>Carlos Mendoza</strong>
+                <div>Director de Construcciones Andinas</div>
+                <div>Proyecto: Centro Comercial Quito Norte</div>
+              </div>
             </div>
           </div>
         </div>
         
-        <div class="proyecto-card">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1031&q=80" alt="Bodega Simbaina" class="proyecto-img">
-          <div class="proyecto-info">
-            <h3>Cruce de Aguas en General Morales y Chontamarca</h3>
-            <p>Site Manager responsable de la construcción de estructuras para cruce de aguas.</p>
-            <div class="proyecto-meta">
-              <span>Monto: $73,385.53</span>
-              <span>2023</span>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-text">
+              "Necesitábamos un experto en vialidad para nuestro proyecto municipal. Su equipo no solo cumplió con todas las especificaciones, sino que implementó mejoras que ahorraron a la ciudad miles de dólares en mantenimiento futuro. Excelente servicio técnico y profesional."
+            </div>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Testimonio">
+              <div>
+                <strong>María Fernanda Torres</strong>
+                <div>Alcaldesa de Cuenca</div>
+                <div>Proyecto: Red Vial Urbana</div>
+              </div>
             </div>
           </div>
         </div>
         
-        <div class="proyecto-card">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Residencia Rosas Dutan" class="proyecto-img">
-          <div class="proyecto-info">
-            <h3>Proyecto Calle Miguel Arias</h3>
-            <p>Diseño y ejecución de obras viales y urbanas en Azuay, Ecuador.</p>
-            <div class="proyecto-meta">
-              <span>Monto: $92,750.00</span>
-              <span>2024</span>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-text">
+              "Como desarrolladores inmobiliarios, trabajamos con muchos profesionales. La diferencia con este equipo es su capacidad para anticipar problemas y ofrecer soluciones innovadoras. Han gestionado 5 de nuestros proyectos con resultados excepcionales en calidad y rentabilidad."
+            </div>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/72.jpg" alt="Testimonio">
+              <div>
+                <strong>Roberto Vargas</strong>
+                <div>CEO de Inmobiliaria del Sur</div>
+                <div>Proyectos: Residenciales de Lujo</div>
+              </div>
             </div>
           </div>
         </div>
@@ -979,118 +847,77 @@
     </div>
   </section>
 
-  <!-- Habilidades -->
-  <section id="habilidades" class="section habilidades">
+  <!-- Precios -->
+  <section id="precios" class="section pricing">
     <div class="container">
-      <h2 class="section-title">Habilidades y Tecnologías</h2>
-      <p class="section-subtitle">Competencias técnicas y herramientas especializadas</p>
+      <h2 class="section-title">Nuestros Paquetes de Servicios</h2>
+      <p class="section-subtitle">Soluciones adaptadas a las necesidades de tu proyecto</p>
       
-      <div class="habilidades-grid">
-        <div class="habilidad-card">
-          <div class="habilidad-content">
-            <h3 class="habilidad-title">Software Especializado</h3>
-            <div class="habilidad-list">
-              <div class="habilidad-item">AutoCAD</div>
-              <div class="habilidad-item">Civil 3D</div>
-              <div class="habilidad-item">Revit</div>
-              <div class="habilidad-item">SAP2000</div>
-              <div class="habilidad-item">ETABS 18</div>
-              <div class="habilidad-item">Inventor</div>
-              <div class="habilidad-item">Matlab</div>
-              <div class="habilidad-item">Mathcad</div>
-              <div class="habilidad-item">QGIS</div>
-              <div class="habilidad-item">ArcGIS</div>
-            </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 class="pricing-title">Básico</h3>
+            <div class="pricing-price">$2,500<span>/mes</span></div>
+            <p>Para proyectos pequeños y consultorías</p>
           </div>
+          <ul class="pricing-features">
+            <li>Asesoría inicial y planificación</li>
+            <li>Supervisión mensual de obra</li>
+            <li>Control básico de presupuesto</li>
+            <li>Informes de avance quincenales</li>
+            <li>Soporte por correo electrónico</li>
+            <li>Hasta 3 revisiones de proyecto</li>
+          </ul>
+          <a href="#contacto" class="btn btn-secondary">Seleccionar Plan</a>
         </div>
         
-        <div class="habilidad-card">
-          <div class="habilidad-content">
-            <h3 class="habilidad-title">Gestión de Proyectos</h3>
-            <div class="habilidad-list">
-              <div class="habilidad-item">Presupuestos</div>
-              <div class="habilidad-item">Análisis de Precios Unitarios</div>
-              <div class="habilidad-item">Programación Valorada</div>
-              <div class="habilidad-item">Contratación Pública</div>
-              <div class="habilidad-item">Normativa NEC</div>
-              <div class="habilidad-item">Normativa MICP</div>
-            </div>
+        <div class="pricing-card popular">
+          <div class="pricing-header">
+            <h3 class="pricing-title">Profesional</h3>
+            <div class="pricing-price">$5,800<span>/mes</span></div>
+            <p>Ideal para proyectos medianos</p>
           </div>
+          <ul class="pricing-features">
+            <li>Gestión completa de construcción</li>
+            <li>Supervisión semanal de obra</li>
+            <li>Control detallado de presupuesto</li>
+            <li>Informes de avance semanales</li>
+            <li>Soporte prioritario 24/7</li>
+            <li>Revisiones ilimitadas de proyecto</li>
+            <li>Coordinación de proveedores</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary">Seleccionar Plan</a>
         </div>
         
-        <div class="habilidad-card">
-          <div class="habilidad-content">
-            <h3 class="habilidad-title">Normativas y Especialidades</h3>
-            <div class="habilidad-list">
-              <div class="habilidad-item">ACI</div>
-              <div class="habilidad-item">AISC</div>
-              <div class="habilidad-item">ASCE</div>
-              <div class="habilidad-item">ASTM</div>
-              <div class="habilidad-item">AASHTO</div>
-              <div class="habilidad-item">Geotecnia</div>
-              <div class="habilidad-item">Diseño de Puentes</div>
-              <div class="habilidad-item">Diseño de Cimentaciones</div>
-            </div>
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 class="pricing-title">Empresarial</h3>
+            <div class="pricing-price">$9,500<span>/mes</span></div>
+            <p>Para grandes proyectos y empresas</p>
           </div>
+          <ul class="pricing-features">
+            <li>Equipo completo de gestión</li>
+            <li>Supervisión diaria de obra</li>
+            <li>Optimización avanzada de costos</li>
+            <li>Reportes diarios de avance</li>
+            <li>Soporte VIP con gestor dedicado</li>
+            <li>Análisis de riesgo y prevención</li>
+            <li>Gestión de contratos y subcontratos</li>
+            <li>Entregables certificados</li>
+          </ul>
+          <a href="#contacto" class="btn btn-secondary">Seleccionar Plan</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Referencias -->
-  <section id="referencias" class="section">
+  <!-- CTA -->
+  <section class="cta-section">
     <div class="container">
-      <h2 class="section-title">Referencias Profesionales</h2>
-      <p class="section-subtitle">Colegas que respaldan mi trabajo y experiencia</p>
-      
-      <div class="referencias-grid">
-        <div class="referencia-card">
-          <div class="referencia-content">
-            <div class="referencia-text">
-              "Francisco demostró un alto nivel de profesionalismo y conocimiento técnico en todos los proyectos que trabajamos juntos. Su capacidad para resolver problemas complejos es excepcional."
-            </div>
-            <div class="referencia-author">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Referencia">
-              <div>
-                <strong>Marco Ochoa Castro</strong>
-                <div>Ingeniero Civil, ECCOS</div>
-                <div>marcoils@hotmail.com | 099 805 2067</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="referencia-card">
-          <div class="referencia-content">
-            <div class="referencia-text">
-              "Su enfoque estratégico y orientado a resultados fue clave para el éxito de nuestros proyectos municipales. Francisco es un profesional confiable y altamente capacitado."
-            </div>
-            <div class="referencia-author">
-              <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Referencia">
-              <div>
-                <strong>Diego Serrano Vásquez</strong>
-                <div>Arquitecto, ECCOS</div>
-                <div>tisis299@hotmail.com | 099 501 0943</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="referencia-card">
-          <div class="referencia-content">
-            <div class="referencia-text">
-              "Trabajar con Francisco fue una experiencia enriquecedora. Su dominio de normativas y su capacidad para gestionar equipos son cualidades que destacan en su perfil profesional."
-            </div>
-            <div class="referencia-author">
-              <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Referencia">
-              <div>
-                <strong>Fausto Quevedo Pesántez</strong>
-                <div>Ingeniero Civil, Prefectura de Cañar</div>
-                <div>david92qp@hotmail.com | 098 420 0750</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="cta-content">
+        <h2 class="cta-title">¿Listo para Transformar Tu Proyecto?</h2>
+        <p class="cta-text">Obtén una consultoría gratuita y descubre cómo podemos optimizar tu proyecto de construcción</p>
+        <a href="#contacto" class="btn btn-primary">Solicitar Consultoría Gratuita</a>
       </div>
     </div>
   </section>
@@ -1098,10 +925,43 @@
   <!-- Contacto -->
   <section id="contacto" class="section">
     <div class="container">
-      <h2 class="section-title">Contácteme</h2>
-      <p class="section-subtitle">Disponible para nuevos proyectos y oportunidades profesionales</p>
+      <h2 class="section-title">Contáctanos Hoy Mismo</h2>
+      <p class="section-subtitle">Completa el formulario y un experto se pondrá en contacto contigo en menos de 24 horas</p>
       
-      <div class="contacto-grid">
+      <div class="contacto-grid" style="grid-template-columns: 1fr 1fr; gap: 50px;">
+        <div class="contacto-form">
+          <form>
+            <div class="form-group">
+              <input type="text" placeholder="Nombre completo" required>
+            </div>
+            
+            <div class="form-group">
+              <input type="email" placeholder="Correo electrónico" required>
+            </div>
+            
+            <div class="form-group">
+              <input type="tel" placeholder="Teléfono" required>
+            </div>
+            
+            <div class="form-group">
+              <select required>
+                <option value="" disabled selected>¿Qué servicio te interesa?</option>
+                <option value="diseno">Diseño y Planificación</option>
+                <option value="gestion">Gestión de Construcción</option>
+                <option value="vial">Infraestructura Vial</option>
+                <option value="paquete">Paquete Profesional</option>
+                <option value="otro">Otro servicio</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <textarea placeholder="Describe tu proyecto o necesidades" required minlength="50" rows="6"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+          </form>
+        </div>
+        
         <div>
           <div class="contacto-info">
             <h3>Información de contacto</h3>
@@ -1111,7 +971,7 @@
               </div>
               <div>
                 <strong>Ubicación:</strong>
-                <p>Cuenca, Ecuador</p>
+                <p>Av. Solano 1245, Cuenca, Ecuador</p>
               </div>
             </div>
             
@@ -1131,76 +991,32 @@
               </div>
               <div>
                 <strong>Email:</strong>
-                <p>p.rojas.77@hotmail.com</p>
+                <p>contacto@solucionesconstruccion.com</p>
               </div>
             </div>
             
-            <div class="contacto-item">
-              <div class="icon">
-                <i class="fab fa-linkedin-in"></i>
-              </div>
-              <div>
-                <strong>LinkedIn:</strong>
-                <p>Francisco Antonio Rojas Rosas</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="contacto-info">
-            <h3>Disponibilidad</h3>
             <div class="contacto-item">
               <div class="icon">
                 <i class="fas fa-clock"></i>
               </div>
               <div>
-                <strong>Horario:</strong>
-                <p>Lun-Vie: 8:00 - 17:00</p>
-              </div>
-            </div>
-            
-            <div class="contacto-item">
-              <div class="icon">
-                <i class="fas fa-globe"></i>
-              </div>
-              <div>
-                <strong>Idiomas:</strong>
-                <p>Español (nativo), Inglés (intermedio)</p>
+                <strong>Horario de atención:</strong>
+                <p>Lun-Vie: 8:00 - 18:00</p>
+                <p>Sáb: 9:00 - 13:00</p>
               </div>
             </div>
           </div>
-        </div>
-        
-        <div class="contacto-form">
-          <h3>Envíeme un mensaje</h3>
-          <form>
-            <div class="form-group">
-              <input type="text" placeholder="Nombre completo" required>
-            </div>
-            
-            <div class="form-group">
-              <input type="email" placeholder="Correo electrónico" required>
-            </div>
-            
-            <div class="form-group">
-              <input type="tel" placeholder="Teléfono">
-            </div>
-            
-            <div class="form-group">
-              <select required>
-                <option value="" disabled selected>Tipo de consulta</option>
-                <option value="proyecto">Propuesta de proyecto</option>
-                <option value="colaboracion">Oportunidad de colaboración</option>
-                <option value="consulta">Consulta técnica</option>
-                <option value="otros">Otros</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <textarea placeholder="Describa su proyecto o consulta" required></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-          </form>
+          
+          <div class="contacto-info" style="margin-top: 30px;">
+            <h3>¿Por qué elegirnos?</h3>
+            <ul class="benefit-list">
+              <li>Más de 50 proyectos exitosos</li>
+              <li>Ahorro promedio del 22% en costos</li>
+              <li>98% de proyectos entregados a tiempo</li>
+              <li>Equipo de expertos certificados</li>
+              <li>Soporte técnico 24/7 durante la ejecución</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -1212,17 +1028,16 @@
       <div class="footer-grid">
         <div class="footer-col">
           <a href="#inicio" class="logo" style="color: white; font-size: 1.8rem;">
-            <svg class="logo-svg" style="height: 50px;" viewBox="0 0 386.28 188.89">
-              <title>Francisco Rojas - Ingeniero Civil</title>
-              <!-- Logo con colores originales -->
-              <rect x="25.83" y="22.26" width="160.94" height="17.4" fill="#D02027" stroke="#D02027" stroke-width="9.1415" stroke-miterlimit="10"/>
-              <rect x="25.83" y="65" width="160.94" height="17.4" fill="#D02027" stroke="#D02027" stroke-width="9.1415" stroke-miterlimit="10"/>
-              <rect x="25.83" y="106.15" width="160.94" height="17.4" fill="#D02027" stroke="#D02027" stroke-width="9.1415" stroke-miterlimit="10"/>
-              <line x1="59.23" y1="154" x2="191.4" y2="154" fill="none" stroke="#343239" stroke-width="24.2399" stroke-miterlimit="10"/>
-              <rect x="25.26" y="80.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.548 111.1325)" width="190.22" height="17.27" fill="#2A307B" stroke="#2A307B" stroke-width="5.5696" stroke-miterlimit="10"/>
+            <svg class="logo-svg" style="height: 50px; filter: brightness(0) invert(1);" viewBox="0 0 386.28 188.89">
+              <title>Soluciones de Ingeniería Civil</title>
+              <rect x="25.83" y="22.26" width="160.94" height="17.4" fill="#D02027"/>
+              <rect x="25.83" y="65" width="160.94" height="17.4" fill="#D02027"/>
+              <rect x="25.83" y="106.15" width="160.94" height="17.4" fill="#D02027"/>
+              <line x1="59.23" y1="154" x2="191.4" y2="154" fill="none" stroke="#343239" stroke-width="24.2399"/>
+              <path d="M25.26,80.18 L215.48,270.4" stroke="#2A307B" stroke-width="17.27" stroke-linecap="square"/>
             </svg>
           </a>
-          <p>Ingeniero Civil especializado en Gestión de Construcción con experiencia en diseño, ejecución y supervisión de obras públicas y privadas.</p>
+          <p>Soluciones profesionales de ingeniería civil para proyectos de construcción exitosos.</p>
           <div class="social-links">
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1232,13 +1047,13 @@
         </div>
         
         <div class="footer-col">
-          <h3>Áreas de Especialización</h3>
+          <h3>Nuestros Servicios</h3>
           <div class="footer-links">
-            <a href="#experiencia">Gestión de Construcción</a>
-            <a href="#experiencia">Diseño Estructural</a>
-            <a href="#experiencia">Ingeniería Vial</a>
-            <a href="#experiencia">Supervisión de Obras</a>
-            <a href="#experiencia">Presupuestos y APU</a>
+            <a href="#servicios">Diseño y Planificación</a>
+            <a href="#servicios">Gestión de Construcción</a>
+            <a href="#servicios">Infraestructura Vial</a>
+            <a href="#servicios">Supervisión de Obras</a>
+            <a href="#servicios">Control de Calidad</a>
           </div>
         </div>
         
@@ -1246,27 +1061,26 @@
           <h3>Enlaces Rápidos</h3>
           <div class="footer-links">
             <a href="#inicio">Inicio</a>
-            <a href="#experiencia">Experiencia</a>
-            <a href="#educacion">Educación</a>
-            <a href="#proyectos">Proyectos</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#precios">Precios</a>
             <a href="#contacto">Contacto</a>
           </div>
         </div>
         
         <div class="footer-col">
-          <h3>Certificaciones</h3>
+          <h3>Contáctanos</h3>
           <div class="footer-links">
-            <a href="#educacion">Import School 2.0 (2024)</a>
-            <a href="#educacion">Costos de Construcción (2021)</a>
-            <a href="#educacion">Análisis de Sistemas de Transporte (2021)</a>
-            <a href="#educacion">Diseño de Estructuras de Acero (2019)</a>
-            <a href="#educacion">MATLAB para Estructuras (2018)</a>
+            <a href="tel:+5930982242982"><i class="fas fa-phone"></i> +593 098 224 2982</a>
+            <a href="mailto:contacto@solucionesconstruccion.com"><i class="fas fa-envelope"></i> contacto@solucionesconstruccion.com</a>
+            <a href="#"><i class="fas fa-map-marker-alt"></i> Av. Solano 1245, Cuenca</a>
+            <a href="#"><i class="fas fa-clock"></i> Lun-Vie: 8:00 - 18:00</a>
           </div>
         </div>
       </div>
       
       <div class="copyright">
-        <p>&copy; 2024 Francisco A. Rojas Rosas. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Soluciones Profesionales de Construcción. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
@@ -1308,7 +1122,7 @@
       
       // Animación al hacer scroll
       const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.experiencia-card, .educacion-card, .proyecto-card, .habilidad-card, .referencia-card');
+        const elements = document.querySelectorAll('.benefit-card, .pricing-card, .testimonial-card');
         
         elements.forEach(element => {
           const position = element.getBoundingClientRect();
@@ -1322,7 +1136,7 @@
       };
       
       // Configurar las animaciones iniciales
-      document.querySelectorAll('.experiencia-card, .educacion-card, .proyecto-card, .habilidad-card, .referencia-card').forEach(element => {
+      document.querySelectorAll('.benefit-card, .pricing-card, .testimonial-card').forEach(element => {
         element.style.opacity = "0";
         element.style.transform = "translateY(20px)";
         element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
@@ -1337,7 +1151,7 @@
       if(contactForm) {
         contactForm.addEventListener('submit', function(e) {
           e.preventDefault();
-          alert('¡Gracias por su mensaje! Me pondré en contacto en breve.');
+          alert('¡Gracias por su solicitud! Nos pondremos en contacto en menos de 24 horas.');
           contactForm.reset();
         });
       }
